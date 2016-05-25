@@ -85,6 +85,68 @@ We fit SDSS DR7 data with models that include assembly bias.
 %---------------------------
 
 %---------------------------
+\subsection{Halotools Implementation of HOD Models}
+\label{subsection:halotools}
+%---------------------------
+
+%---------------------------
+\subsection{HOD with Assembly Bias: The Decorated HOD}
+\label{subsection:decorated}
+%---------------------------
+
+%---------------------------
+\subsection{Parameter Inference}
+\label{subsection:mcmc}
+%---------------------------
+
+To infer parameters for the HOD and Decorated HOD models described in the previous subsections, 
+we performed a Markov Chain Monte Carlo (MCMC) sampling of the posteriors using the 
+affine-invariant ensemble sampler of \citet{goodman_weare10} as implemented in the 
+{\tt emcee} software package \citep{foreman-mackey_etal13}. For most cases, we find that 
+$\sim 3-10 \times 10^{6}$ samples are necessary in order for our chains to converge. 
+
+
+%-------------------------------------------------------------------------------------------------------------------------------------------------
+\begin{table}
+\begin{center}
+{\renewcommand{\arraystretch}{1.3}
+\renewcommand{\tabcolsep}{0.2cm}
+\begin{tabular}{l c}
+\hline 
+\hline
+Parameter & Prior Interval\\ 
+\hline
+$\log (M_{\mathrm{min}})$ & [9.0,14.0] \\
+$\sigma_{\log M}$ & [0.01,1.5] \\
+$\log (M_0)$ & [9.0,14.0]\\
+$\log (M_1)$ & [10.7,15.0]\\
+$\alpha$ & [0.0,2.0]\\
+$A_{\mathrm{cen}}$ & [-1.0,1.0]\\
+$A_{\mathrm{sat}}$ & [-1.0,1.0]\\
+\hline
+\end{tabular}
+\medskip
+\caption{
+Ranges for the priors used in the parameter inference. All prior distributions are uniform over the 
+specified ranges.}
+ }
+ \label{table:priors}
+ \end{center}
+\end{table}
+%--------------------------------------------------------------------------------------------------------------------------------
+
+
+The most important detail of this analysis is the priors on the parameters. In all analyses 
+discussed in this paper, we adopt priors that are uniform distributions over the intervals 
+specified in Table~\ref{table:priors}. In the case of the assembly bias parameters 
+$A_{\mathrm{cen}}$ and $A_{\mathrm{sat}}$, the priors represent physical 
+boundaries. These parameters must satisfy $-1 \le A_{\mathrm{cen,sat}} \le 1$. 
+Physical considerations require parameter $\sigma_{\log M} > 0$. All other 
+priors have a negligible influence on the posterior aside from $\log M_0$. 
+We find that $\log M_0$ is often very poorly constrained by clustering data.
+
+
+%---------------------------
 \section{Results}
 \label{section:results}
 %---------------------------
@@ -100,7 +162,13 @@ one-dimensional parameter constraints are given in Table~\ref{table:parameters}.
 %-------------------------
 
 Prior to discussing our results using models that include assembly bias, we present 
-results of standard HOD analyses that include no model for assembly bias. 
+results of standard HOD analyses that include no model for assembly bias. The results of 
+the standard HOD analyses and all other analyses are shown in the form of marginalized 
+constraints on individual parameters in Table~\ref{table:parameters}. We compare our parameter 
+constraints to the standard HOD analysis performed by \citet{zehavi_etal11} in Table~\ref{table:parameters} 
+as well.
+
+
 
 
 %-------------------------------------------------------------------------------------------------------------------------------------------------
@@ -253,6 +321,8 @@ The same as Figure~\ref{fig:Mr19ABtriangle}, but for the $M_r<-21$ sample.
 
 
 %------------------------------------------------
+
+\bibliography{ms.bib}
 
 %------------------------------------------------
 \end{document}
