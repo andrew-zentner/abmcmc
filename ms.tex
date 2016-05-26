@@ -89,6 +89,11 @@ We fit SDSS DR7 data with models that include assembly bias.
 \label{subsection:halotools}
 %---------------------------
 
+\begin{equation}
+\label{eq:nsat}
+\langle N_{\rm sat}(M)\rangle = \left( \frac{M - M_0}{M_1} \right)^{\alpha}
+\end{equation}
+
 %---------------------------
 \subsection{HOD with Assembly Bias: The Decorated HOD}
 \label{subsection:decorated}
@@ -166,11 +171,40 @@ results of standard HOD analyses that include no model for assembly bias. The re
 the standard HOD analyses and all other analyses are shown in the form of marginalized 
 constraints on individual parameters in Table~\ref{table:parameters}. We compare our parameter 
 constraints to the standard HOD analysis performed by \citet{zehavi_etal11} in Table~\ref{table:parameters} 
-as well.
+as well. An example of the inferred posteriors for the HOD parameters is shown in Figure~\ref{fig:Mr20triangle}. 
+The left-hand panels of Figure~\ref{fig:Mr19samples}, Figure~\ref{fig:Mr20samples}, and Figure~\ref{fig:Mr21samples} 
+show the projected correlation function data along with predictions for $\wprp(\rp)$ from 50 randomly-selected 
+models from the MCMC chains. Note that the significant covariance in the data makes it difficult to 
+determine the quality of fit from visual inspection of these figures.
 
 
+%--------------------------No AB Triangle Plot-----------------------------------------------------------------------------
+\begin{figure*}
+\begin{center}
+\includegraphics[width=15.0cm]{Mr20_covar_triangle_1.pdf}
+\caption{
+Two-dimensional marginalized constraints on HOD parameters inferred from 
+standard HOD fits to $\wprp(\rp)$ data for the $M_r<-20$ sample. The HOD parameter 
+$\log (M_0)$ is extremely poorly constrained by the $\wprp(\rp)$ data and has been 
+omitted. The inner contours contain $68\%$ of the posterior probability while the 
+outer contours contain $95\%$ of the probability. The panels along the diagonal 
+show the one-dimensional, marginalized posteriors on each of these parameters.
+}
+\label{fig:Mr20triangle}
+\end{center}
+\end{figure*}
+%----------------------------------------------------------------------------------------------------------------------------------
 
+The inferred parameters from our standard analyses differ in several ways from the \citet{zehavi_etal11} 
+analysis. Firstly, in our re-analysis of the projected clustering data, we generally find all mass scales to 
+be slightly higher than in the work of \citet{zehavi_etal11}. This difference is largely due to the slightly 
+different cosmologies adopted in this work. The most important difference are in the values of $\Omega_{\rm M}$, and $\sigma_8$.  
+\citet{zehavi_etal11} assumed $\Omega_{\rm M}=0.25$ and $\sigma_8=0.8$, 
+whereas in the present work, we use the BolshoiP simulation in which $\Omega_{\rm M}=0.307$ and $\sigma_8=0.82$. 
+Larger mass scales are necessary in an analysis with higher $\Omega_{\rm M}$ and $\sigma_8$ in order to maintain galaxy 
+number densities with larger halo number densities.
 
+ 
 %-------------------------------------------------------------------------------------------------------------------------------------------------
 \begin{table*}
 {\renewcommand{\arraystretch}{1.3}
@@ -186,7 +220,7 @@ $-21$ & Zentner+16 & $12.83^{+0.11}_{-0.09}$ & $0.60^{+0.15}_{-0.17}$ & $13.93^{
 %
 $-20.5$ & Zehavi+11 & $12.14 \pm 0.03$ & $0.17 \pm 0.15$ & $13.44 \pm 0.03$ & $1.15 \pm 0.03$ & $--$ & $--$ & 2.7\\
 $-20.5$ & Zentner+16 & $12.25^{+0.07}_{-0.03}$ & $0.23^{+0.17}_{-0.15}$ & $13.59^{+0.02}_{-0.02}$ & $1.20^{+0.04}_{-0.04}$ & $--$ & $--$ & 1.90\\
-$-20.5$ & Zentner+16 & $12.31^{+0.12}_{-0.08}$ & $0.44^{+0.20}_{-0.25}$ & $13.59^{+0.04}_{-0.04}$ & $1.15^{+0.05}_{-0.06}$ & $>0.03 (90\%)$ & $0.23^{+0.39}_{-0.31}$ & 1.71 \vspace*{5pt}\\
+$-20.5$ & Zentner+16 & $12.32^{+0.13}_{-0.08}$ & $0.45^{+0.21}_{-0.25}$ & $13.59^{+0.04}_{-0.04}$ & $1.14^{+0.05}_{-0.06}$ & $>0.08 (90\%)$ & $0.22^{+0.40}_{-0.31}$ & 1.40 \vspace*{5pt}\\
 %
 $-20$ & Zehavi+11 & $11.83 \pm 0.03$ & $0.25 \pm 0.11$ & $13.08 \pm 0.03$ & $1.00 \pm 0.05$ & $--$ & $--$ & 2.1\\
 $-20$ & Zentner+16 & $11.95^{+0.11}_{-0.6}$ & $0.37^{+0.23}_{-0.21}$ & $13.28^{+0.03}_{-0.04}$ & $1.16^{+0.04}_{-0.04}$ & $--$ & $--$ & 2.19\\
@@ -206,32 +240,21 @@ $-19$ & Zentner+16 & $11.62^{+0.33}_{-0.13}$ & $0.53^{+0.57}_{-0.35}$ & $12.83^{
 \end{tabular}
 \medskip
 \caption{
-Results of standard HOD fits to SDSS DR7 $w_{\rm p}(r_{\rm p})$ as well as fits using a parameterized model of assembly bias. Assembly bias is quantified by the 
-parameters $A_{\rm cen}$ ($A_{\rm sat}$) for central (satellite) galaxies. The secondary property that we assume to determine the galaxy HOD is halo formation time. 
-$A_{\rm cen,sat}=0$ means that there is no assembly bias while $A_{\rm cen,sat}=1$ ($A_{\rm cen,sat}=-1$) means that halo formation time is maximally correlated (anticorrelated) 
-with halo formation time. Thus the parameters range over $-1 \le A_{\rm cen,sat} \le 1$. If the constraints on $A_{\rm cen}$ and $A_{\rm sat}$ are unspecified, then 
-the model used to interpret the data does not include assembly bias.}
- }
+Results of standard HOD fits to SDSS DR7 $w_{\rm p}(r_{\rm p})$ as well as fits using a parameterized model of assembly bias. 
+Assembly bias is quantified by the parameters $A_{\rm cen}$ ($A_{\rm sat}$) for central (satellite) galaxies. The secondary 
+property that we assume to determine the galaxy HOD is halo formation time. $A_{\rm cen,sat}=0$ means that there is no 
+assembly bias while $A_{\rm cen,sat}=1$ ($A_{\rm cen,sat}=-1$) means that halo formation time is maximally 
+correlated (anticorrelated) with halo formation time. Thus the parameters range over $-1 \le A_{\rm cen,sat} \le 1$. 
+If the constraints on $A_{\rm cen}$ and $A_{\rm sat}$ are unspecified, then the model used to interpret the data 
+does not include assembly bias.
+}
+}
  \label{table:parameters}
 \end{table*}
 %---------------------------------------------------------------------------------------------------------------------------------
 
 
-
-\begin{figure*}
-\begin{center}
-\includegraphics[width=15.0cm]{Mr20_covar_triangle_1.pdf}
-\caption{
-Two-dimensional marginalized constraints on HOD parameters inferred from 
-standard HOD fits to $\wprp(\rp)$ data for the $M_r<-20$ sample. The HOD parameter 
-$\log (M_0)$ is extremely poorly constrained by the $\wprp(\rp)$ data and has been 
-omitted from this panel. 
-}
-\label{fig:Mr20triangle}
-\end{center}
-\end{figure*}
-
-
+%----------------------------------------------------------------------------------------------------------------------------------
 \begin{figure*}
 \begin{center}
 \includegraphics[width=8.3cm]{Mr19samples.pdf}
@@ -239,14 +262,16 @@ omitted from this panel.
 \caption{
 {\bf Left:} The $M_r<-19$ threshold sample projected correlation function with diagonal elements of 
 covariance (points with errorbars). The grey lines are 25 randomly-selected HOD models that yield 
-$\Delta \chi^2 <1$ compared to the best-fitting model. {\bf Right:} Same as the left panel for decorated 
-HOD models that contain parameters to describe the strength of assembly bias.
+$\Delta \chi^2 <1$ compared to the best-fitting model. {\bf Right:} Same as the left panel but using a 
+fit to a Decorated HOD model that contain parameters to describe the strength of assembly bias.
 }
 \label{fig:Mr19samples}
 \end{center}
 \end{figure*}
+%---------------------------------------------------------------------------------------------------------------------------------
 
 
+%---------------------------------------------------------------------------------------------------------------------------------
 \begin{figure*}
 \begin{center}
 \includegraphics[width=8.3cm]{Mr20samples.pdf}
@@ -257,8 +282,10 @@ The same as Figure~\ref{fig:Mr19samples}, but for the $M_r<-20$ threshold sample
 \label{fig:Mr20samples}
 \end{center}
 \end{figure*}
+%---------------------------------------------------------------------------------------------------------------------------------
 
 
+%---------------------------------------------------------------------------------------------------------------------------------
 \begin{figure*}
 \begin{center}
 \includegraphics[width=8.3cm]{Mr21samples.pdf}
@@ -266,10 +293,34 @@ The same as Figure~\ref{fig:Mr19samples}, but for the $M_r<-20$ threshold sample
 \caption{
 The same as Figure~\ref{fig:Mr19samples}, but for the $M_r<-21$ threshold sample.
 }
-\label{fig:Mr20samples}
+\label{fig:Mr21samples}
 \end{center}
 \end{figure*}
+%---------------------------------------------------------------------------------------------------------------------------------
 
+
+A second noteworthy difference between the present work and that of \citet{zehavi_etal11} is that we 
+find many parameters to be notably more poorly constrained. At the lower luminosity thresholds, for example, 
+we constrain $\log (M_{\rm min})$ and $\sigma_{\log M}$ with several times lower precision than 
+\citet{zehavi_etal11}. We do not show our constraints on $\log (M_0)$ as they are very poor in all cases, 
+with 1-sigma constraints on the order of $\pm \ge 1$~dex for nearly all samples. In several cases, the constraint on 
+$\log (M_0)$ is determined by the prior given in Table~\ref{table:priors}. This is in stark contrast to several of the 
+results of \citet{zehavi_etal11}. For example, for the threshold sample with $M_r < -19.5$ ($M_r < -20.5$), 
+\citet{zehavi_etal11} quote $\log (M_0) = 12.23 \pm 0.17$ ($12.35 \pm 0.24$), whereas we infer 
+$\log (M_0) = 11.38^{+0.95}_{-1.57}$ ($11.19^{+0.89}_{-1.39}$). Examining the form of Eq.~(\ref{eq:nsat}), 
+it is sensible that the parameter $\log (M_0)$ should be unconstrained at the lower end, because the 
+value of $M_0$ does not alter the predicted satellite number once $M_0 \ll M_1$. Therefore, it seems likely 
+that the tighter constraints quoted by \citet{zehavi_etal11} must be an error or must be driven by some 
+prior that is not clearly specified in their manuscript.
+
+
+The results of this subsection demonstrate that we achieve reasonable fits to projected galaxy clustering 
+data using direct HOD population of a high-resolution numerical simulation of structure formation. These results 
+also update existing constraints in the literature in two respects. First, we work within the best-fit Planck cosmology. 
+Second, we perform our parameter inference analysis using direct population of halos identified in a numerical 
+simulations. This greatly mitigates modeling uncertainties associated with nonlinear density field evolution, 
+scale-dependent halo bias, halo exclusion, or other effects that have been difficult to incorporate into 
+analytical halo models with high precision.
 
 %-------------------------
 \subsection{Analysis with Decorated HOD}
@@ -318,10 +369,18 @@ The same as Figure~\ref{fig:Mr19ABtriangle}, but for the $M_r<-21$ sample.
 \end{center}
 \end{figure*}
 
+%------------------------------------------------
 
 
 %------------------------------------------------
+\section{Conclusions}
+\label{section:conclusions}
+%------------------------------------------------
 
+
+
+
+%------------------------------------------------
 \bibliography{ms.bib}
 
 %------------------------------------------------
