@@ -302,7 +302,13 @@ The same as Figure~\ref{fig:Mr19samples}, but for the $M_r<-21$ threshold sample
 A second noteworthy difference between the present work and that of \citet{zehavi_etal11} is that we 
 find many parameters to be notably more poorly constrained. At the lower luminosity thresholds, for example, 
 we constrain $\log (M_{\rm min})$ and $\sigma_{\log M}$ with several times lower precision than 
-\citet{zehavi_etal11}. We do not show our constraints on $\log (M_0)$ as they are very poor in all cases, 
+\citet{zehavi_etal11}. As is evident in Figure~\ref{fig:Mr20triangle}, $\log (M_{\rm min})$ and $\sigma_{\log M}$ 
+share a relatively narrow degeneracy. This degeneracy is largely induced by the measured number density of 
+the sample. Increasing $\log (M_{\rm min})$ decreases galaxy number density, but this can be compensated by 
+an increase in $\sigma_{\log M}$, which places galaxies in a fraction of the considerably more numerous halos 
+with masses less than $M_{\rm min}$.
+
+We do not show our constraints on $\log (M_0)$ as they are very poor in all cases, 
 with 1-sigma constraints on the order of $\pm \ge 1$~dex for nearly all samples. In several cases, the constraint on 
 $\log (M_0)$ is determined by the prior given in Table~\ref{table:priors}. This is in stark contrast to several of the 
 results of \citet{zehavi_etal11}. For example, for the threshold sample with $M_r < -19.5$ ($M_r < -20.5$), 
@@ -327,13 +333,44 @@ analytical halo models with high precision.
 \label{subsection:ab}
 %-------------------------
 
+We turn now to a discussion of our parameter inference analysis of projected galaxy clustering 
+in Decorated HOD models that include a treatment of galaxy assembly bias. In this work, 
+we consider only the simplest model of galaxy assembly bias, introducing only two new 
+parameters, $A_{\rm cen}$ and $A_{\rm sat}$, that describe the strength of central galaxy 
+and satellite galaxy assembly bias respectively. These parameters are limited to values 
+of $-1 \le A_{\rm cen,sat} \le 1$, and $A_{\rm cen,sat}=0$ when there is no galaxy assembly bias. 
+In this work, we use halo concentration as our secondary halo property, so $A_{\rm cen,sat}=1$ 
+($A_{\rm cen,sat}=-1$) means that the mean number of galaxies per halo is maximally 
+correlated (anti-correlated) with halo concentration. The model and its implementation 
+in {\tt halotools} is discussed further in Section~\ref{subsection:decorated} above.
 
+
+The one-dimensional marginalized constraints on all parameters form these analyses 
+are given in the lowest row of each luminosity threshold grouping in Table~\ref{table:parameters}. 
+In cases where the posterior on a parameter is monotonic within the physical parameter 
+range, we quote an upper or lower limit on the parameter. 
+
+
+Examples of our fits are given in the right-hand panels of Figure~\ref{fig:Mr19samples}, 
+Figure~\ref{fig:Mr20samples}, and Figure~\ref{fig:Mr21samples}. The general trend that 
+can be gleaned from these figures is that introducing assembly bias improves the ability 
+of the predicted two-point functions to match the measured two-point functions across the 
+transition form the one-halo (highly nonlinear) to two-halo (nearly linear) regimes near $\rp \sim 2\, h^{-1}{\mathrm{Mpc}}$. 
+Visually, these differences appear to be small; however, Table~\ref{table:parameters} shows that 
+they are statistically important.
+
+
+
+
+
+%------------------------------------------------------------------------------------------------
 \begin{figure*}
 \begin{center}
 \includegraphics[width=15.0cm]{Mr19ABTri.pdf}
 \caption{
 Two-dimensional marginalized constraints on decorated HOD parameters inferred from fits 
-to $\wprp(\rp)$ data for the $M_r<-19$ sample. The decorated HOD models include a 
+to $\wprp(\rp)$ data for the $M_r<-19$ sample. The contours and histograms along the diagonal 
+panels are as in Fig.~\ref{fig:Mr20triangle}. The decorated HOD models include a 
 two-parameter model for assembly bias. The HOD parameter $\log (M_0)$ is extremely 
 poorly constrained by the data and has been suppressed for clarity. Likewise, as in 
 Fig.~\ref{fig:Mr20triangle}, $\sigma_{\log M}$ and $\log (M_{\rm min})$ share a 
@@ -343,7 +380,7 @@ constraints on other parameters more easily visible.
 \label{fig:Mr19ABtriangle}
 \end{center}
 \end{figure*}
-
+%----------------------------------------------------------------------------------------------
 
 
 
