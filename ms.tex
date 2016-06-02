@@ -18,6 +18,12 @@
 \newcommand{\beq}{\begin{equation}}
 \newcommand{\eeq}{\end{equation}}
 
+
+\newcommand{\mvir}{M_{\rm vir}}
+\newcommand{\ncen}{N_{\rm cen}}
+\newcommand{\nsat}{N_{\rm sat}}
+
+
 %------ Journals
 
 \newcommand{\mnras}{Mon. Not. R. Astron. Soc.}
@@ -140,16 +146,27 @@ conclusions in Section~\ref{section:conclusions}.
 \label{subsection:halotools}
 %---------------------------
 
-To generate predictions for galaxy clustering, we directly populate dark matter halos with mock galaxies using {\tt Halotools}. In this section we review the ``standard" HOD-style model used in the present work, and in the following section we use the Decorated HOD model described in \citet{hearin_etal15}. In both cases, we will only briefly review the salient features of our methodology here; interested readers can always refer to {\tt halotools.readthedocs.io} for comprehensive documentation on all aspects of the {\tt Halotools} framework. 
+To generate predictions for galaxy clustering, we directly populate dark matter halos with mock galaxies using {\tt Halotools}. In this section we review the ``standard" HOD-style model used in the present work, and in the following section we use the Decorated HOD model described in \citet{hearin_etal15}. In both cases, we will only briefly review the salient features of our methodology here; interested readers can always refer to {\tt halotools.readthedocs.io} for further details. 
 
 \subsubsection{Occupation statistics}
 
-\subsubsection{Galaxy profiles}
+In standard HOD models, there are two types of galaxies: centrals and satellites. The galaxy-halo connection is specified in terms of $P(\ncen|\mvir)$ and $P(\nsat|\mvir),$ the probability that a halo of mass $\mvir$ hosts $\ncen$ central and $\nsat$ satellite galaxies, respectively. $P(\ncen|\mvir)$ is typically a nearest-integer distribution, as a host halo is supposed to have only either zero or one central galaxy. So the occupation statistics of central galaxies is specified by its first moment, which we model as 
+
+\begin{equation}
+\label{eq:ncen}
+\langle N_{\mathrm{cen}} \rangle_{M} =
+        \frac{1}{2}\left( 1 +
+        \mathrm{erf}\left( \frac{\log_{10}M -
+        \log_{10}M_{min}}{\sigma_{\log_{10}M}} \right) \right)
+\end{equation}
+
 
 \begin{equation}
 \label{eq:nsat}
 \langle N_{\rm sat}(M)\rangle = \left( \frac{M - M_0}{M_1} \right)^{\alpha}
 \end{equation}
+
+\subsubsection{Galaxy profiles}
 
 We use the BolshioP simulation in all analyses (give Citation \& Cosmological Parameters).
 
