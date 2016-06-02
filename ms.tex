@@ -243,7 +243,10 @@ standard HOD fits to $\wprp(\rp)$ data for the $M_r<-20$ sample. The HOD paramet
 $\log (M_0)$ is extremely poorly constrained by the $\wprp(\rp)$ data and has been 
 omitted. The inner contours contain $68\%$ of the posterior probability while the 
 outer contours contain $95\%$ of the probability. The panels along the diagonal 
-show the one-dimensional, marginalized posteriors on each of these parameters.
+show the one-dimensional, marginalized posteriors on each of these parameters. 
+The values above each panel on the diagonal show the 
+median value for the parameter in our chains along with the 
+16$^{\rm th}$ and 84$^{\rm th}$ percentiles. 
 }
 \label{fig:Mr20triangle}
 \end{center}
@@ -296,13 +299,16 @@ $-19$ & Zentner+16 & $11.62^{+0.33}_{-0.13}$ & $0.53^{+0.57}_{-0.35}$ & $12.83^{
 \end{tabular}
 \medskip
 \caption{
-Results of standard HOD fits to SDSS DR7 $w_{\rm p}(r_{\rm p})$ as well as fits using a parameterized model of assembly bias. 
+Results of standard HOD fits to SDSS DR7 $w_{\rm p}(r_{\rm p})$ as well as 
+fits using a parameterized model of assembly bias. 
 Assembly bias is quantified by the parameters $A_{\rm cen}$ ($A_{\rm sat}$) for central (satellite) galaxies. The secondary 
 property that we assume to determine the galaxy HOD is halo formation time. $A_{\rm cen,sat}=0$ means that there is no 
 assembly bias while $A_{\rm cen,sat}=1$ ($A_{\rm cen,sat}=-1$) means that halo formation time is maximally 
 correlated (anticorrelated) with halo formation time. Thus the parameters range over $-1 \le A_{\rm cen,sat} \le 1$. 
 If the constraints on $A_{\rm cen}$ and $A_{\rm sat}$ are unspecified, then the model used to interpret the data 
-does not include assembly bias.
+does not include assembly bias. In our analyses, quoted parameter values with errors correspond to the median 
+value of the parameter and the 16$^{\rm th}$ and 84$^{\rm th}$ percentiles. In cases for which the posterior 
+is monotonic within the physical parameter space, we show one-sided percentiles.
 }
 }
  \label{table:parameters}
@@ -358,13 +364,7 @@ The same as Figure~\ref{fig:Mr19samples}, but for the $M_r<-21$ threshold sample
 A second noteworthy difference between the present work and that of \citet{zehavi_etal11} is that we 
 find many parameters to be notably more poorly constrained. At the lower luminosity thresholds, for example, 
 we constrain $\log (M_{\rm min})$ and $\sigma_{\log M}$ with several times lower precision than 
-\citet{zehavi_etal11}. As is evident in Figure~\ref{fig:Mr20triangle}, $\log (M_{\rm min})$ and $\sigma_{\log M}$ 
-share a relatively narrow degeneracy. This degeneracy is largely induced by the measured number density of 
-the sample. Increasing $\log (M_{\rm min})$ decreases galaxy number density, but this can be compensated by 
-an increase in $\sigma_{\log M}$, which places galaxies in a fraction of the considerably more numerous halos 
-with masses less than $M_{\rm min}$.
-
-We do not show our constraints on $\log (M_0)$ as they are very poor in all cases, 
+\citet{zehavi_etal11}. We do not show our constraints on $\log (M_0)$ as they are very poor in all cases, 
 with 1-sigma constraints on the order of $\pm \ge 1$~dex for nearly all samples. In several cases, the constraint on 
 $\log (M_0)$ is determined by the prior given in Table~\ref{table:priors}. This is in stark contrast to several of the 
 results of \citet{zehavi_etal11}. For example, for the threshold sample with $M_r < -19.5$ ($M_r < -20.5$), 
@@ -372,8 +372,10 @@ results of \citet{zehavi_etal11}. For example, for the threshold sample with $M_
 $\log (M_0) = 11.38^{+0.95}_{-1.57}$ ($11.19^{+0.89}_{-1.39}$). Examining the form of Eq.~(\ref{eq:nsat}), 
 it is sensible that the parameter $\log (M_0)$ should be unconstrained at the lower end, because the 
 value of $M_0$ does not alter the predicted satellite number once $M_0 \ll M_1$. Therefore, it seems likely 
-that the tighter constraints quoted by \citet{zehavi_etal11} must be an error. We have confirmed with a subset of 
-the authors of \citet{zehavi_etal11} that the number of MCMC samples they included in their analysis was 
+that the tighter constraints quoted by \citet{zehavi_etal11} must be an error. 
+
+We have confirmed with a subset of the authors of \citet{zehavi_etal11} 
+that the number of MCMC samples they included in their analysis was 
 insufficient in a number of cases and that this can lead to a significant underestimation of the uncertainties 
 on the inferred parameters, especially $\log (M_{\rm min})$ and $\sigma_{\log M}$ 
 (Z. Zheng \& I. Zehavi, Private Communication). The analysis of \citet{zehavi_etal11} 
@@ -382,6 +384,26 @@ Additionally, we have recreated qualitatively similar behavior by considering on
 full MCMC chains. Consequently, insufficient sampling of the posterior seems to be the likely resolution 
 of the discrepancies between our work and that of \citet{zehavi_etal11}.
 
+Two degeneracies are manifest in Fig.~\ref{fig:Mr20triangle} that are common to all of our 
+analyses. The parameters $\log (M_1)$ and $\alpha$ are degenerate with each other and positively 
+correlated. The parameter $M_1$ is the mass scale at which a halo has one satellite on 
+average and $\alpha$ is the power-law index describing the dependence of average satellite 
+number on halo mass. Increasing $M_1$ decreases the number of satellites in large halos 
+by placing satellites preferentially in halos of larger mass. An increase in $\alpha$ can partly 
+compensate for an increase in $M_1$ by increasing the rate at which average satellite number 
+grows with halo mass, leading to a larger number of satellites in high-mass halos. 
+
+As is evident in Figure~\ref{fig:Mr20triangle}, $\log (M_{\rm min})$ and $\sigma_{\log M}$ 
+share a relatively narrow degeneracy as well. This degeneracy is largely induced by the 
+measured number density of the sample. Increasing $\log (M_{\rm min})$ decreases galaxy 
+number density, but this can be compensated by an increase in $\sigma_{\log M}$, which 
+places galaxies in a fraction of the considerably more numerous halos with masses less 
+than $M_{\rm min}$. The consequence is that $\log (M_{\rm min})$ and $\sigma_{\log M}$ are 
+degenerate with each other such that most of the posterior probability lies in a narrow band 
+along which $\log (M_{\rm min})$ and $\sigma_{\log M}$ are positively correlated, as shown in 
+Fig.~\ref{fig:Mr20triangle}. In the following plots, we suppress the parameter $\sigma_{\log M}$,  
+in order to increase the clarity of the plots, because the viable range of $\sigma_{\log M}$ is 
+determined by this simple degeneracy with $\log (M_{\rm min})$. 
 
 The results of this subsection demonstrate that we achieve reasonable fits to projected galaxy clustering 
 data using direct HOD population of a high-resolution numerical simulation of structure formation. These results 
@@ -408,25 +430,24 @@ of $-1 \le A_{\rm cen,sat} \le 1$, and $A_{\rm cen,sat}=0$ when there is no gala
 In this work, we use halo concentration as our secondary halo property, so $A_{\rm cen,sat}=1$ 
 ($A_{\rm cen,sat}=-1$) means that the mean number of galaxies per halo is maximally 
 correlated (anti-correlated) with halo concentration. The model and its implementation 
-in {\tt halotools} is discussed further in Section~\ref{subsection:decorated} above.
-
-
-The one-dimensional marginalized constraints on all parameters form these analyses 
-are given in the lowest row of each luminosity threshold grouping in Table~\ref{table:parameters}. 
-In cases where the posterior on a parameter is monotonic within the physical parameter 
-range, we quote an upper or lower limit on the parameter. 
-
+in {\tt halotools} is discussed further in Section~\ref{subsection:decorated} above and 
+in \citet{hearin_etal16}.
 
 Examples of our fits are given in the right-hand panels of Figure~\ref{fig:Mr19samples}, 
 Figure~\ref{fig:Mr20samples}, and Figure~\ref{fig:Mr21samples}. The general trend that 
 can be gleaned from these figures is that introducing assembly bias improves the ability 
 of the predicted two-point functions to match the measured two-point functions across the 
 transition form the one-halo (highly nonlinear) to two-halo (nearly linear) regimes near $\rp \sim 2\, h^{-1}{\mathrm{Mpc}}$. 
+This is most apparent for the $M_r < -20$ threshold sample shown in Fig.~\ref{fig:Mr20samples}. 
 Visually, these differences appear to be small; however, Table~\ref{table:parameters} shows that 
 they are statistically important.
 
-
-
+The one-dimensional marginalized constraints on all parameters from these analyses 
+are given in the lowest row of each luminosity threshold grouping in Table~\ref{table:parameters}. 
+In cases where the posterior on a parameter is monotonic within the physical parameter 
+range, we quote an upper or lower limit on the parameter. One- and two-dimensional 
+visualizations of the posteriors from our analysis are shown in Figure~\ref{fig:Mr19ABtriangle}, 
+Figure~\ref{fig:Mr20ABtriangle}, and Figure~\ref{fig:Mr21ABtriangle}. 
 
 
 %------------------------------------------------------------------------------------------------
@@ -449,7 +470,7 @@ constraints on other parameters more easily visible.
 %----------------------------------------------------------------------------------------------
 
 
-
+%---------------------------------------------------------------------------------------------------
 \begin{figure*}
 \begin{center}
 \includegraphics[width=15.0cm]{Mr20ABTri.pdf}
@@ -459,9 +480,9 @@ The same as Figure~\ref{fig:Mr19ABtriangle}, but for the $M_r<-20$ sample.
 \label{fig:Mr20ABtriangle}
 \end{center}
 \end{figure*}
+%---------------------------------------------------------------------------------------------------
 
-
-
+%=-------------------------------------------------------------------------------------------------
 \begin{figure*}
 \begin{center}
 \includegraphics[width=15.0cm]{Mr21ABTri.pdf}
@@ -471,6 +492,38 @@ The same as Figure~\ref{fig:Mr19ABtriangle}, but for the $M_r<-21$ sample.
 \label{fig:Mr21ABtriangle}
 \end{center}
 \end{figure*}
+%----------------------------------------------------------------------------------------------------
+
+
+Table~\ref{table:parameters} and Figures~\ref{fig:Mr19ABtriangle}-\ref{fig:Mr21triangle} 
+all make several simple, generic points. Introducing additional parameter 
+freedom associated with galaxy assembly bias generally increases the viable parameter 
+space, even for the subset of standard HOD parameters. This is exactly what is 
+expected from the introduction of additional parameter freedom. 
+
+Focusing attention on the parameters describing galaxy assembly bias, it is 
+evident that these parameters are often quite poorly constrained by galaxy 
+clustering data. This implies that galaxy clustering of the precision of SDSS DR7 
+measurements cannot rule out, or strongly restrict galaxy assembly bias in most 
+cases. 
+
+Beyond those generic conclusions, a few specific cases of worthy of further examination. 
+Consider the $M_r < -20$ sample. The inferred value of $A_{\rm cen} > 0.28$ at 99\% 
+confidence. In this case the data strongly prefer $A_{\rm cen} > 0$ and thus strongly prefer 
+galaxies to reside in halos of larger concentration at fixed halo mass. 
+
+Changes in Bayesian Information Criterion, for inclusion in some sort of table. Strong evidence 
+is usually considered to be a difference $>5$.
+
+Delta BIC 19: 4.37
+
+Delta BIC 19.5: 0.26
+
+Delta BIC 20: 4.56
+
+Delta BIC 20.5: 1.33
+
+Delta BIC 21: -0.54
 
 %------------------------------------------------
 
