@@ -20,6 +20,7 @@
 
 
 \newcommand{\mvir}{M_{\rm vir}}
+\newcommand{\rvir}{R_{\rm vir}}
 \newcommand{\ncen}{N_{\rm cen}}
 \newcommand{\nsat}{N_{\rm sat}}
 
@@ -148,27 +149,38 @@ conclusions in Section~\ref{section:conclusions}.
 
 To generate predictions for galaxy clustering, we directly populate dark matter halos with mock galaxies using {\tt Halotools}. In this section we review the ``standard" HOD-style model used in the present work, and in the following section we use the Decorated HOD model described in \citet{hearin_etal15}. In both cases, we will only briefly review the salient features of our methodology here; interested readers can always refer to {\tt halotools.readthedocs.io} for further details. 
 
+\subsubsection{Simulation}
+We use the BolshioP simulation in all analyses (give Citation \& Cosmological Parameters).
+
 \subsubsection{Occupation statistics}
 
 In standard HOD models, there are two types of galaxies: centrals and satellites. The galaxy-halo connection is specified in terms of $P(\ncen|\mvir)$ and $P(\nsat|\mvir),$ the probability that a halo of mass $\mvir$ hosts $\ncen$ central and $\nsat$ satellite galaxies, respectively. $P(\ncen|\mvir)$ is typically a nearest-integer distribution, as a host halo is supposed to have only either zero or one central galaxy. So the occupation statistics of central galaxies is specified by its first moment, which we model as 
 
 \begin{equation}
 \label{eq:ncen}
-\langle N_{\mathrm{cen}} \rangle_{M} =
+\langle N_{\mathrm{cen}} \rangle(M) =
         \frac{1}{2}\left( 1 +
         \mathrm{erf}\left( \frac{\log_{10}M -
         \log_{10}M_{min}}{\sigma_{\log_{10}M}} \right) \right)
 \end{equation}
+For every host halo in the catalog we draw a random number from a uniform distribution $\mathcal{U}(0, 1);$ a central galaxy is assigned to each halo whose random number is less than the corresponding value of $\langle N_{\mathrm{cen}} \rangle(M);$ halos with random values exceeding  $\langle N_{\mathrm{cen}} \rangle(M)$ are left devoid of centrals. 
 
-
+We model the distribution $P(\nsat|\mvir)$ to be a Poisson distribution with first moment given by a power law, 
 \begin{equation}
 \label{eq:nsat}
-\langle N_{\rm sat}(M)\rangle = \left( \frac{M - M_0}{M_1} \right)^{\alpha}
+\langle N_{\rm sat}\rangle(M) = \left( \frac{M - M_0}{M_1} \right)^{\alpha}. 
 \end{equation}
 
 \subsubsection{Galaxy profiles}
 
-We use the BolshioP simulation in all analyses (give Citation \& Cosmological Parameters).
+Central galaxies in the standard HOD models reside at the halo center, moving with the same velocity as the host halo peculiar velocity. We model the intra-halo spatial distribution of satellite galaxies to be located within $\rvir$ of the halo center, with a spherically symmetric NFW profile \citep{nfw97}. The concentration $c$ of each halo's satellite galaxy profile is taken to be the same as the concentration of the dark matter particles in the halo.\footnote{We set a maximum value of $c=25$ to the NFW concentration, because halos with very large values for the concentration tend to be poorly described by an NFW profile, for example due to a recent merger.}
+
+We model the velocities of satellite galaxies to be a Gaussian whose first moment is the host halo velocity and whose second moment is the solution to the isotropic Jeans equation for an NFW profile \citep{more09b}, 
+\begin{equation}
+\sigma^{2}_{r}(\tilde{r}|c) = V_{\rm vir}^{2}\frac{c^{2}\tilde{r}(1 + c\tilde{r})^{2}}{g(c)}\int_{c\tilde{r}}^{\infty}{\rm d}y\frac{g(y)}{y^{3}(1 + y)^{2}}, 
+\end{equation}
+where $\tilde{r} = r/\rvir$ and $g(y) = \rm{ln}(1+y) - y / (1+y).$
+
 
 %---------------------------
 \subsection{HOD with Assembly Bias: The Decorated HOD}
