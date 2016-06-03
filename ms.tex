@@ -415,7 +415,7 @@ insufficient in a number of cases and that this can lead to a significant undere
 on the inferred parameters, especially $\log (M_{\rm min})$ and $\sigma_{\log M}$ 
 (Z. Zheng \& I. Zehavi, Private Communication). The analysis of \citet{zehavi_etal11} 
 used $10^4$ samples, whereas we find several $\times 10^6$ samples are often necessary for convergence. 
-Additionally, we have recreated qualitatively similar behavior by considering only small subsets of all of our 
+Additionally, we have recreated qualitatively similar behavior by considering only small subsets of our 
 full MCMC chains. Consequently, insufficient sampling of the posterior seems to be the likely resolution 
 of the discrepancies between our work and that of \citet{zehavi_etal11}.
 
@@ -533,32 +533,76 @@ The same as Figure~\ref{fig:Mr19ABtriangle}, but for the $M_r<-21$ sample.
 Table~\ref{table:parameters} and Figures~\ref{fig:Mr19ABtriangle}-\ref{fig:Mr21triangle} 
 all make several simple, generic points. Introducing additional parameter 
 freedom associated with galaxy assembly bias generally increases the viable parameter 
-space, even for the subset of standard HOD parameters. This is exactly what is 
+space, even for the subset of standard HOD parameters. Constraints on the 
+standard HOD parameters are generally less restrictive. This is exactly what is 
 expected from the introduction of additional parameter freedom. 
+
 
 Focusing attention on the parameters describing galaxy assembly bias, it is 
 evident that these parameters are often quite poorly constrained by galaxy 
-clustering data. This implies that galaxy clustering of the precision of SDSS DR7 
-measurements cannot rule out, or strongly restrict galaxy assembly bias in most 
-cases. 
+clustering data. This is important as it implies that galaxy clustering of the precision 
+of SDSS DR7 measurements cannot rule out, or strongly restrict galaxy assembly 
+bias in many cases. Nonetheless, it is apparent that the presence of assembly bias 
+can alter the inferred HOD, or more generally, the inferred relationship between 
+galaxies and halo mass. This is most evident for the $M_r < -20$ threshold sample, 
+for which there are significant differences in the inferred values of all baseline HOD 
+parameters between models with and without galaxy assembly bias. Other threshold 
+samples exhibit significant changes particularly for $\alpha$, and to a lesser degree 
+for $\log (M_{\rm min})$ and $\sigma_{\log M}$. 
 
-Beyond those generic conclusions, a few specific cases of worthy of further examination. 
+
+Beyond those generic conclusions, a few specific cases are worthy of further examination. 
 Consider the $M_r < -20$ sample. The inferred value of $A_{\rm cen} > 0.28$ at 99\% 
 confidence. In this case the data strongly prefer $A_{\rm cen} > 0$ and thus strongly prefer 
-galaxies to reside in halos of larger concentration at fixed halo mass. 
+galaxies to reside in halos of larger concentration at fixed halo mass. This particular threshold 
+sample is the most significant outlier in this regard. Nevertheless, there are hints of assembly 
+bias in other samples. Satellite galaxies show a marginal preference for occupying halos of 
+higher concentration in the $M_r < -19$ threshold sample. The $M_r < -19$ sample exhibits 
+weak preference for a positive correlation of galaxy occupation with halo concentration at fixed 
+mass for both satellite galaxies and central galaxies. Continuing upward with luminosity, 
+the $M_r < -20.5$ sample exhibits a significant preference for central galaxy assembly bias. 
+Lastly, there is no preference for either central galaxy or satellite galaxy assembly bias 
+for the $M_r < -21$ threshold sample, for which both $A_{\mathrm{cen}}$ and $A_{\mathrm{sat}}$ 
+are consistent with zero will within 1$\sigma$. These data suggest that assembly bias 
+may be present in the real universe.
 
-Changes in Bayesian Information Criterion, for inclusion in some sort of table. Strong evidence 
-is usually considered to be a difference $>5$.
 
-Delta BIC 19: 4.37
+%-------------------------------------------------------------------------------------------------------------------------------------------------
+\begin{table}
+\begin{center}
+{\renewcommand{\arraystretch}{1.3}
+\renewcommand{\tabcolsep}{0.2cm}
+\begin{tabular}{c c}
+\hline 
+\hline
+$M_r$ Threshold & $\Delta \mathrm{BIC}$ \\ 
+\hline
+-21 & -0.54 \\
+-20.5 & 1.33 \\
+-20 & 4.56\\
+-19.5 & 0.26\\
+-19 & 4.37\\
+\hline
+\end{tabular}
+\medskip
+\caption{
+Change to the Bayesian Information Criterion, $\Delta \mathrm{BIC}$, 
+after introducing additional parametric freedom to accommodate galaxy 
+assembly bias. Sign convention is such that positive values favor models including 
+assembly bias, negative values favor standard HOD models with no assembly bias parameters. Changes in 
+the Bayesian Information Criterion $\vert \Delta \mathrm{BIC}\vert \ge 5$ strongly favor one model 
+over another.
+}
+ }
+ \label{table:priors}
+ \end{center}
+\end{table}
+%--------------------------------------------------------------------------------------------------------------------------------
 
-Delta BIC 19.5: 0.26
 
-Delta BIC 20: 4.56
 
-Delta BIC 20.5: 1.33
 
-Delta BIC 21: -0.54
+
 
 %------------------------------------------------
 
