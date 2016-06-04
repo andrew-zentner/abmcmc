@@ -23,7 +23,8 @@
 \newcommand{\rvir}{R_{\rm vir}}
 \newcommand{\ncen}{N_{\rm cen}}
 \newcommand{\nsat}{N_{\rm sat}}
-
+\newcommand{\ngal}{N_{\rm gal}}
+\newcommand{\abias}{\mathcal{A}_{\rm bias}}
 
 %------ Journals
 
@@ -191,7 +192,7 @@ where $\tilde{r} = r/\rvir,$ $g(x) = \rm{ln}(1+x) - x / (1+x),$ and $V_{\rm vir}
 \label{subsection:decorated}
 %---------------------------
 
-Short summary of \citet{hearin_etal16}.
+In addition to the standard occupation statistics described in the previous section, in this paper we also use the decorated HOD formalism to connect galaxies to dark matter halos in a manner that has simultaneous dependence on both $\mvir$ and halo concentration. Briefly, we use Equations \ref{eq:ncen} and \ref{eq:nsat} as our ``baseline" first occupation moments. At fixed $\mvir,$ halos are divided into one of two categories, those of high- and low-concentration, depending on whether the concentration of the halo places it above or below the rank-order percentile $f_{\rm split},$ which we keep fixed to $f_{\rm split}=0.5$ throughout the paper. High-concentration halos have a different first occupation moment relative to low-concentration halos of the same mass, $\langle\ngal|\mvir, c_{\rm high}\rangle \neq \langle\ngal|\mvir, c_{\rm low}\rangle.$ The difference between the first moment of high- and low-concentration halos is modulated by $\abias,$ the novel parameter of the decorated HOD governing assembly bias. Values of $\abias=\pm1$ correspond to the maximum strength of assembly bias allowable by the constraint that the model preserves the marginalized first moment, $\langle\ngal|\mvir\rangle;$ thus regardless of the value of $\abias,$ in the decorated HOD the marginalized first moment of centrals and satellites are unchanged from the baseline value defined by Equations \ref{eq:ncen} and \ref{eq:nsat}. We refer the reader to \citet{hearin_etal16} for further details about the decorated HOD. 
 
 %---------------------------
 \subsection{Parameter Inference}
