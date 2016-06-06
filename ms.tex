@@ -6,7 +6,7 @@
 \usepackage{amsmath}
 \usepackage{color}
 \usepackage[dvipsnames]{xcolor}
-%\usepackage{hyperref}
+\usepackage{hyperref}
 \usepackage{yfonts}
 
 \usepackage{epsfig}  \usepackage{graphicx}   \usepackage{rotating}
@@ -23,7 +23,8 @@
 \newcommand{\rvir}{R_{\rm vir}}
 \newcommand{\ncen}{N_{\rm cen}}
 \newcommand{\nsat}{N_{\rm sat}}
-
+\newcommand{\ngal}{N_{\rm gal}}
+\newcommand{\abias}{\mathcal{A}_{\rm bias}}
 
 %------ Journals
 
@@ -150,25 +151,29 @@ conclusions in Section~\ref{section:conclusions}.
 To generate predictions for galaxy clustering, we directly populate dark matter halos with mock galaxies using {\tt Halotools}. In this section we review the ``standard" HOD-style model used in the present work, and in the following section we use the Decorated HOD model described in \citet{hearin_etal16}. In both cases, we will only briefly review the salient features of our methodology here; interested readers can always refer to {\tt halotools.readthedocs.io} for further details. 
 
 \subsubsection{Simulation}
-We use the BolshioP simulation in all analyses (give Citation \& Cosmological Parameters). yadda yadda yadda. 
+All of our analyses are based on the Bolshioi-Planck simulation \citep{riebe_etal11}. 
+Bolshoi-Planck was run with cosmological parameters based on \citet{planck13}, $\Omega_{\Lambda} = 0.693, \Omega_{\rm m} = 0.307, \Omega_{\rm b} = 0.048, h = 0.7, {\rm n_s}=0.96$ and $\sigma_8 = 0.82,$ and with a box size of $250$ ${\rm Mpc}/h$ and a particle mass of $m_{\rm p} = 1.35\times10^{8}M_{\odot}/h.$ Further information about the Bolshoi-Planck simulation is available at \url{https://www.cosmosim.org}. 
+
+We use publicly available\footnote{\tt http://www.slac.stanford.edu/$\sim$behroozi/BPlanck\_Hlists} dark matter halo catalogs based on the {\tt ROCKSTAR} halo-finder \citep{behroozi_rockstar11} and {\tt CONSISTENT TREES} algorithm \citep{behroozi_trees13}. In particular, we use the {\tt halotools\_alpha\_version2} version of the $z=0$ snapshot of the {\tt `bolplanck'} catalog included with {\tt Halotools.} Halos in these catalogs are based on the virial radius density contrast given in \citet{bryan_norman98}. When populating this catalog with mock galaxies, we only use present-day host halos with a value of $M_{\rm peak}$ that exceeds $300$ particles. 
+
 
 \subsubsection{Occupation statistics}
 
-In standard HOD models, there are two types of galaxies: centrals and satellites. The galaxy-halo connection is specified in terms of $P(\ncen|\mvir)$ and $P(\nsat|\mvir),$ the probability that a halo of mass $\mvir$ hosts $\ncen$ central and $\nsat$ satellite galaxies, respectively. $P(\ncen|\mvir)$ is typically a nearest-integer distribution, as a host halo is supposed to have only either zero or one central galaxy. So occupation statistics of central galaxies are specified by the first moment, which we model as 
+In standard HOD models, there are two types of galaxies: centrals and satellites. The galaxy-halo connection is specified in terms of $P(\ncen|\mvir)$ and $P(\nsat|\mvir),$ the probability that a halo of mass $\mvir$ hosts $\ncen$ central and $\nsat$ satellite galaxies, respectively. $P(\ncen|\mvir)$ is typically a nearest-integer distribution, as a host halo has only either zero or one central galaxy. So occupation statistics of central galaxies are specified by the first moment of $P(\ncen|\mvir)$, which we model as 
 
 \begin{equation}
 \label{eq:ncen}
-\langle N_{\mathrm{cen}} \rangle(M) =
+\langle N_{\mathrm{cen}} \rangle(\mvir) =
         \frac{1}{2}\left( 1 +
-        \mathrm{erf}\left( \frac{\log_{10}M -
-        \log_{10}M_{min}}{\sigma_{\log_{10}M}} \right) \right)
+        \mathrm{erf}\left( \frac{\log_{10}\mvir -
+        \log_{10}M_{\rm min}}{\sigma_{\log_{10}M}} \right) \right)
 \end{equation}
-For every host halo in the catalog we draw a random number from a uniform distribution $\mathcal{U}(0, 1);$ a central galaxy is assigned to each halo whose random number is less than the corresponding value of $\langle N_{\mathrm{cen}} \rangle(M);$ halos with random values exceeding  $\langle N_{\mathrm{cen}} \rangle(M)$ are left devoid of centrals. 
+For every host halo in the catalog we draw a random number from a uniform distribution $\mathcal{U}(0, 1);$ for a host halo of present-day virial mass $\mvir,$ a central galaxy is assigned to the halo if the associated random number is less than $\langle N_{\mathrm{cen}} \rangle(\mvir);$ halos with random values exceeding  $\langle N_{\mathrm{cen}} \rangle(\mvir)$ are left devoid of centrals. 
 
 We model the distribution $P(\nsat|\mvir)$ to be a Poisson distribution with first moment given by a power law, 
 \begin{equation}
 \label{eq:nsat}
-\langle N_{\rm sat}\rangle(M) = \left( \frac{M - M_0}{M_1} \right)^{\alpha}. 
+\langle N_{\rm sat}\rangle(\mvir) = \left( \frac{\mvir - M_0}{M_1} \right)^{\alpha}. 
 \end{equation}
 
 \subsubsection{Galaxy profiles}
@@ -179,7 +184,7 @@ We model the velocities of satellite galaxies to be a Gaussian whose first momen
 \begin{equation}
 \sigma^{2}_{r}(\tilde{r}|c) = V_{\rm vir}^{2}\frac{c^{2}\tilde{r}(1 + c\tilde{r})^{2}}{g(c)}\int_{c\tilde{r}}^{\infty}{\rm d}y\frac{g(y)}{y^{3}(1 + y)^{2}}, 
 \end{equation}
-where $\tilde{r} = r/\rvir$ and $g(y) = \rm{ln}(1+y) - y / (1+y).$
+where $\tilde{r} = r/\rvir,$ $g(x) = \rm{ln}(1+x) - x / (1+x),$ and $V_{\rm vir}^{2} = G\mvir/\rvir.$
 
 
 %---------------------------
@@ -187,7 +192,7 @@ where $\tilde{r} = r/\rvir$ and $g(y) = \rm{ln}(1+y) - y / (1+y).$
 \label{subsection:decorated}
 %---------------------------
 
-Short summary of \citet{hearin_etal16}.
+In addition to the standard occupation statistics described in the previous section, in this paper we also use the decorated HOD formalism to connect galaxies to dark matter halos in a manner that has simultaneous dependence on both $\mvir$ and halo concentration. Briefly, we use Equations \ref{eq:ncen} and \ref{eq:nsat} as our ``baseline" first occupation moments. At fixed $\mvir,$ halos are divided into one of two categories, those of high- and low-concentration, depending on whether the concentration of the halo places it above or below the rank-order percentile $f_{\rm split},$ which we keep fixed to $f_{\rm split}=0.5$ throughout the paper. High-concentration halos have a different first occupation moment relative to low-concentration halos of the same mass, $\langle\ngal|\mvir, c_{\rm high}\rangle \neq \langle\ngal|\mvir, c_{\rm low}\rangle.$ The difference between the first moment of high- and low-concentration halos is modulated by $\abias,$ the novel parameter of the decorated HOD governing assembly bias. Values of $\abias=\pm1$ correspond to the maximum strength of assembly bias allowable by the constraint that the model preserves the marginalized first moment, $\langle\ngal|\mvir\rangle;$ thus regardless of the value of $\abias,$ in the decorated HOD the marginalized first moment of centrals and satellites are unchanged from the baseline value defined by Equations \ref{eq:ncen} and \ref{eq:nsat}. We refer the reader to \citet{hearin_etal16} for further details about the decorated HOD. 
 
 %---------------------------
 \subsection{Parameter Inference}
@@ -612,7 +617,12 @@ over another.
 \label{section:conclusions}
 %------------------------------------------------
 
+%------------------------------------------------
+\section{Acknowledgements}
+\label{section:acknowledgements}
+%------------------------------------------------
 
+The authors gratefully acknowledge the Gauss Centre for Supercomputing e.V. (www.gauss-centre.eu) and the Partnership for Advanced Supercomputing in Europe (PRACE, www.prace-ri.eu) for funding the MultiDark simulation project by providing computing time on the GCS Supercomputer SuperMUC at Leibniz Supercomputing Centre (LRZ, www.lrz.de). The Bolshoi simulations have been performed within the Bolshoi project of the University of California High-Performance AstroComputing Center (UC-HiPACC) and were run at the NASA Ames Research Center.
 
 
 %------------------------------------------------
