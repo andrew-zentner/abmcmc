@@ -26,21 +26,6 @@
 \newcommand{\ngal}{N_{\rm gal}}
 \newcommand{\abias}{\mathcal{A}_{\rm bias}}
 
-%%%%% less than approximate and all that
-
-\def\gtsima{$\; \buildrel > \over \sim \;$}
-\def\ltsima{$\; \buildrel < \over \sim \;$}
-\def\prosima{$\; \buildrel \propto \over \sim \;$}
-\def\gsim{\lower.7ex\hbox{\gtsima}}
-\def\lsim{\lower.7ex\hbox{\ltsima}}
-\def\simgt{\lower.7ex\hbox{\gtsima}}
-\def\simlt{\lower.7ex\hbox{\ltsima}}
-\def\simpr{\lower.7ex\hbox{\prosima}}
-\def\la{\lsim}
-\def\ga{\gsim}
-\def\lta{\la}
-\def\gta{\ga}
-
 %------ Journals
 
 \newcommand{\mnras}{Mon. Not. R. Astron. Soc.}
@@ -64,7 +49,7 @@
 
 \title[Clustering Constraints on Assembly Bias]
 {
-Constraints on Assembly Bias from Galaxy Clustering. 
+Constraints on Assembly Bias from Galaxy Clustering
 }
 
 % Authors ------------------------------------------------------
@@ -72,7 +57,7 @@ Constraints on Assembly Bias from Galaxy Clustering.
 
 \author[Zentner et al.]
 {Andrew R. Zentner$^{1}$, Andrew P. Hearin$^{2}$, Frank C. van den Bosch$^{3},$ \newauthor
-Antonio Villareal$^{1}$, Johannes U. Lange$^{3}$, P. Rogers Nelson$^{4}$\\ \\
+Antonio Villareal$^{1}$, Johannes Lange$^{3}$, P. Rogers Nelson$^{4}$, Probably some others of unspecified origin\\ \\
 $^1$Department of Physics and Astronomy \& Pittsburgh Particle Physics, Astrophysics, and Cosmology Center (PITT PACC),\\ University of Pittsburgh, Pittsburgh, PA 15260\\
 $^2$Yale Center for Astronomy \& Astrophysics, Yale University, New Haven, CT\\
 $^3$Department of Astronomy, Yale University, P.O. Box 208101, New Haven, CT\\
@@ -107,84 +92,50 @@ Important points:
 \label{section:introduction}
 %---------------------------
 
-For more than a decade, halo occupation modeling has been used to
-interpret large-scale structure measurements and exploit these
-measurements to constrain galaxy formation models and cosmology
-\citep[e.g.,][]{yang03,tinker05,zehavi05a,
-  porciani06,vdBosch07,Zheng07,conroy_wechsler09,yang09b,zehavi_etal11,guo_etal11b,
-  wake_etal11,yang11a,yang12,leauthaud_etal12,tinker_etal13,cacciato_etal13,
-  more_etal13,guo_etal14,zu_mandelbaum15b}. The key assumptions
-underlying halo occupation modeling are: (1) all galaxies reside in
-dark matter halos that are biased tracers of the density field; and
-(2) galaxies occupy halos as a function of halo masses only. It is now
-well known that halo bias depends upon halo properties other than mass
-\citep[e.g.][]{gao_etal05,wechsler06,gao_white07,zentner07,dalal_etal08,lacerna11},
-an effect called halo assembly bias. If galaxies occupy halos as a
-function of properties other than halo mass, then standard halo
-occupation methods will be subject to a systematic error due to galaxy
-assembly bias. Several of us have previously shown that this error can
-be significant in an analysis of galaxy clustering and can bias
-inferences about many aspects of galaxy evolution
-\citep{zentner_etal14}. Consequently, we have developed halo
-occupation models that enable galaxies to occupy halos in a manner
-that depends upon several halo properties \citep{hearin_etal16}.
-See also \citet{Yao_etalXX} for a similar approach. In
-this paper, we revisit the interpretation of luminosity-dependent
-galaxy clustering in the Sloan Digital Sky Survey (SDSS) Data Release
-7 (DR7) data, analyzed previously by \citet{zehavi_etal11}, in the
-context both standard halo occupation models and these new models.
+For more than a decade, halo occupation modeling has been used to 
+interpret large-scale structure measurements and exploit these measurements 
+to constrain galaxy formation models and cosmology \citep[e.g.,][]{yang03,tinker05,zehavi05a,
+porciani06,vdBosch07,Zheng07,conroy_wechsler09,yang09b,zehavi_etal11,guo_etal11b,
+wake_etal11,yang11a,yang12,leauthaud_etal12,tinker_etal13,cacciato_etal13,
+more_etal13,guo_etal14,zu_mandelbaum15b}. The key assumptions underlying 
+halo occupation modeling are: (1) all galaxies reside in dark matter halos that are biased 
+tracers of the density field; and (2) galaxies occupy halos as a function of halo masses 
+only. It is now well known that halo bias depends upon halo properties other than mass
+\citep[e.g.][]{gao_etal05,wechsler06,gao_white07,zentner07,dalal_etal08,lacerna11}, 
+an effect called halo assembly bias. If galaxies occupy halos as a function of properties 
+other than halo mass, then standard halo occupation methods will be subject to a 
+systematic error due to galaxy assembly bias. Several of us have previously shown that 
+this error can be significant in an analysis of galaxy clustering and can bias inferences 
+about many aspects of galaxy evolution \citep{zentner_etal14}. Consequently, we have 
+also developed halo occupation models that enable galaxies to occupy halos in a manner 
+that depends upon several halo properties \citep{hearin_etal16}. In this paper, we 
+revisit the interpretation of luminosity-dependent galaxy clustering in the Sloan Digital Sky 
+Survey (SDSS) Data Release 7 (DR7) data, analyzed previously by \citet{zehavi_etal11}, in the context 
+both standard halo occupation models and these new models.
 
-XXXX PLACE-HOLDER TO GUIDE'S FRANK CONTRIBUTION XXX
-Some discussion of previous work on trying to account for assembly
-bias.  Papers that should (probably) be cited here are : Lehman et al.
-Also, we may want to point out that SHAM has already started to
-consider other properties than halo mass (Vmax, Vpeak etc) (e.g.,
-Conroy, Wechsler \& Kravtsov 2006; Reddick et al. 2013; Hearin et
-al. 2013). Since, at fixed halo mass, Vmax is correlated with halo
-concentration, and thus with halo assembly time, the resulting
-occupation models have assembly bias build in.
+Some history here, blah blah blah, Frank loves this stuff. Therefore, I'm sure this part of the introduction 
+will get quite lengthy.
 
-Lehmann et al. (2015) explored SHAM models in which the subhalo
-property $x$ varies between Mvir and Vmax via a continuously-valued
-parameter $\alpha$. They fit the newly introduced parameter, $\alpha$,
-to SDSS clustering mea- surements at $z \simeq 0$, and their best-fit
-model significantly prefers “Vmax−like” subhalo properties over
-“pure-Mvir” properties. That is, low-redshift clustering measurements
-are better described by SHAM-style models in which $\langle N_\rms
-\rangle$ and $\langle N_\rmc \rangle$ do not depend on virial mass
-Mvir alone (see also Mao, Williamson & Wechsler 2015, for closely
-related work).
+Our work is important for several reasons. Our work is a re-analysis of the SDSS DR7 data 
+the overcomes shortcomings of previous analyses. In particular, we use direct population of galaxies 
+in a cosmological simulation so that delicate issues present in analytic modeling, such as scale-dependent 
+halo bias, are treated exactly.  The simulation we use is based on the latest Planck cosmological parameters, 
+updating previous work. Furthermore, many important differences between this work and the previous 
+work of \citet{zehavi_etal11} were caused by insufficiently large Monte Carlo Markov Chain (MCMC) sampling 
+by \citet[][Z. Zheng \& I. Zehavi, Private Communication]{zehavi_etal11}. Therefore, our analysis 
+{\em supersedes previous analyses even in the case of standard halo occupation models}.
 
+Furthermore, our work demonstrates explicitly that significant assembly bias in 
+$M_r$-selected samples from SDSS DR7 cannot be ruled out based on a standard 
+analysis of galaxy clustering only. In fact, we find that several samples {\em 
+favor galaxy assembly bias to a degree that is statistically significant}. As demonstrated by 
+\citet{zentner_etal14}, this conclusion could have important consequences for the 
+interpretation of both extant and forthcoming data. 
 
-Our work is important for several reasons. Our work is a re-analysis
-of the SDSS DR7 data the overcomes shortcomings of previous
-analyses. In particular, we use direct population of galaxies in a
-cosmological simulation so that delicate issues present in analytic
-modeling, such as scale-dependent halo bias, are treated exactly.  The
-simulation we use is based on the latest Planck cosmological
-parameters, updating previous work. Furthermore, many important
-differences between this work and the previous work of
-\citet{zehavi_etal11} were caused by insufficiently large Monte Carlo
-Markov Chain (MCMC) sampling by \citet[][Z. Zheng \& I. Zehavi,
-  Private Communication]{zehavi_etal11}. Therefore, our analysis {\em
-  supersedes previous analyses even in the case of standard halo
-  occupation models}.
-
-Furthermore, our work demonstrates explicitly that significant
-assembly bias in $M_r$-selected samples from SDSS DR7 cannot be ruled
-out based on a standard analysis of galaxy clustering only. In fact,
-we find that several samples {\em favor galaxy assembly bias to a
-  degree that is statistically significant}. As demonstrated by
-\citet{zentner_etal14}, this conclusion could have important
-consequences for the interpretation of both extant and forthcoming
-data.
-
-Our paper is organized as follows. In Section~\ref{section:methods},
-we discuss our implementation of halo occupation models and our
-assumptions in our parameter inference analysis. We present results
-for both standard halo occupation analysis and analysis in the context
-of models with galaxy assembly bias in
-Section~\ref{section:results}. We summarize our results and draw
+Our paper is organized as follows. In Section~\ref{section:methods}, we discuss our implementation 
+of halo occupation models and our assumptions in our parameter inference analysis. We present 
+results for both standard halo occupation analysis and analysis in the context of models with 
+galaxy assembly bias in Section~\ref{section:results}. We summarize our results and draw 
 conclusions in Section~\ref{section:conclusions}.
 
 %---------------------------
@@ -241,30 +192,7 @@ where $\tilde{r} = r/\rvir,$ $g(x) = \rm{ln}(1+x) - x / (1+x),$ and $V_{\rm vir}
 \label{subsection:decorated}
 %---------------------------
 
-In addition to the standard occupation statistics described in the
-previous section, in this paper we also use the decorated HOD
-formalism to connect galaxies to dark matter halos in a manner that
-has simultaneous dependence on both $\mvir$ and halo
-concentration. Briefly, we use Equations \ref{eq:ncen} and
-\ref{eq:nsat} as our ``baseline" first occupation moments. At fixed
-$\mvir,$ halos are divided into one of two categories, those of high-
-and low-concentration, depending on whether the concentration of the
-halo places it above or below the rank-order percentile $f_{\rm
-  split},$ which we keep fixed to $f_{\rm split}=0.5$ throughout the
-paper. High-concentration halos have a different first occupation
-moment relative to low-concentration halos of the same mass,
-$\langle\ngal|\mvir, c_{\rm high}\rangle \neq \langle\ngal|\mvir,
-c_{\rm low}\rangle.$ The difference between the first moment of high-
-and low-concentration halos is modulated by $\abias,$ the novel
-parameter of the decorated HOD governing assembly bias. Values of
-$\abias=\pm1$ correspond to the maximum strength of assembly bias
-allowable by the constraint that the model preserves the marginalized
-first moment, $\langle\ngal|\mvir\rangle;$ thus regardless of the
-value of $\abias,$ in the decorated HOD the marginalized first moment
-of centrals and satellites are unchanged from the baseline value
-defined by Equations \ref{eq:ncen} and \ref{eq:nsat}. We refer the
-reader to \citet{hearin_etal16} for further details about the
-decorated HOD.
+In addition to the standard occupation statistics described in the previous section, in this paper we also use the decorated HOD formalism to connect galaxies to dark matter halos in a manner that has simultaneous dependence on both $\mvir$ and halo concentration. Briefly, we use Equations \ref{eq:ncen} and \ref{eq:nsat} as our ``baseline" first occupation moments. At fixed $\mvir,$ halos are divided into one of two categories, those of high- and low-concentration, depending on whether the concentration of the halo places it above or below the rank-order percentile $f_{\rm split},$ which we keep fixed to $f_{\rm split}=0.5$ throughout the paper. High-concentration halos have a different first occupation moment relative to low-concentration halos of the same mass, $\langle\ngal|\mvir, c_{\rm high}\rangle \neq \langle\ngal|\mvir, c_{\rm low}\rangle.$ The difference between the first moment of high- and low-concentration halos is modulated by $\abias,$ the novel parameter of the decorated HOD governing assembly bias. Values of $\abias=\pm1$ correspond to the maximum strength of assembly bias allowable by the constraint that the model preserves the marginalized first moment, $\langle\ngal|\mvir\rangle;$ thus regardless of the value of $\abias,$ in the decorated HOD the marginalized first moment of centrals and satellites are unchanged from the baseline value defined by Equations \ref{eq:ncen} and \ref{eq:nsat}. We refer the reader to \citet{hearin_etal16} for further details about the decorated HOD. 
 
 %---------------------------
 \subsection{Parameter Inference}
@@ -473,25 +401,18 @@ The same as Figure~\ref{fig:Mr19samples}, but for the $M_r<-21$ threshold sample
 %---------------------------------------------------------------------------------------------------------------------------------
 
 
-A second noteworthy difference between the present work and that of
-\citet{zehavi_etal11} is that we find many parameters to be notably
-more poorly constrained. At the lower luminosity thresholds, for
-example, we constrain $\log (M_{\rm min})$ and $\sigma_{\log M}$ with
-several times lower precision than \citet{zehavi_etal11}. We do not
-show our constraints on $\log (M_0)$ as they are very poor, with
-1-sigma constraints $\gta 1$~dex for all samples. In several cases,
-the constraint on $\log (M_0)$ is determined by the prior given in
-Table~\ref{table:priors}. This is in stark contrast to several of the
-results of \citet{zehavi_etal11}. For example, for the threshold
-sample with $M_r < -19.5$ ($M_r < -20.5$), \citet{zehavi_etal11} quote
-$\log (M_0) = 12.23 \pm 0.17$ ($12.35 \pm 0.24$), whereas we infer
-$\log (M_0) = 11.38^{+0.95}_{-1.57}$
-($11.19^{+0.89}_{-1.39}$). Examining the form of Eq.~(\ref{eq:nsat}),
-it is sensible that the parameter $\log (M_0)$ should be unconstrained
-at the lower end, because the value of $M_0$ does not alter the
-predicted satellite number once $M_0 \ll M_1$. Therefore, it seems
-likely that the tighter constraints quoted by \citet{zehavi_etal11}
-must be an error.
+A second noteworthy difference between the present work and that of \citet{zehavi_etal11} is that we 
+find many parameters to be notably more poorly constrained. At the lower luminosity thresholds, for example, 
+we constrain $\log (M_{\rm min})$ and $\sigma_{\log M}$ with several times lower precision than 
+\citet{zehavi_etal11}. We do not show our constraints on $\log (M_0)$ as they are very poor in all cases, 
+with 1-sigma constraints on the order of $\pm \ge 1$~dex for nearly all samples. In several cases, the constraint on 
+$\log (M_0)$ is determined by the prior given in Table~\ref{table:priors}. This is in stark contrast to several of the 
+results of \citet{zehavi_etal11}. For example, for the threshold sample with $M_r < -19.5$ ($M_r < -20.5$), 
+\citet{zehavi_etal11} quote $\log (M_0) = 12.23 \pm 0.17$ ($12.35 \pm 0.24$), whereas we infer 
+$\log (M_0) = 11.38^{+0.95}_{-1.57}$ ($11.19^{+0.89}_{-1.39}$). Examining the form of Eq.~(\ref{eq:nsat}), 
+it is sensible that the parameter $\log (M_0)$ should be unconstrained at the lower end, because the 
+value of $M_0$ does not alter the predicted satellite number once $M_0 \ll M_1$. Therefore, it seems likely 
+that the tighter constraints quoted by \citet{zehavi_etal11} must be an error. 
 
 We have confirmed with a subset of the authors of \citet{zehavi_etal11} 
 that the number of MCMC samples they included in their analysis was 
@@ -573,16 +494,16 @@ Figure~\ref{fig:Mr20ABtriangle}, and Figure~\ref{fig:Mr21ABtriangle}.
 \begin{figure*}
 \begin{center}
 \includegraphics[width=15.0cm]{Mr19ABTri.pdf}
-\caption{ Two-dimensional marginalized constraints on decorated HOD
-  parameters inferred from fits to $\wprp(\rp)$ data for the $M_r<-19$
-  sample. The contours and histograms along the diagonal panels are as
-  in Fig.~\ref{fig:Mr20triangle}. The decorated HOD models include a
-  two-parameter model for assembly bias. The HOD parameter $\log
-  (M_0)$ is extremely poorly constrained by the data and has been
-  suppressed for clarity. Likewise, as in Fig.~\ref{fig:Mr20triangle},
-  $\sigma_{\log M}$ and $\log (M_{\rm min})$ share a narrow
-  degeneracy, so we have suppressed $\sigma_{\log M}$ in order to make
-  constraints on other parameters more easily visible.  }
+\caption{
+Two-dimensional marginalized constraints on decorated HOD parameters inferred from fits 
+to $\wprp(\rp)$ data for the $M_r<-19$ sample. The contours and histograms along the diagonal 
+panels are as in Fig.~\ref{fig:Mr20triangle}. The decorated HOD models include a 
+two-parameter model for assembly bias. The HOD parameter $\log (M_0)$ is extremely 
+poorly constrained by the data and has been suppressed for clarity. Likewise, as in 
+Fig.~\ref{fig:Mr20triangle}, $\sigma_{\log M}$ and $\log (M_{\rm min})$ share a 
+narrow degeneracy, so we have suppressed $\sigma_{\log M}$ in order to make 
+constraints on other parameters more easily visible.
+}
 \label{fig:Mr19ABtriangle}
 \end{center}
 \end{figure*}
@@ -701,17 +622,7 @@ over another.
 \label{section:acknowledgements}
 %------------------------------------------------
 
-The authors gratefully acknowledge the Gauss Centre for Supercomputing
-e.V. (www.gauss-centre.eu) and the Partnership for Advanced
-Supercomputing in Europe (PRACE, www.prace-ri.eu) for funding the
-MultiDark simulation project by providing computing time on the GCS
-Supercomputer SuperMUC at Leibniz Supercomputing Centre (LRZ,
-www.lrz.de). The Bolshoi simulations have been performed within the
-Bolshoi project of the University of California High-Performance
-AstroComputing Center (UC-HiPACC) and were run at the NASA Ames
-Research Center. FvdB is supported by the US National Science
-Foundation through grant AST 1516962. {\bf AZ; add yours as well.}
-
+The authors gratefully acknowledge the Gauss Centre for Supercomputing e.V. (www.gauss-centre.eu) and the Partnership for Advanced Supercomputing in Europe (PRACE, www.prace-ri.eu) for funding the MultiDark simulation project by providing computing time on the GCS Supercomputer SuperMUC at Leibniz Supercomputing Centre (LRZ, www.lrz.de). The Bolshoi simulations have been performed within the Bolshoi project of the University of California High-Performance AstroComputing Center (UC-HiPACC) and were run at the NASA Ames Research Center.
 
 
 %------------------------------------------------
