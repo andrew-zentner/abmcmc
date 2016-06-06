@@ -418,10 +418,10 @@ $-19$ & Zentner+16 & $11.62^{+0.33}_{-0.13}$ & $0.53^{+0.57}_{-0.35}$ & $12.83^{
 Results of standard HOD fits to SDSS DR7 $w_{\rm p}(r_{\rm p})$ as well as 
 fits using a parameterized model of assembly bias. 
 Assembly bias is quantified by the parameters $A_{\rm cen}$ ($A_{\rm sat}$) for central (satellite) galaxies. The secondary 
-property that we assume to determine the galaxy HOD is halo formation time. $A_{\rm cen,sat}=0$ means that there is no 
-assembly bias while $A_{\rm cen,sat}=1$ ($A_{\rm cen,sat}=-1$) means that halo formation time is maximally 
-correlated (anticorrelated) with halo formation time. Thus the parameters range over $-1 \le A_{\rm cen,sat} \le 1$. 
-If the constraints on $A_{\rm cen}$ and $A_{\rm sat}$ are unspecified, then the model used to interpret the data 
+property that we assume to determine the galaxy HOD is halo concentration. $A_{\rm cen,sat}=0$ means that there is no 
+assembly bias while $A_{\rm cen,sat}=1$ ($A_{\rm cen,sat}=-1$) means that galaxy abundance is maximally 
+correlated (anticorrelated) with halo concentration at fixed $\mvir.$ Thus the $A_{\rm cen,sat}$ parameters span the range $[-1, 1].$ 
+If the constraints on $A_{\rm cen}$ and $A_{\rm sat}$ are unspecified in the table, then the model used to interpret the data 
 does not include assembly bias. In our analyses, quoted parameter values with errors correspond to the median 
 value of the parameter and the 16$^{\rm th}$ and 84$^{\rm th}$ percentiles. In cases for which the posterior 
 is monotonic within the physical parameter space, we show one-sided percentiles.
@@ -487,14 +487,14 @@ results of \citet{zehavi_etal11}. For example, for the threshold sample with $M_
 \citet{zehavi_etal11} quote $\log (M_0) = 12.23 \pm 0.17$ ($12.35 \pm 0.24$), whereas we infer 
 $\log (M_0) = 11.38^{+0.95}_{-1.57}$ ($11.19^{+0.89}_{-1.39}$). Examining the form of Eq.~(\ref{eq:nsat}), 
 it is sensible that the parameter $\log (M_0)$ should be unconstrained at the lower end, because the 
-value of $M_0$ does not alter the predicted satellite number once $M_0 \ll M_1$. Therefore, it seems likely 
-that the tighter constraints quoted by \citet{zehavi_etal11} must be an error. 
+value of $M_0$ does not alter the predicted satellite number once $M_0 \ll M_1$. 
+Therefore, on these intuitive grounds alone it seems likely that the tighter constraints quoted by \citet{zehavi_etal11} must be an error. 
 
-We have confirmed with a subset of the authors of \citet{zehavi_etal11} 
+Additionally, we have confirmed with a subset of the authors of \citet{zehavi_etal11} 
 that the number of MCMC samples they included in their analysis was 
 insufficient in a number of cases and that this can lead to a significant underestimation of the uncertainties 
 on the inferred parameters, especially $\log (M_{\rm min})$ and $\sigma_{\log M}$ 
-(Z. Zheng \& I. Zehavi, Private Communication). The analysis of \citet{zehavi_etal11} 
+(Z. Zheng \& I. Zehavi, private communication). The analysis of \citet{zehavi_etal11} 
 used $10^4$ samples, whereas we find several $\times 10^6$ samples are often necessary for convergence. 
 Additionally, we have recreated qualitatively similar behavior by considering only small subsets of our 
 full MCMC chains. Consequently, insufficient sampling of the posterior seems to be the likely resolution 
@@ -503,11 +503,11 @@ of the discrepancies between our work and that of \citet{zehavi_etal11}.
 Two degeneracies are manifest in Fig.~\ref{fig:Mr20triangle} that are common to all of our 
 analyses. The parameters $\log (M_1)$ and $\alpha$ are degenerate with each other and positively 
 correlated. The parameter $M_1$ is the mass scale at which a halo has one satellite on 
-average and $\alpha$ is the power-law index describing the dependence of average satellite 
-number on halo mass. Increasing $M_1$ decreases the number of satellites in large halos 
-by placing satellites preferentially in halos of larger mass. An increase in $\alpha$ can partly 
+average, and $\alpha$ is the power-law index describing the dependence of average satellite 
+number on halo mass. Increasing $M_1$ {\em decreases} the number of satellites in massive halos 
+by increasing the mass scale where the power law abundance becomes operative. An increase in $\alpha$ can partly 
 compensate for an increase in $M_1$ by increasing the rate at which average satellite number 
-grows with halo mass, leading to a larger number of satellites in high-mass halos. 
+grows with halo mass. 
 
 As is evident in Figure~\ref{fig:Mr20triangle}, $\log (M_{\rm min})$ and $\sigma_{\log M}$ 
 share a relatively narrow degeneracy as well. This degeneracy is largely induced by the 
