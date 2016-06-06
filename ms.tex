@@ -230,16 +230,16 @@ because halos with very large values for the concentration tend to be poorly
 described by an NFW profile, for example due to a recent merger.}
 
 
-We model the velocities of satellite galaxies as a Gaussian whose 
-first moment is the host halo velocity and whose second moment is the 
+We model the radial velocity distribution of satellite galaxies as a Gaussian with 
+first moment equal to the host halo velocity and second moment equal to the 
 solution to the isotropic Jeans equation for an NFW profile \citep{more09b}, 
 \begin{equation}
 \sigma^{2}_{r}(\tilde{r}|c) = V_{\rm vir}^{2}\frac{c^{2}\tilde{r}(1 + c\tilde{r})^{2}}{g(c)}\int_{c\tilde{r}}^{\infty}{\rm d}y\frac{g(y)}{y^{3}(1 + y)^{2}}, 
 \end{equation}
 where $\tilde{r} = r/\rvir,$ $g(x) = \rm{ln}(1+x) - x / (1+x),$ and $V_{\rm vir}^{2} = G\mvir/\rvir.$ 
-In this way, we model the influence of redshift-space distortions on our predicted 
-two-point functions.
-
+We assume that velocities are isotropic, setting peculiar velocities in the simulation $z$-dimension  
+equal to random draws from the above distribution. We place mock galaxies 
+into redshift-space by replacing each galaxy's $z$-coordinate with $z \rightarrow z + V_{\rm z}/H_0.$
 
 %---------------------------
 \subsection{HOD with Assembly Bias: The Decorated HOD}
