@@ -81,8 +81,11 @@ $^4$Paisley Park, Chanhassen, MN\\
 We fit SDSS DR7 data with models that include assembly bias.
 
 Important points:
+
 -supersedes previous analyses even for standard HOD.
+
 -cannot rule out assembly bias using galaxy clustering.
+
 -some samples favor assembly bias.
 
 \end{abstract} 
@@ -92,22 +95,22 @@ Important points:
 \label{section:introduction}
 %---------------------------
 
-For more than a decade, halo occupation modeling has been used to 
-interpret large-scale structure measurements and exploit these measurements 
+Halo occupation modeling has frequently 
+been used to interpret large-scale structure measurements and exploit these measurements 
 to constrain galaxy formation models and cosmology \citep[e.g.,][]{yang03,tinker05,zehavi05a,
 porciani06,vdBosch07,Zheng07,conroy_wechsler09,yang09b,zehavi_etal11,guo_etal11b,
 wake_etal11,yang11a,yang12,leauthaud_etal12,tinker_etal13,cacciato_etal13,
 more_etal13,guo_etal14,zu_mandelbaum15b}. The key assumptions underlying 
 halo occupation modeling are: (1) all galaxies reside in dark matter halos that are biased 
-tracers of the density field; and (2) galaxies occupy halos as a function of halo masses 
+tracers of the density field; and (2) galaxies occupy halos as a function of halo mass 
 only. It is now well known that halo bias depends upon halo properties other than mass
 \citep[e.g.][]{gao_etal05,wechsler06,gao_white07,zentner07,dalal_etal08,lacerna11}, 
-an effect called halo assembly bias. If galaxies occupy halos as a function of properties 
-other than halo mass, then standard halo occupation methods will be subject to a 
-systematic error due to galaxy assembly bias. Several of us have previously shown that 
+an effect called {\em halo assembly bias}. If galaxies occupy halos as a function of properties 
+that affect halo clustering, other than mass, then standard halo occupation methods will be subject to a 
+systematic error due to {\em galaxy assembly bias}. Several of us have previously shown that 
 this error can be significant in an analysis of galaxy clustering and can bias inferences 
 about many aspects of galaxy evolution \citep{zentner_etal14}. Consequently, we have 
-also developed halo occupation models that enable galaxies to occupy halos in a manner 
+developed halo occupation models that enable galaxies to occupy halos in a manner 
 that depends upon several halo properties \citep{hearin_etal16}. In this paper, we 
 revisit the interpretation of luminosity-dependent galaxy clustering in the Sloan Digital Sky 
 Survey (SDSS) Data Release 7 (DR7) data, analyzed previously by \citet{zehavi_etal11}, in the context 
@@ -127,10 +130,12 @@ by \citet[][Z. Zheng \& I. Zehavi, Private Communication]{zehavi_etal11}. Theref
 
 Furthermore, our work demonstrates explicitly that significant assembly bias in 
 $M_r$-selected samples from SDSS DR7 cannot be ruled out based on a standard 
-analysis of galaxy clustering only. In fact, we find that several samples {\em 
-favor galaxy assembly bias to a degree that is statistically significant}. As demonstrated by 
-\citet{zentner_etal14}, this conclusion could have important consequences for the 
-interpretation of both extant and forthcoming data. 
+analysis of galaxy clustering alone. In fact, we find that the clustering of galaxies in 
+several luminosity threshold samples 
+{\em favors galaxy assembly bias to a degree that is statistically significant}. 
+As suggested by the previous work of \citet{zentner_etal14}, 
+this conclusion could have important consequences for the 
+interpretation of both extant and forthcoming galaxy survey data. 
 
 Our paper is organized as follows. In Section~\ref{section:methods}, we discuss our implementation 
 of halo occupation models and our assumptions in our parameter inference analysis. We present 
@@ -148,43 +153,99 @@ conclusions in Section~\ref{section:conclusions}.
 \label{subsection:halotools}
 %---------------------------
 
-To generate predictions for galaxy clustering, we directly populate dark matter halos with mock galaxies using {\tt Halotools}. In this section we review the ``standard" HOD-style model used in the present work, and in the following section we use the Decorated HOD model described in \citet{hearin_etal16}. In both cases, we will only briefly review the salient features of our methodology here; interested readers can always refer to {\tt halotools.readthedocs.io} for further details. 
+To generate predictions for galaxy clustering, we directly populate dark matter halos with mock galaxies using {\tt Halotools}. 
+We explore halo occupation distribution models (HOD) models in this work 
+\citep[e.g.][]{seljak00,ma_fry00,scoccimarro01a,berlind02}, though other 
+techniques that can be used to interpret such data, such as the conditional luminosity function 
+\citep[CLF, e.g.,][]{yang03,vdBosch13}, exist. In this section, we review the ``standard" HOD 
+model used in the present work which assumes that there is no galaxy assembly bias. We refer to 
+such a model as ``standard" because all HOD analyses of galaxy clustering to date have assumed no 
+galaxy assembly bias. In the following section, we describe 
+the Decorated HOD model described in \citet{hearin_etal16}. In both cases, we will only 
+review the salient features of our methodology briefly; 
+interested readers can always refer to {\tt halotools.readthedocs.io} and 
+\citet{hearin_etal16} for further details. 
 
 \subsubsection{Simulation}
-All of our analyses are based on the Bolshioi-Planck simulation \citep{riebe_etal11}. 
-Bolshoi-Planck was run with cosmological parameters based on \citet{planck13}, $\Omega_{\Lambda} = 0.693, \Omega_{\rm m} = 0.307, \Omega_{\rm b} = 0.048, h = 0.7, {\rm n_s}=0.96$ and $\sigma_8 = 0.82,$ and with a box size of $250$ ${\rm Mpc}/h$ and a particle mass of $m_{\rm p} = 1.35\times10^{8}M_{\odot}/h.$ Further information about the Bolshoi-Planck simulation is available at \url{https://www.cosmosim.org}. 
 
-We use publicly available\footnote{\tt http://www.slac.stanford.edu/$\sim$behroozi/BPlanck\_Hlists} dark matter halo catalogs based on the {\tt ROCKSTAR} halo-finder \citep{behroozi_rockstar11} and {\tt CONSISTENT TREES} algorithm \citep{behroozi_trees13}. In particular, we use the {\tt halotools\_alpha\_version2} version of the $z=0$ snapshot of the {\tt `bolplanck'} catalog included with {\tt Halotools.} Halos in these catalogs are based on the virial radius density contrast given in \citet{bryan_norman98}. When populating this catalog with mock galaxies, we only use present-day host halos with a value of $M_{\rm peak}$ that exceeds $300$ particles. 
+All of our analyses are based on the Bolshioi-Planck simulation \citep{riebe_etal11}. 
+Bolshoi-Planck was run with cosmological parameters based on \citet{planck13}, $\Omega_{\Lambda} = 0.693, \Omega_{\rm m} = 0.307, \Omega_{\rm b} = 0.048, h = 0.7, {\rm n_s}=0.96$ and $\sigma_8 = 0.82,$ within a cubic box 
+$250$ ${\rm Mpc}/h$ on a side, requiring a particle mass of $m_{\rm p} = 1.35\times10^{8}M_{\odot}/h.$ 
+Further information about the Bolshoi-Planck simulation is available at \url{https://www.cosmosim.org}. 
+
+We use publicly available\footnote{\tt http://www.slac.stanford.edu/$\sim$behroozi/BPlanck\_Hlists} dark matter 
+halo catalogs based on the {\tt ROCKSTAR} halo-finder \citep{behroozi_rockstar11} and {\tt CONSISTENT TREES} algorithm \citep{behroozi_trees13}. In particular, we use the {\tt halotools\_alpha\_version2} version of the $z=0$ snapshot 
+of the {\tt `bolplanck'} catalog included with {\tt Halotools.} Halos in these catalogs are based on the virial radius 
+density contrast given in \citet{bryan_norman98}. When populating this catalog with mock galaxies, we only use 
+present-day host halos with a value of $M_{\rm peak}$ that exceeds $300$ particles. 
 
 
 \subsubsection{Occupation statistics}
 
-In standard HOD models, there are two types of galaxies: centrals and satellites. The galaxy-halo connection is specified in terms of $P(\ncen|\mvir)$ and $P(\nsat|\mvir),$ the probability that a halo of mass $\mvir$ hosts $\ncen$ central and $\nsat$ satellite galaxies, respectively. $P(\ncen|\mvir)$ is typically a nearest-integer distribution, as a host halo has only either zero or one central galaxy. So occupation statistics of central galaxies are specified by the first moment of $P(\ncen|\mvir)$, which we model as 
-
+In standard HOD models, central galaxies and satellite galaxies are treated separately, so 
+the model is specified by two probability distributions, one for each type of galaxy. 
+The galaxy-halo connection is specified in terms of $P(\ncen|\mvir)$ and $P(\nsat|\mvir),$ 
+the probability that a halo of mass $\mvir$ hosts $\ncen$ central and $\nsat$ satellite galaxies, 
+respectively. $P(\ncen|\mvir)$ is typically a nearest-integer distribution, as a host halo has only 
+either zero or one central galaxy. Consequently, the occupation statistics of central galaxies are 
+specified by the first moment of $P(\ncen|\mvir)$, which we model as 
+%
 \begin{equation}
 \label{eq:ncen}
 \langle N_{\mathrm{cen}} \rangle(\mvir) =
         \frac{1}{2}\left( 1 +
-        \mathrm{erf}\left( \frac{\log_{10}\mvir -
-        \log_{10}M_{\rm min}}{\sigma_{\log_{10}M}} \right) \right)
+        \mathrm{erf}\left( \frac{\log (\mvir) -
+        \log (M_{\rm min})}{\sigma_{\log M}} \right) \right)
 \end{equation}
+%
 For every host halo in the catalog we draw a random number from a uniform distribution $\mathcal{U}(0, 1);$ for a host halo of present-day virial mass $\mvir,$ a central galaxy is assigned to the halo if the associated random number is less than $\langle N_{\mathrm{cen}} \rangle(\mvir);$ halos with random values exceeding  $\langle N_{\mathrm{cen}} \rangle(\mvir)$ are left devoid of centrals. 
+The parameter $\log (M_{\rm min})$ specifies the halo mass at which the halo has a 50\% probability of hosting a 
+central galaxy, while the parameter $\sigma_{\log M}$ specifies the rate at which $\langle N_{\mathrm{cen}} \rangle (\mvir)$ 
+transitions from zero to unity, with smaller values of $\sigma_{\log M}$ corresponding to a more rapid transition. 
 
-We model the distribution $P(\nsat|\mvir)$ to be a Poisson distribution with first moment given by a power law, 
+
+We model the distribution $P(\nsat|\mvir)$ as a Poisson distribution with first moment given by a power law, 
+%
 \begin{equation}
 \label{eq:nsat}
 \langle N_{\rm sat}\rangle(\mvir) = \left( \frac{\mvir - M_0}{M_1} \right)^{\alpha}. 
 \end{equation}
+%
+The parameter $M_0$ allows the power-law to be truncated more rapidly at low masses and we 
+set $\langle N_{\rm sat}\rangle (\mvir) = 0$ for $\mvir < M_0$. 
+
+
+The five parameters of the standard HOD models are varied in standard analyses are $\log (M_{\rm min})$, 
+$\sigma_{\log M}$, $\alpha$, $\log (M_1)$, and $\log (M_0)$, though, as we show below, central galaxies usually 
+outnumber satellite galaxies in by a factor of several, so $\log (M_{\rm min})$ and $\sigma_{\log M}$ usually 
+vary along a narrow degeneracy that fixes the total galaxy number density to the observed value. There are 
+many particular choices that can be made for the functional forms of $\langle N_{\rm cen}\rangle (\mvir)$ and 
+$\langle N_{\rm sat}\rangle (\mvir)$. We have made choices that mimic the standard SDSS DR7 analysis of 
+\citet{zehavi_etal11}, to expedite comparisons with their results.
+
 
 \subsubsection{Galaxy profiles}
 
-Central galaxies in the standard HOD models reside at the halo center, moving with the same velocity as the host halo peculiar velocity. We model the intra-halo spatial distribution of satellite galaxies to be located within $\rvir$ of the halo center, with a spherically symmetric NFW profile \citep{nfw97}. The concentration $c$ of each halo's satellite galaxy profile is taken to be the same as the concentration of the dark matter particles in the halo.\footnote{We set a maximum value of $c=25$ to the NFW concentration, because halos with very large values for the concentration tend to be poorly described by an NFW profile, for example due to a recent merger.}
+Central galaxies in the standard HOD models reside at the halo center, 
+moving with the same velocity as the host halo peculiar velocity. We model 
+the intra-halo spatial distribution of satellite galaxies to be located within $\rvir$ 
+of the halo center, with a spherically symmetric NFW profile \citep{nfw97}. 
+The concentration $c$ of each halo's satellite galaxy profile is taken to be 
+the same as the concentration of the dark matter particles in the 
+halo.\footnote{We set a maximum value of $c=25$ to the NFW concentration, 
+because halos with very large values for the concentration tend to be poorly 
+described by an NFW profile, for example due to a recent merger.}
 
-We model the velocities of satellite galaxies to be a Gaussian whose first moment is the host halo velocity and whose second moment is the solution to the isotropic Jeans equation for an NFW profile \citep{more09b}, 
+
+We model the velocities of satellite galaxies as a Gaussian whose 
+first moment is the host halo velocity and whose second moment is the 
+solution to the isotropic Jeans equation for an NFW profile \citep{more09b}, 
 \begin{equation}
 \sigma^{2}_{r}(\tilde{r}|c) = V_{\rm vir}^{2}\frac{c^{2}\tilde{r}(1 + c\tilde{r})^{2}}{g(c)}\int_{c\tilde{r}}^{\infty}{\rm d}y\frac{g(y)}{y^{3}(1 + y)^{2}}, 
 \end{equation}
-where $\tilde{r} = r/\rvir,$ $g(x) = \rm{ln}(1+x) - x / (1+x),$ and $V_{\rm vir}^{2} = G\mvir/\rvir.$
+where $\tilde{r} = r/\rvir,$ $g(x) = \rm{ln}(1+x) - x / (1+x),$ and $V_{\rm vir}^{2} = G\mvir/\rvir.$ 
+In this way, we model the influence of redshift-space distortions on our predicted 
+two-point functions.
 
 
 %---------------------------
@@ -192,7 +253,29 @@ where $\tilde{r} = r/\rvir,$ $g(x) = \rm{ln}(1+x) - x / (1+x),$ and $V_{\rm vir}
 \label{subsection:decorated}
 %---------------------------
 
-In addition to the standard occupation statistics described in the previous section, in this paper we also use the decorated HOD formalism to connect galaxies to dark matter halos in a manner that has simultaneous dependence on both $\mvir$ and halo concentration. Briefly, we use Equations \ref{eq:ncen} and \ref{eq:nsat} as our ``baseline" first occupation moments. At fixed $\mvir,$ halos are divided into one of two categories, those of high- and low-concentration, depending on whether the concentration of the halo places it above or below the rank-order percentile $f_{\rm split},$ which we keep fixed to $f_{\rm split}=0.5$ throughout the paper. High-concentration halos have a different first occupation moment relative to low-concentration halos of the same mass, $\langle\ngal|\mvir, c_{\rm high}\rangle \neq \langle\ngal|\mvir, c_{\rm low}\rangle.$ The difference between the first moment of high- and low-concentration halos is modulated by $\abias,$ the novel parameter of the decorated HOD governing assembly bias. Values of $\abias=\pm1$ correspond to the maximum strength of assembly bias allowable by the constraint that the model preserves the marginalized first moment, $\langle\ngal|\mvir\rangle;$ thus regardless of the value of $\abias,$ in the decorated HOD the marginalized first moment of centrals and satellites are unchanged from the baseline value defined by Equations \ref{eq:ncen} and \ref{eq:nsat}. We refer the reader to \citet{hearin_etal16} for further details about the decorated HOD. 
+In addition to the standard occupation statistics described in the previous section, 
+in this paper we also use the decorated HOD formalism to connect galaxies t
+o dark matter halos in a manner that has simultaneous dependence on both $\mvir$ and halo concentration. 
+Briefly, we use Equations \ref{eq:ncen} and \ref{eq:nsat} as our ``baseline" first occupation moments. 
+At fixed $\mvir,$ halos are divided into one of two categories, those of high- and low-concentration, 
+depending on whether the concentration of the halo places it above or below the rank-order percentile 
+$f_{\rm split},$ which we keep fixed to $f_{\rm split}=0.5$ throughout the paper for simplicity. 
+High-concentration halos have a different first occupation moment relative to low-concentration 
+halos of the same mass, $\langle\ngal|\mvir, c_{\rm high}\rangle \neq \langle\ngal|\mvir, c_{\rm low}\rangle.$ The difference between the first moment of high- and low-concentration halos is modulated by $\abias,$ the novel parameter of the decorated HOD governing assembly bias. Values of $\abias=\pm1$ correspond to the maximum strength of assembly bias allowable by the constraint that the model preserves the marginalized first moment, $\langle\ngal|\mvir\rangle;$ thus regardless of the value of $\abias,$ in the decorated HOD the marginalized first moment of centrals and satellites are {\em unchanged from the baseline value defined by Equations \ref{eq:ncen} and \ref{eq:nsat}}. 
+Decorated HOD models all have the same HODs, when averaged over all halos at fixed mass, as standard HOD models. The only 
+change in Decorated HOD models is whether or not an additional property also modulates halo occupation at fixed halo mass. A 
+value of $\abias = 0$ indicates no galaxy assembly bias whatsoever. We refer the reader to \citet{hearin_etal16} for 
+further details about the decorated HOD. 
+
+In the present work, we fix our model to the simplest class of galaxy assembly bias models, though a recipe for 
+generalizing to more complicated models can be found in \citet{hearin_etal16}. In particular, we split halos into 
+two populations as specified in the previous paragraph. We then populate halos with satellite galaxies specified 
+by an assembly bias parameter $-1 \le A_{\rm sat} \le 1$ and central galaxies with a distinct assembly bias 
+parameter $-1 \le A_{\rm cen} \le 1$. These two additional parameters are varied in our analyses that include 
+assembly bias, making the number of parameters that vary in these analyses seven. As we show below, 
+these additional parameters are in many instances poorly constrained by clustering data of the quality of 
+SDSS DR7 alone, so exploring more complex models of assembly bias does not yet seem justified.
+
 
 %---------------------------
 \subsection{Parameter Inference}
