@@ -20,7 +20,6 @@
 
 
 \newcommand{\mvir}{M_{\rm vir}}
-\newcommand{\vmax}{v_{\rm max}}
 \newcommand{\rvir}{R_{\rm vir}}
 \newcommand{\ncen}{N_{\rm cen}}
 \newcommand{\nsat}{N_{\rm sat}}
@@ -111,14 +110,15 @@ Important points:
 For more than a decade, halo occupation modeling has been used to
 interpret large-scale structure measurements and exploit these
 measurements to constrain galaxy formation models and cosmology
-\citep[e.g.,][]{yang03,tinker05,zehavi05a,
-  porciani06,vdBosch07,Zheng07,conroy_wechsler09,yang09b,zehavi_etal11,guo_etal11b,
-  wake_etal11,yang11a,yang12,leauthaud_etal12,rod_puebla12,tinker_etal13,cacciato_etal13,
-  more_etal13,guo_etal14,zu_mandelbaum15b}. The key assumptions
-underlying halo occupation modeling are: (1) all galaxies reside in
-dark matter halos that are biased tracers of the density field; and
-(2) galaxies occupy halos as a function of halo masses only. It is now
-well known that halo bias depends upon halo properties other than mass
+\citep[e.g.,][]{yang03,tinker05,zehavi05a,porciani06,vdBosch07,
+  Zheng07,conroy_wechsler09,yang09b,zehavi_etal11,guo_etal11b,
+  wake_etal11,yang11a,yang12,leauthaud_etal12,rodriguezpuebla_etal12,
+  tinker_etal13,cacciato_etal13,more_etal13,guo_etal14,zu_mandelbaum15b}. The
+key assumptions underlying halo occupation modeling are: (1) all
+galaxies reside in dark matter halos that are biased tracers of the
+density field; and (2) galaxies occupy halos as a function of halo
+masses only. It is now well known that halo bias depends upon halo
+properties other than mass
 \citep[e.g.][]{gao_etal05,wechsler06,gao_white07,zentner07,dalal_etal08,lacerna11},
 an effect called halo assembly bias. If galaxies occupy halos as a
 function of properties other than halo mass, then standard halo
@@ -128,12 +128,11 @@ be significant in an analysis of galaxy clustering and can bias
 inferences about many aspects of galaxy evolution
 \citep{zentner_etal14}. Consequently, we have developed halo
 occupation models that enable galaxies to occupy halos in a manner
-that depends upon several halo properties \citep{hearin_etal16}.  See
-also \citet{Yao_etalXX} for a similar approach. In this paper, we
-revisit the interpretation of luminosity-dependent galaxy clustering
-in the Sloan Digital Sky Survey (SDSS) Data Release 7 (DR7) data,
-analyzed previously by \citet{zehavi_etal11}, in the context both
-standard halo occupation models and these new models.
+that depends upon several halo properties \citep{hearin_etal16}. In
+this paper, we revisit the interpretation of luminosity-dependent
+galaxy clustering in the Sloan Digital Sky Survey (SDSS) Data Release
+7 (DR7) data, analyzed previously by \citet{zehavi_etal11}, in the
+context both standard halo occupation models and these new models.
 
 The ultimate goal of halo occupation modeling is to characterize the
 galaxy-dark matter connection by constraining the probability
@@ -151,70 +150,38 @@ Steinmetz 1997; Jing, Mo \& B\"orner 1998; Berlind \& Weinberg 2002)
 which aim to constrain $P(N|\mvir)$, the probability that a halo of
 mass $M$ contains $N$ galaxies of some specified properties (typically
 a luminosity or stellar mass larger than some threshold value), and
-all Conditional Luminosity Function (CLF) models (Yang etal. 2003;),
-which aim to constrain $\Phi(L|M)$, the luminosity (or stellar mass)
-function of galaxies in haloes of mass $M$. The HOD and CLF models are
-mainly used in combination with the halo model, which describes the
-non-linear matter field in terms of halo building blocks (e.g., ), to
-predict the clustering of galaxies as function of luminosity or
-stellar mass.  Although entirely analytical, and therefore fast, the
-downside of this method is that it is extremely challenging to
-construct a model that is accurate at the few percent level. The main
-issues are halo exclusion (Cooray \& Seth; van den Bosch \etal 2013),
-scale dependence of the halo bias (e.g., Tinker et al. ), and the halo
-assembly bias mentioned above.
+all Conditional Luminosity Function (CLF) models, which aim to
+constrain $\Phi(L|M)$, the luminosity (or stellar mass) function of
+galaxies in haloes of mass $M$. The HOD and CLF models are mainly used
+in combination with the halo model, which describes the non-linear
+matter field in terms of halo building blocks (e.g., ), to predict the
+clustering of galaxies as function of luminosity or stellar mass.
+Although entirely analytical, and therefore fast, the downside of this
+method is that it is extremely challenging to construct a model that
+is accurate at the few percent level. The main issues are halo
+exclusion (Cooray \& Seth; van den Bosch \etal 2013), scale dependence
+of the halo bias (e.g., Tinker et al. ), and the halo assembly bias
+mentioned above.
 
 These issues are trivially avoided by directly populating dark matter
 haloes in numerical simulations with galaxies. This can be done using
 either a parameterized model for the halo occupation statistics (e.g.,
-Yang \etal 2004; Moster \etal 2010; Behroozi \etal 2010, 2013) or by
-rank-order matching galaxy properties (i.e., luminosity or stellar
-mass) to halo properties (i.e., halo mass). The latter method is known
-as subhalo abundance matching (SHAM).  Although many SHAM studies use
-halo mass as the halo property of choice (e.g., Vale \& Ostriker
-2004,2006; Conroy, Wechsler \& Kravtsov 2007; Conroy \& Wechsler
-2009), a number of studies have used alternative halo properties, such
-as the maximum circular velocity, $\vmax$, or its peak value over the
-halo's history, $V_{\rm peak}$ (e.g., Tasitsiomi \etal 2004; Conroy,
-Wechsler \& Kravtov 2006; Mar\'in \etal 2008; Reddick \etal 2013).
-Since, at fixed halo mass, $\vmax$ is correlated with halo
-concentration, and thus with halo assembly time, the resulting
-occupation models have assembly bias build in
-\citep[see][]{Zentner_etal14}; i.e., at fixed halo mass, galaxy
-properties will be correlated with halo assembly
-time. \citet{lehmann_etal15} took this one step further, and explored
-SHAM models in which the halo property varies between $M$ and $\vmax$
-via a continuously-valued parameter. Using SDSS clustering
-measurements to constrain their model, they conclude that galaxy
-luminosity reveals a significant dependence on halo
-concentration. Since the latter is strongly correlated with halo
-formation time (e.g., Wechsler etal XX), their conclusions argue for a
-non-zero assembly bias in the galaxy population.
-
-This was taken one step further by Hearin ccc, who developed an
-extension of SHAM, called age-matching. In age-matching a {\it secondary}
-galaxy property (e.g., color or specific star formation rate) is
-linked to a {\it secondary} halo property (e.g., halo formation time or
-concentration). 
+Yang \etal 2004; Moster \etal 2010; Behroozi \etal 2010, 2013; Rodriguez-Puebla, Drory
+\& Avila-Reese 2012;)
 
 
-As pointed out in Zentner, Hearin & van den Bosch (2014), this choice
-results in significant levels of assembly bias in
+Hydrodynamical simulations and semi-analytical models for galaxy formation
+can also be used to populated haloes with galaxies, but these methods are
+typically much too slow to be used for still much to slow to 
 
 
-the following sense:
-⟨Nc|Mvir,Vmax⟩ ≠ ⟨Nc|Mvir⟩ and ⟨Ns|Mvir,Vmax⟩ ≠ ⟨Ns|Mvir⟩. In an in-
-teresting recent advance of the abundance matching for- malism,
-Lehmann et al. (2015) explored SHAM models in which the subhalo
-property x varies between Mvir and Vmax via a continuously-valued
-parameter α. They fit the newly introduced parameter α to SDSS
-clustering mea- surements at z ≈ 0, and their best-fit model
-significantly prefers “Vmax−like” subhalo properties over “pure-Mvir”
-properties. That is, low-redshift clustering measurements are better
-described by SHAM-style models in which ⟨Ns⟩ and ⟨Nc⟩ do not depend on
-virial mass Mvir alone (see also Mao, Williamson & Wechsler 2015, for
-closely related work).
-
+Another approach to halo occupation
+modeling is subhalo abundance matching (SHAM), which assigns galaxies
+to dark matter haloes in numerical simulations by rank-order matching
+galaxy properties (i.e., luminosity or stellar mass) to halo
+properties (i.e., halo mass). Although many SHAM studies use
+halo mass as the halo property of choice (Vale \& Ostriker 2004,2006;
+Conroy, Wechsler \& Kravtsov 2007; Conroy \& Wechsler 2009)
 
 Tasitsiomi \etal 2004; V_{max}
 Conroy, Wechsler \& Kravtsov (2006) uses V_max
@@ -246,6 +213,17 @@ the resulting occupation models have assembly bias build in; i.e., at
 fixed halo mass, galaxy properties will be correlated with halo
 assembly time. This was taken one step further by Hearin ccc, who developed
 an extension of SHAM, called age-matching. 
+
+Lehmann et al. (2015) explored SHAM models in which the subhalo
+property $x$ varies between Mvir and Vmax via a continuously-valued
+parameter $\alpha$. They fit the newly introduced parameter, $\alpha$,
+to SDSS clustering measurements at $z \simeq 0$, and their best-fit
+model significantly prefers “Vmax−like” subhalo properties over
+“pure-Mvir” properties. That is, low-redshift clustering measurements
+are better described by SHAM-style models in which $\langle N_\rms
+\rangle$ and $\langle N_\rmc \rangle$ do not depend on virial mass
+Mvir alone (see also Mao, Williamson & Wechsler 2015, for closely
+related work).
 
 
 Our work is important for several reasons. Our work is a re-analysis
