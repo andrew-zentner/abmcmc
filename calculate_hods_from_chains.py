@@ -71,20 +71,17 @@ def retrieve_random_param_dict(chain, delta_chi2_cutoff=1):
     idx_chi2_cuotff = np.searchsorted(chain['chi2'].data, chain['chi2'][0]+delta_chi2_cutoff)
     idx_random = np.random.randint(0, idx_chi2_cuotff)
     assert chain['chi2'][idx_random] <= chain['chi2'].min() + 1
-
     d = {}
     d['logMmin'] = chain['logMmin'][idx_random]
     d['logM0'] = chain['logM0'][idx_random]
     d['sigma_logM'] = chain['sigmalogM'][idx_random]
     d['logM1'] = chain['logM1'][idx_random]
     d['alpha'] = chain['alpha'][idx_random]
-
     try:
         d['mean_occupation_centrals_assembias_param1'] = chain['Acen'][idx_random]
         d['mean_occupation_satellites_assembias_param1'] = chain['Asat'][idx_random]
     except KeyError:
         pass
-
     return d
 
 
@@ -125,15 +122,15 @@ np.seterr(divide='ignore', invalid='ignore')  # ignore divide by zero in e.g. DD
 
 
 def calculate_hod(halo_table, galaxy_table):
-    halo_counts = np.histogram(halo_table['halo_mvir'].data, mass_bins)[0]
+    halo_counts = np.histogram(halo_table['halo_mvir'].data, mass_bins)[0].astype('f4')
 
     central_mask = galaxy_table['gal_type'] == 'centrals'
     central_counts = np.histogram(galaxy_table['halo_mvir'][central_mask].data,
-        mass_bins)[0]
+        mass_bins)[0].astype('f4')
 
     satellite_mask = galaxy_table['gal_type'] == 'satellites'
     satellite_counts = np.histogram(galaxy_table['halo_mvir'][satellite_mask].data,
-        mass_bins)[0]
+        mass_bins)[0].astype('f4')
 
     return mass_bins, central_counts/halo_counts, satellite_counts/halo_counts
 
