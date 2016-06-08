@@ -19,13 +19,13 @@ parser.add_argument("chain_dirname", type=str,
 parser.add_argument("-num_iterations", type=int, default=50,
     help="Number of times to repeatedly populate mocks to calculate the HOD."
     "Default is 50.")
-parser.add_argument("-min_mass", type=int, default=11.5,
+parser.add_argument("-min_mass", type=int, default=11,
     help="Minimum mass to use in the logarithmically spaced mass bins used to calculate the HOD. "
     "Default is 11.5")
-parser.add_argument("-max_mass", type=int, default=14.5,
+parser.add_argument("-max_mass", type=int, default=14.75,
     help="Minimum mass to use in the logarithmically spaced mass bins used to calculate the HOD. "
     "Default is 14.5")
-parser.add_argument("-num_mass_bins", type=int, default=20,
+parser.add_argument("-num_mass_bins", type=int, default=30,
     help="Number of logarithmically-spaced mass bins used to calculate the HOD. "
     "Default is 20")
 parser.add_argument("-output_dirname", type=str, default='./',
@@ -187,3 +187,4 @@ print("...working on calculation of HOD for standard case")
 write_result_to_disk(std_model, wp20_std_chain, output_fname_std)
 print("...working on calculation of HOD for assembly-biased case")
 write_result_to_disk(ab_model, wp20_ab_chain, output_fname_ab)
+print("\a")
