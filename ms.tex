@@ -73,7 +73,7 @@
 
 \title[Clustering Constraints on Assembly Bias]
 {
-Constraints on Assembly Bias from Galaxy Clustering. 
+Constraints on Assembly Bias from Galaxy Clustering
 }
 
 % Authors ------------------------------------------------------
@@ -99,10 +99,6 @@ $^4$Paisley Park, Chanhassen, MN\\
 \maketitle
 %----------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%  A B S T R A C T %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% ARZ: Important points:
-% -supersedes previous analyses even for standard HOD.
-% -cannot rule out assembly bias using galaxy clustering.
-% -some samples favor assembly bias.
 \begin{abstract}
   We constrain the newly-introduced Decorated HOD model using SDSS DR7
   measurements of projected galaxy clustering, $\wprp,$ and number
@@ -141,130 +137,101 @@ measurements to constrain galaxy formation models and cosmology
   more_etal13,guo_etal14,zu_mandelbaum15b}. The key assumptions
 underlying halo occupation modeling are: (1) all galaxies reside in
 dark matter halos that are biased tracers of the density field; and
-(2) galaxies occupy halos as a function of halo masses only. It is now
-well known that halo bias depends upon halo properties other than mass
+(2) galaxies occupy halos as a function of halo mass $\mvir$ only. 
+
+It is now well known that halo bias depends upon halo properties other than $\mvir$
 \citep[e.g.][]{gao_etal05,wechsler06,gao_white07,zentner07,dalal_etal08,lacerna11},
 an effect called halo assembly bias. If galaxies occupy halos as a
-function of properties other than halo mass, then standard halo
+function of halo properties other than $\mvir,$ then standard halo
 occupation methods will be subject to a systematic error due to galaxy
-assembly bias. Several of us have previously shown that this error can
+assembly bias. 
+Several of us have previously shown that this error can
 be significant in an analysis of galaxy clustering and can bias
 inferences about many aspects of galaxy evolution
-\citep{zentner_etal14}. Consequently, we have developed halo
-occupation models that enable galaxies to occupy halos in a manner
-that depends upon several halo properties \citep{hearin_etal16}.  In
-this paper, we revisit the interpretation of luminosity-dependent
+\citep{zentner_etal14}. 
+
+
+There is increasing observational evidence that galaxy assembly bias is 
+present in the real Universe. 
+Using an approach based on subhalo abundance matching, 
+\citet{lehmann_etal15} showed that the clustering of low-redshift 
+galaxies favors models in which stellar mass depends upon a 
+combination of $\mvir$ and halo concentration.
+\citet{miyatake_etal16} and \citet{more_etal16} have 
+presented evidence for the presence of assembly bias in massive
+clusters; in particular, they find that clusters with a more
+concentrated distribution of satellite galaxies exhibit a weaker large-scale bias 
+relative to clusters of the same mass with satellite galaxies that
+are less centrally concentrated. 
+Additional support for the presence of assembly bias has come from a
+variety of studies that have shown, or suggested, that the large-scale
+environment of dark matter halos of fixed mass 
+is correlated with the star formation rate of their central galaxies 
+\citep{yang_etal06a, blanton_berlind07,wang_etal08,wang_etal13,hearin_etal14}. 
+
+Despite this growing evidence, the empirical modeling community 
+has not yet reached a consensus on the question of galaxy assembly bias. 
+For example, \citet{lin_mandelbaum_etal15} claim that 
+some of the above evidence for assembly bias can be explained by
+differences in halo mass between the galaxy samples under consideration.
+\citet{paranjape15} urges caution that contamination by satellite galaxies 
+can masquerade as a false signal of assembly bias. 
+\citet{tinker08b} argue that measurements of void statistics place strong 
+bounds on the possible strength of the signal. 
+
+In much of the literature on this topic, 
+the character of the supporting evidence
+suffers from a severe shortcoming. 
+Until very recently, the only models that have been fit to 
+observational clustering measurements have been traditional models 
+in which assembly bias is assumed from the outset to be zero. 
+Models that include assembly bias such as semi-analytic models 
+are typically too computationally expensive 
+for anything besides a ``one-off" comparison \citep[e.g.,][]{croton_etal07}, prohibiting 
+any conclusive statement to be made about the strength of the signal.
+
+Motivated by this shortcoming, we have developed a new class of 
+empirical models that enable galaxies to occupy halos in a manner
+that has {\em simultaneous} dependence 
+upon multiple halo properties \citep{hearin_etal16}, 
+{\em including continuously variable levels of assembly bias}.
+Crucially, our implementation is of sufficient computational efficiency 
+to permit a proper likelihood analysis of the model parameter space. 
+Armed with this new methodology, in this paper 
+we revisit the interpretation of luminosity-dependent
 galaxy clustering in the Sloan Digital Sky Survey (SDSS) Data Release
 7 (DR7) data, analyzed previously by \citet{zehavi_etal11}, in the
 context both standard halo occupation models and these new models.
 
-The ultimate goal of halo occupation modeling is to characterize the
-galaxy-dark matter connection by constraining the probability
-distribution $P(X_{\rm g}|Y_{\rm h})$. Here $X_{\rm g} = \{x_1, x_2,
-  ...x_n\}$ is a set of $n$ galaxy properties, and $Y_{\rm h} = \{y_1,
-  y_2,...,y_m\}$ a set of $m$ halo properties. Accurate knowledge of
-this probability distribution yields invaluable insight regarding the
-processes of galaxy formation, and allows one to make accurate
-predictions for the clustering of galaxies as function of any property
-$x_i$. Most halo occupation studies to date have restricted themselves
-to only one halo property, namely halo mass.  This includes Halo
-Occupation Distribution (HOD) models, which aim to constrain
-$P(N|\mvir)$, the probability that a halo of mass $M$ contains $N$
-galaxies of some specified properties
-\citep[e.g.,][]{kauffmann_etal97,jing98,benson01,berlind02}, and
-Conditional Luminosity Function (CLF) models, which aim to constrain
-$\Phi(L|M)$, the luminosity (or stellar mass) function of galaxies in
-haloes of mass $M$ \citep[e.g.,][]{yang03,vdBosch03a,cooray06}. The
-HOD and CLF models are mainly used in combination with the halo model,
-which describes the non-linear matter field in terms of halo building
-blocks \citep[e.g.,][]{seljak00,cooray02}, to predict the clustering
-of galaxies as function of luminosity or stellar mass.  Although
-entirely analytical, and therefore fast, the downside of this method
-is that it is extremely challenging to construct a model that is
-accurate at the few percent level. The main issues are halo exclusion
-\citep[see][]{smith_etal07,vdBosch13}, scale dependence of the halo
-bias \citep[see][]{tinker05}, and the halo assembly bias mentioned
-above.
-
-These issues are trivially avoided by directly populating dark matter
-haloes in numerical simulations with galaxies. This can be done using
-either a parameterized model for the halo occupation statistics
-\citep[e.g.,][]{Yang_etal04,moster10,behroozi10,behroozi13} or by
-rank-order matching galaxy properties (i.e., luminosity or stellar
-mass) to halo properties (i.e., halo mass). The latter method is known
-as subhalo abundance matching (SHAM).  Although many SHAM studies use
-halo mass as the halo property of choice
-\citep[e.g.,][]{vale_ostriker04,vale_ostriker06,conroy07,conroy_wechsler09},
-a number of studies have used alternative halo properties, such as the
-maximum circular velocity, $\vmax$, or its peak value over the halo's
-history, $V_{\rm peak}$
-\citep[e.g.][]{tasitsiomi_etal04,conroy06,marin_etal08,reddick_etal13}
-
-Since, at fixed halo mass, $\vmax$ is correlated with halo
-concentration, and thus with halo assembly time, the resulting
-occupation models have assembly bias build in
-\citep[see][]{zentner_etal14}; i.e., at fixed halo mass, galaxy
-properties will be correlated with halo assembly
-time. \citet{lehmann_etal15} took this one step further, and explored
-SHAM models in which the halo property varies between $M$ and $\vmax$
-via a continuously-valued parameter. Using SDSS clustering
-measurements to constrain their model, they conclude that at fixed
-halo mass galaxy luminosity reveals a significant dependence on halo
-concentration. Since the latter is strongly correlated with halo
-formation time \citep[e.g.,][]{wechsler02,zhao_etal09,ludlow_etal13},
-their conclusions argue for non-zero assembly bias in the galaxy
-population.
-
-Additional support for the presence of assembly bias has come from a
-variety of studies that have shown, or suggested, that the large-scale
-environment (i.e., clustering strength) of dark matter haloes {\it of
-  fixed mass} is correlated with the star formation rate of their
-central
-galaxies\citep[][]{yang_etal06a,blanton_berlind07,wang_etal08,tinker_etal12,wang_etal13,HW13a,hearin_etal13b,hearin_etal14,watson_etal14}.
-However, \citet{lin_mandelbaum_etal15} claim that most of these
-differences in clustering strength can be explained as due to
-differences in halo mass or contamination by satellite galaxies, and
-therefore argue that there is no significant evidence for assembly
-bias in galaxy-scale halos \citep[see also][]{paranjape15}.  On the
-other hand, \citet{miyatake_etal16} and \citet{more_etal16} recently
-presented strong evidence for the presence of assembly bias in massive
-clusters; in particular, they find that clusters with a more
-concentrated distribution of satellite galaxies are less strongly
-clustered than their equal-mass counterparts whose satellite galaxies
-are less centrally concentrated. To summarize, while there is strong
-evidence for the presence of assembly bias on the scale of clusters,
-there is not concensus yet as to whether assembly bias plays also a
-role in less massive haloes.
-
-Our work is important for several reasons. Our work is a re-analysis
-of the SDSS DR7 data that overcomes shortcomings of previous
+Our work is a re-analysis of the SDSS DR7 data that 
+overcomes numerous shortcomings of previous
 analyses. In particular, we use direct population of galaxies in a
 cosmological simulation so that delicate issues present in analytic
 modeling, such as scale-dependent halo bias, are treated exactly.  The
 simulation we use is based on the latest Planck cosmological
-parameters, updating previous work. Furthermore, many important
+parameters \citep{planck13}, updating previous work. 
+Furthermore, many important
 differences between this work and the previous analysis by
 \citet{zehavi_etal11} result from the fact that the Monte Carlo Markov
-Chains used by Zehavi et al. were too small and had therefore not
+Chains used in \citet{zehavi_etal11} were too small and had not
 converged (Z. Zheng \& I. Zehavi, private communication).  Therefore,
-our analysis {\em supersedes previous analyses even in the case of
-  standard halo occupation models}.
+{\em our analysis supersedes previous work even in the case of
+standard halo occupation models}.
 
-Furthermore, our work demonstrates explicitly that significant
-assembly bias in $M_r$-selected samples from SDSS DR7 cannot be ruled
+Most importantly, our work demonstrates explicitly that significant
+assembly bias in $\magr$-selected samples from SDSS DR7 cannot be ruled
 out based on a standard analysis of galaxy clustering only. In fact,
 in agreement with \citet{lehmann_etal15}, we find that several samples
 {\em favor galaxy assembly bias to a degree that is statistically
   significant}. As demonstrated by \citet{zentner_etal14}, this
-conclusion could have important consequences for the interpretation of
-both extant and forthcoming data.
+conclusion has important consequences for the interpretation of
+both extant and forthcoming data. 
 
 Our paper is organized as follows. In Section~\ref{section:methods},
-we discuss our implementation of halo occupation models and our
-assumptions in our parameter inference analysis. We present results
-for both standard halo occupation analysis and analysis in the context
-of models with galaxy assembly bias in
-Section~\ref{section:results}. We summarize our results and draw
+we discuss our implementation of halo occupation models and the
+parameter inference methodology. We present results
+from both traditional and assembly-biased halo occupation analyses 
+in Section~\ref{section:results}. We summarize our results and draw
 conclusions in Section~\ref{section:conclusions}.
 
 %---------------------------
