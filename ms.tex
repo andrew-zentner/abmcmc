@@ -102,14 +102,14 @@ $^4$Paisley Park, Chanhassen, MN\\
 \begin{abstract}
   We constrain the newly-introduced Decorated HOD model using SDSS DR7
   measurements of projected galaxy clustering, $\wprp,$ and number
-  density, $n_{\rm d},$ made from r-band luminosity-threshold
+  density, $n_{\rm g},$ made from r-band luminosity-threshold
   samples. The Decorated HOD is a model for the galaxy--halo
   connection that augments the traditional Halo Occupation
   Distribution (HOD) by allowing for the possibility of {\em assembly
     bias}: galaxy luminosity may be correlated with dark matter halo
   properties besides virial mass $\mvir$ alone. We demonstrate that it
   is not possible to rule out assembly bias using DR7 measurements of
-  $\wprp$ and $n_{\rm d}.$ Moreover, galaxy samples $\magr<-20, -20.5$
+  $\wprp$ and $n_{\rm g}.$ Moreover, galaxy samples $\magr<-20, -20.5$
   favor strong levels of central galaxy assembly bias:
   high-concentration halos are more likely to host a central galaxy
   relative to low-concentration halos of the same $\mvir.$ We rule out
@@ -248,21 +248,24 @@ To generate predictions for galaxy clustering, we directly populate dark matter 
 We explore halo occupation distribution models (HOD) models in this work 
 \citep[e.g.][]{seljak00,ma_fry00,scoccimarro01a,berlind02}, though other 
 techniques that can be used to interpret such data, such as the conditional luminosity function 
-\citep[CLF, e.g.,][]{yang03,vdBosch13}, exist. In this section, we review the ``standard" HOD 
-model used in the present work which assumes that there is no galaxy assembly bias. We refer to 
+\citep[CLF, e.g.,][]{yang03,vdBosch13}, exist. In this subsection, we review the ``standard" HOD 
+model used in the present work, which assumes that there is no galaxy assembly bias. We refer to 
 such a model as ``standard" because all HOD analyses of galaxy clustering to date have assumed no 
-galaxy assembly bias. In the following section, we describe 
+galaxy assembly bias. In the following subsection, we describe 
 the Decorated HOD model described in \citet{hearin_etal16}. In both cases, we will only 
 review the salient features of our methodology briefly; 
 interested readers can always refer to {\tt halotools.readthedocs.io} and 
 \citet{hearin_etal16} for further details. 
 
+
 \subsubsection{Simulation}
 
-All of our analyses are based on the Bolshioi-Planck simulation \citep{riebe_etal11}. 
-Bolshoi-Planck was run with cosmological parameters based on \citet{planck13}, $\Omega_{\Lambda} = 0.693, \Omega_{\rm m} = 0.307, \Omega_{\rm b} = 0.048, h = 0.7, {\rm n_s}=0.96$ and $\sigma_8 = 0.82,$ within a cubic box 
+All of our analyses are based on the Bolshioi-Planck (BolshioP) simulation \citep{riebe_etal11}. 
+BolshoiP was run with cosmological parameters based on \citet{planck13}, 
+$\Omega_{\Lambda} = 0.693, \Omega_{\rm m} = 1 - \Omega_{\Lambda} = 0.307, \Omega_{\rm b} = 0.048, 
+h = 0.7, {\rm n_s}=0.96$ and $\sigma_8 = 0.82,$ within a cubic box 
 $250$ ${\rm Mpc}/h$ on a side, requiring a particle mass of $m_{\rm p} = 1.35\times10^{8}M_{\odot}/h.$ 
-Further information about the Bolshoi-Planck simulation is available at \url{https://www.cosmosim.org}. 
+Further information about the BolshoiP simulation is available at \url{https://www.cosmosim.org}. 
 
 We use publicly available\footnote{\tt http://www.slac.stanford.edu/$\sim$behroozi/BPlanck\_Hlists} dark matter 
 halo catalogs based on the {\tt ROCKSTAR} halo-finder \citep{behroozi_rockstar11} and {\tt CONSISTENT TREES} algorithm \citep{behroozi_trees13}. In particular, we use the {\tt halotools\_alpha\_version2} version of the $z=0$ snapshot 
@@ -306,9 +309,9 @@ The parameter $M_0$ allows the power-law to be truncated more rapidly at low mas
 set $\langle N_{\rm sat}\rangle (\mvir) = 0$ for $\mvir < M_0$. 
 
 
-The five parameters of the standard HOD models are varied in standard analyses are $\log (M_{\rm min})$, 
+The five parameters of HOD models that are varied in standard analyses are $\log (M_{\rm min})$, 
 $\sigma_{\log M}$, $\alpha$, $\log (M_1)$, and $\log (M_0)$, though, as we show below, central galaxies usually 
-outnumber satellite galaxies in by a factor of several, so $\log (M_{\rm min})$ and $\sigma_{\log M}$ usually 
+outnumber satellite galaxies by a factor of several, so $\log (M_{\rm min})$ and $\sigma_{\log M}$ usually 
 vary along a narrow degeneracy that fixes the total galaxy number density to the observed value. There are 
 many particular choices that can be made for the functional forms of $\langle N_{\rm cen}\rangle (\mvir)$ and 
 $\langle N_{\rm sat}\rangle (\mvir)$. We have made choices that mimic the standard SDSS DR7 analysis of 
@@ -341,20 +344,23 @@ $V_{\rm vir}^{2} = G\mvir/\rvir.$ We assume that velocities are
 isotropic, setting the peculiar velocities in each Cartesian direction
 according to random draws from the above radial velocity distribution.
 
+
 \subsubsection{Predictions for observables}
 
 After populating a halo catalog with mock galaxies, we calculate the
 comoving number density of our mock galaxy sample as $n_{\rm g} =
-N_{\rm gal} / L_{\rm box}^3.$ We apply the distant-observer
+N_{\rm gal} / L_{\rm box}^3$, where $N_{\rm gal}$ is the total number of 
+galaxies in the mock sample. We apply the distant-observer
 approximation and use the simulation z-axis as the line-of-sight
 direction, and the distance between points in the $xy$-plane to define
 the projected distance $\rp.$ We place mock galaxies into
-redshift-space by replacing each galaxy's $z$-coordinate with $z
-\rightarrow z + V_{\rm z}/H_0.$ We count pairs of points in each of
-our $\rp$ bins, rejecting pairs with $z-$distance exceeding $\pi_{\rm
-  max}=60$ ${\rm Mpc/h.}$ We employ the \citet{landyszalay93}
+redshift-space by replacing each galaxy's $z$-coordinate with 
+$z_{\rm RS} = z + V_{\rm z}/H_0.$ We count pairs of points in each of
+our $\rp$ bins, rejecting pairs with $z_{\rm RS}-$ distance exceeding 
+$\pi_{\rm max}=60$ ${\rm Mpc/h}$, which is the same projection 
+depth chosen by \citet{zehavi_etal11}. We employ the \citet{landyszalay93}
 estimator to turn pair counts into a $\wprp$ prediction, as described
-in detail in {\tt halotools.readthedocs.io}.
+in detail in {\tt halotools.readthedocs.io}. 
 
 %---------------------------
 \subsection{HOD with Assembly Bias: The Decorated HOD}
@@ -363,15 +369,15 @@ in detail in {\tt halotools.readthedocs.io}.
 
 In addition to the standard occupation statistics described in the
 previous section, in this paper we also use the decorated HOD
-formalism to connect galaxies t o dark matter halos in a manner that
-has simultaneous dependence on both $\mvir$ and halo concentration.
+formalism to connect galaxies to dark matter halos in a manner that
+has simultaneous dependence on both $\mvir$ and {\em halo concentration}.
 Briefly, we use Equations \ref{eq:ncen} and \ref{eq:nsat} as our
 ``baseline" first occupation moments.  At fixed $\mvir,$ halos are
 divided into one of two categories, those of high- and
 low-concentration, depending on whether the concentration of the halo
 places it above or below the rank-order percentile $f_{\rm split},$
 which we keep fixed to $f_{\rm split}=0.5$ throughout the paper for
-simplicity.  High-concentration halos have a different first
+simplicity. High-concentration halos have a different first
 occupation moment relative to low-concentration halos of the same
 mass, $\langle\ngal|\mvir, c_{\rm high}\rangle \neq
 \langle\ngal|\mvir, c_{\rm low}\rangle.$ The difference between the
@@ -383,9 +389,9 @@ marginalized first moment, $\langle\ngal|\mvir\rangle;$ thus
 regardless of the value of $\abias,$ in the decorated HOD the
 marginalized first moment of centrals and satellites are {\em
   unchanged from the baseline value defined by Equations \ref{eq:ncen}
-  and \ref{eq:nsat}}.  Decorated HOD models all have the same HODs,
+  and \ref{eq:nsat}}. In other words, {\em decorated HOD models all have the same HODs,
 when averaged over all halos at fixed mass, as standard HOD
-models. The only change in Decorated HOD models is whether or not an
+models}. The only change in Decorated HOD models is whether or not an
 additional property also modulates halo occupation at fixed halo
 mass. A value of $\abias = 0$ indicates no galaxy assembly bias
 whatsoever. We refer the reader to \citet{hearin_etal16} for further
@@ -397,21 +403,41 @@ complicated models can be found in \citet{hearin_etal16}. In
 particular, we split halos into two populations as specified in the
 previous paragraph. We then populate halos with satellite galaxies
 specified by an assembly bias parameter $-1 \le A_{\rm sat} \le 1$ and
-central galaxies with a distinct assembly bias parameter $-1 \le
-A_{\rm cen} \le 1$. These two additional parameters are varied in our
+central galaxies with a distinct assembly bias parameter 
+$-1 \le A_{\rm cen} \le 1$. These two additional parameters are varied in our
 analyses that include assembly bias, making the number of parameters
 that vary in these analyses seven. As we show below, these additional
 parameters are in many instances poorly constrained by clustering data
 of the quality of SDSS DR7 alone, so exploring more complex models of
-assembly bias does not yet seem justified.
+assembly bias does not yet seem justified in such analyses.
 
 %---------------------------
 \subsection{Parameter Inference}
 \label{subsection:mcmc}
 %---------------------------
 
+We constrain HOD parameters based on SDSS DR7 measurements of the projected 
+galaxy two-point functions, $w_{\rm p}(r_{\rm p})$, and galaxy number densities, $n_{\rm g}$, 
+for luminosity threshold samples published in \citet{zehavi_etal11}. We use the full covariance 
+matrix of the projected correlation function available at 
+{\tt astroweb.cwru.edu/izehavi/dr7\_covar/table8}. We assume a likelihood of the 
+form $\mathcal{L} \propto e^{-\chi^2/2}$, where
+%
+\begin{equation}
+\label{eq:chisquare}
+\chi^2 = \Delta w_{{\rm p},i} \, [C^{-1}]_{ij} \, \Delta w_{{\rm p},j} + \frac{(n_{\rm g}^{\rm mock} - n_{\rm g}^{\rm meas})^2}{\sigma_{\rm n}^2}, 
+\end{equation}
+%
+$\Delta w_{{\rm p},i} = w_{\rm p}^{\rm mock}(r_{{\rm p},i}) - w_{\rm p}^{\rm meas}(r_{{\rm p},i})$ is the difference 
+between the projected two-point function predicted by the mock catalog and the measured value in the i$^{\rm th}$ 
+separation bin (of 12 bins total), $C^{-1}$ is the inverse of the covariance matrix of the measurements, 
+and the last term in Eq.~(\ref{eq:chisquare}) is the contribution from the difference between the predicted and measured 
+galaxy number density. The error on the galaxy number density assumes Poisson statistics for both the measured and predicted 
+galaxy number densities.
+
+
 To infer parameters for the HOD and Decorated HOD models described in the previous subsections, 
-we performed a Markov Chain Monte Carlo (MCMC) sampling of the posteriors using the 
+we performed a Markov Chain Monte Carlo (MCMC) sampling of the posterior distribution using the 
 affine-invariant ensemble sampler of \citet{goodman_weare10} as implemented in the 
 {\tt emcee} software package \citep{foreman-mackey_etal13}. For most cases, we find that 
 $\sim 3-10 \times 10^{6}$ samples are necessary in order for our chains to converge. 
@@ -454,7 +480,8 @@ $A_{\mathrm{cen}}$ and $A_{\mathrm{sat}}$, the priors represent physical
 boundaries. These parameters must satisfy $-1 \le A_{\mathrm{cen,sat}} \le 1$. 
 Physical considerations require parameter $\sigma_{\log M} > 0$. All other 
 priors have a negligible influence on the posterior aside from $\log M_0$. 
-We find that $\log M_0$ is often very poorly constrained by clustering data.
+We find that $\log M_0$ is often very poorly constrained by clustering data and 
+priors on $\log M_0$ can have a non-negligible influence on inferred parameters.
 
 
 %---------------------------
@@ -574,7 +601,7 @@ is monotonic within the physical parameter space, we show one-sided percentiles.
 \includegraphics[width=8.3cm]{Mr19ABsamples.pdf}
 \caption{
 {\bf Left:} The $M_r<-19$ threshold sample projected correlation function with diagonal elements of 
-covariance (points with errorbars). The grey lines are 25 randomly-selected HOD models that yield 
+covariance (points with errorbars). The grey lines are 50 randomly-selected HOD models that yield 
 $\Delta \chi^2 <1$ compared to the best-fitting model. {\bf Right:} Same as the left panel but using a 
 fit to a Decorated HOD model that contain parameters to describe the strength of assembly bias.
 }
