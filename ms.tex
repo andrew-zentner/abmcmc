@@ -851,17 +851,16 @@ inferred HOD from our decorated HOD analysis that includes parameters to describ
 assembly bias. This is an explicit example of the degree to which the inferred relationship 
 between galaxies and halos can be altered by assembly bias. 
 
-Though the evidence for assembly bias is the most significant for the $M_r<-20$ sample, there are hints of assembly 
-bias in other samples. Satellite galaxies show a marginal preference for occupying halos of 
-higher concentration in the $M_r < -19$ threshold sample. The $M_r < -19$ sample exhibits 
-weak preference for a positive correlation of galaxy occupation with halo concentration at fixed 
+
+Though the evidence for assembly bias is the most significant for the $M_r<-20$ sample, 
+there are hints of galaxy assembly bias in other samples. Satellite galaxies show a marginal preference 
+for occupying halos of higher concentration in the $M_r < -19$ threshold sample. The $M_r < -19.5$ 
+sample exhibits weak preference for a positive correlation of galaxy occupation with halo concentration at fixed 
 mass for both satellite galaxies and central galaxies. Continuing upward with luminosity, 
 the $M_r < -20.5$ sample exhibits a significant preference for central galaxy assembly bias. 
 Lastly, there is no preference for either central galaxy or satellite galaxy assembly bias 
 for the $M_r < -21$ threshold sample, for which both $A_{\mathrm{cen}}$ and $A_{\mathrm{sat}}$ 
-are consistent with zero will within 1$\sigma$. These data suggest that assembly bias 
-may be present in the real universe.
-
+are consistent with zero well within 1$\sigma$.
 
 %-------------------------------------------------------------------------------------------------------------------------------------------------
 \begin{table}
@@ -900,21 +899,48 @@ over another.
 \label{section:conclusions}
 %------------------------------------------------
 
-We have re-analyzed the SDSS DR7 measurements of projected galaxy clustering,  $\wprp,$ and number density, $n_{\rm g},$ originally published in \citet{zehavi_etal11}. Our work is especially novel in that we provide the first quantitative constraints on assembly bias derived from the Decorated HOD, an extension to the traditional HOD introduced in \citet{hearin_etal16} developed for exactly this purpose. 
-We enumerate our most important conclusions below. 
+We have re-analyzed the SDSS DR7 measurements of projected galaxy clustering, 
+$\wprp,$ and number density, $n_{\rm g},$ originally published in \citet{zehavi_etal11}. 
+The novelty of our work is that we have performed these analyses using the 
+decorated Halo Occupation Distribution (HOD) formalism, which allows for galaxy 
+assembly bias and was introduced by \citet{hearin_etal16} precisely for this purpose. 
+In this work, we provide the first quantitative constraints on 
+assembly bias derived from the Decorated HOD. We enumerate our most important conclusions below. 
+%
 \ben
-\item It is not possible to rule out galaxy assembly bias using SDSS DR7 measurements of $\wprp$ and $n_{\rm g}.$
-\item Decorated HOD fits to $\wprp$ and $n_{\rm g}$ favor significant levels of assembly bias, particularly in the lower luminosity thresholds we study. Both the $\magr<-20, -20.5$ samples prefer relatively strong central galaxy assembly bias, while at lower luminosities, the $\magr<-19$ sample favors satellite assembly bias. 
-\item Galaxy assembly bias generally weakens for brighter galaxy samples: Decorated HOD fits to the $\magr<-21$ sample are consistent with both $\abias^{\rm cens}=0$ and $\abias^{\rm sats}=0.$ This consistent with the well-established result that {\em halo assembly bias} weakens with increasing halo mass over the dynamic range relevant to these galaxy samples \citep[see, e.g., Figure 8 of][and references therein]{hearin_etal16}. 
-\item Our posteriors and best-fit parameters summarized in Table \ref{table:parameters} supersede the values published in \citet{zehavi_etal11}, as direct-mock-population together with the Decorated HOD allows us to account for highly significant systematics that have heretofore been neglected from all HOD fits to SDSS data. We note that our findings update the original \citet{zehavi_etal11} results {\em even for our fits in which assembly bias has been fixed to zero}, since the original results derive from unconverged MCMC chains that do not sufficiently sample the HOD model posteriors. 
+%
+\item It is not possible to rule out galaxy assembly bias using SDSS DR7 measurements of $\wprp$ and $n_{\rm g}.$ 
+%
+\item Decorated HOD fits to $\wprp$ and $n_{\rm g}$ favor significant levels of assembly bias, particularly in the lower luminosity thresholds we study. Both the $\magr<-20, -20.5$ samples prefer relatively strong central galaxy assembly bias. The $\magr<-19$ sample favors satellite assembly bias. Assembly bias in these samples improves the capability of the model to describe galaxy clustering near 
+the one-halo to two-halo transition at $r_{\rm p} \sim 2 \, h^{-1}\mathrm{Mpc}$.
+%
+\item The evidence for galaxy assembly bias weakens for brighter galaxy samples: Decorated HOD fits to the $\magr<-21$ sample are consistent with both $A_{\rm cens}=0$ and $A_{\rm sats}=0.$ This is consistent with the well-established result that 
+{\em halo assembly bias} weakens with increasing halo mass over the dynamic range relevant to these galaxy samples 
+\citep[see, e.g., Figure 8 of][and references therein]{hearin_etal16}. 
+%
+\item Our posteriors and best-fit parameters summarized in 
+Table \ref{table:parameters} supersede the values published in \citet{zehavi_etal11}, 
+as direct-mock-population together with the Decorated HOD allows us to account for 
+highly significant systematics that have heretofore been neglected from all HOD fits to SDSS data. 
+We note that our findings update the original \citet{zehavi_etal11} results 
+{\em even for our fits to standard HODs without assembly bias}, because 
+the original results were derived from MCMC chains that did not sufficiently sample the HOD model posteriors. 
+%
 \een
-We conclude by noting that since $\wprp$ and $n_{\rm g}$ are already very well-measured in DR7, it is likely that further improvements on assembly bias constraints at low-redshift will require additional observational measurements, e.g., galaxy--galaxy lensing, group statistics, etc.
+%
+We conclude by noting that since $\wprp$ and $n_{\rm g}$ are already very well-measured in DR7, 
+it is likely that further improvements on assembly bias constraints at low-redshift will require additional 
+observational measurements, e.g., galaxy--galaxy lensing, group statistics, etc. 
+I need to think of a more clever ending.
 
 %------------------------------------------------
 \section{Acknowledgements}
 \label{section:acknowledgements}
 %------------------------------------------------
 
+We thank Zheng Zheng for his cooperation in diagnosing the 
+differences between the present analysis and the SDSS DR7 
+analysis presented in \citet{zehavi_etal11}. 
 The authors gratefully acknowledge the Gauss Centre for Supercomputing
 e.V. (www.gauss-centre.eu) and the Partnership for Advanced
 Supercomputing in Europe (PRACE, www.prace-ri.eu) for funding the
@@ -923,8 +949,10 @@ Supercomputer SuperMUC at Leibniz Supercomputing Centre (LRZ,
 www.lrz.de). The Bolshoi simulations have been performed within the
 Bolshoi project of the University of California High-Performance
 AstroComputing Center (UC-HiPACC) and were run at the NASA Ames
-Research Center. FvdB is supported by the US National Science
-Foundation through grant AST 1516962. {\bf AZ; add yours as well.}
+Research Center. The work of ARZ was supported by the US National Science 
+Foundation via grant AST 1517563. FvdB is supported by the US National Science
+Foundation through grant AST 1516962. APH is funded through his own 
+awesomeness.
 
 
 
