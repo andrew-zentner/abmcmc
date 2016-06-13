@@ -203,18 +203,30 @@ galaxy clustering in the Sloan Digital Sky Survey (SDSS) Data Release
 7 (DR7) data, analyzed previously by \citet{zehavi_etal11}, in the
 context both standard halo occupation models and these new models.
 
-Our work is a re-analysis of the SDSS DR7 data that 
-overcomes numerous shortcomings of previous
-analyses. In particular, we use direct population of galaxies in a
-cosmological simulation so that delicate issues present in analytic
-modeling, such as scale-dependent halo bias, are treated exactly.  The
-simulation we use is based on the latest Planck cosmological
+This work presents a re-analysis of the SDSS DR7 data that 
+overcomes numerous shortcomings of previous analyses. 
+Our analysis improvements stem primarily from our 
+directly populating mock galaxy catalogs into a cosmological simulation, 
+whereas previous analyses relied upon analytical fitting functions 
+with parameters calibrated against a suite of simulations. 
+In direct mock population, delicate issues present in analytic
+modeling, such as scale-dependent halo bias and halo exclusion, are treated exactly.  
+Our approach also provides a natural framework for studying models of assembly bias, 
+since we can use the exact clustering properties of simulated halos as a function of 
+any arbitrary halo properties in the catalog. With direct mock population, 
+systematic uncertainty in the model is limited to 
+the sample variance of the simulated box, 
+errors related to insufficient numerical resolution, 
+and numerical inaccuracies of halo-finding (e.g., over-merging). 
+
+In addition to improvements from direct mock population, 
+the simulation we use is based on the latest Planck cosmological
 parameters \citep{planck13}, updating previous work. 
 Furthermore, many important
 differences between this work and the previous analysis by
 \citet{zehavi_etal11} result from the fact that the Monte Carlo Markov
-Chains used in \citet{zehavi_etal11} were too small and had not
-converged (Z. Zheng \& I. Zehavi, private communication).  Therefore,
+Chains used in \citet{zehavi_etal11} did not sufficiently sample the 
+posterior distribution (Z. Zheng \& I. Zehavi, private communication).  Therefore,
 {\em our analysis supersedes previous work even in the case of
 standard halo occupation models}.
 
