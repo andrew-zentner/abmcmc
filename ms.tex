@@ -213,8 +213,8 @@ parameters \citep{planck13}, updating previous work.
 Furthermore, many important
 differences between this work and the previous analysis by
 \citet{zehavi_etal11} result from the fact that the Monte Carlo Markov
-Chains used in \citet{zehavi_etal11} were too small and had not
-converged (Z. Zheng \& I. Zehavi, private communication).  Therefore,
+Chains used in \citet{zehavi_etal11} were not converged 
+(Z. Zheng, private communication). Therefore,
 {\em our analysis supersedes previous work even in the case of
 standard halo occupation models}.
 
@@ -507,7 +507,8 @@ constraints to the standard HOD analysis performed by \citet{zehavi_etal11} in T
 as well. An example of the inferred posteriors for the HOD parameters is shown in Figure~\ref{fig:Mr20triangle}. 
 The left-hand panels of Figure~\ref{fig:Mr19samples}, Figure~\ref{fig:Mr20samples}, and Figure~\ref{fig:Mr21samples} 
 show the projected correlation function data along with predictions for $\wprp(\rp)$ from 50 randomly-selected 
-models from the MCMC chains. Note that the significant covariance in the data makes it difficult to 
+models from the MCMC chains within $\Delta \chi^2 \le 1$ of the best-fit model. 
+Note that the significant covariance in the data makes it difficult to 
 determine the quality of fit from visual inspection of these figures.
 
 
@@ -533,13 +534,13 @@ median value for the parameter in our chains along with the
 
 The inferred parameters from our standard analyses differ in several ways from the \citet{zehavi_etal11} 
 analysis. Firstly, in our re-analysis of the projected clustering data, we generally find all mass scales to 
-be slightly higher than in the work of \citet{zehavi_etal11}. This difference is largely due to the slightly 
-different cosmologies adopted in this work. The most important difference 
-are in the values of $\Omega_{\rm M}$, and $\sigma_8$.  
+be slightly higher than in the work of \citet{zehavi_etal11}. This difference is primarily due to the slightly 
+different cosmological model used in this work as compared to that of \citet{zehavi_etal11}. 
+The most important differences are in the values of $\Omega_{\rm M}$, and $\sigma_8$.  
 \citet{zehavi_etal11} assumed $\Omega_{\rm M}=0.25$ and $\sigma_8=0.8$, 
 whereas in the present work, we use the BolshoiP simulation in which $\Omega_{\rm M}=0.307$ and $\sigma_8=0.82$. 
 Slightly larger mass scales are necessary in an analysis with higher $\Omega_{\rm M}$ and $\sigma_8$ in order 
-to maintain galaxy number densities with larger halo number densities.
+to maintain galaxy number densities fixed with larger halo number densities.
 
  
 %-------------------------------------------------------------------------------------------------------------------------------------------------
@@ -660,13 +661,15 @@ likely that the tighter constraints quoted by \citet{zehavi_etal11}
 must be an error.
 
 Additionally, we have confirmed with a subset of the authors of \citet{zehavi_etal11} 
-that the number of MCMC samples they included in their analysis was 
-insufficient in a number of cases and that this can lead to a significant underestimation of the uncertainties 
-on the inferred parameters, especially $\log (M_{\rm min})$ and $\sigma_{\log M}$ 
-(Z. Zheng \& I. Zehavi, private communication). The analysis of \citet{zehavi_etal11} 
+that the MCMC chains used in a number of their analyses may not have been 
+properly converged and that this may have led to a significant underestimation of the 
+uncertainties on the inferred parameters, especially $\log (M_0)$, $\log (M_{\rm min})$, 
+and $\sigma_{\log M}$ (Z. Zheng, private communication). The analysis of \citet{zehavi_etal11} 
 used $10^4$ samples, whereas we find several $\times 10^6$ samples are often necessary for convergence. 
-Additionally, we have recreated qualitatively similar behavior by considering only small subsets of our 
-full MCMC chains. Consequently, insufficient sampling of the posterior seems to be the likely resolution 
+The cause of the problem is likely a restrictive proposal distribution that causes the chain to 
+diffuse through the posterior distribution only very slowly. We have recreated qualitatively similar 
+behavior by considering only small subsets of our full MCMC chains. Consequently, insufficient 
+sampling of the posterior seems to be the likely resolution 
 of the discrepancies between our work and that of \citet{zehavi_etal11}.
 
 Two degeneracies are manifest in Fig.~\ref{fig:Mr20triangle} that are common to all of our 
@@ -685,8 +688,8 @@ number density, but this can be compensated by an increase in $\sigma_{\log M}$,
 places galaxies in a fraction of the considerably more numerous halos with masses less 
 than $M_{\rm min}$. The consequence is that $\log (M_{\rm min})$ and $\sigma_{\log M}$ are 
 degenerate with each other such that most of the posterior probability lies in a narrow band 
-along which $\log (M_{\rm min})$ and $\sigma_{\log M}$ are positively correlated, as shown in 
-Fig.~\ref{fig:Mr20triangle}. In the following plots, we suppress the parameter $\sigma_{\log M}$,  
+along which $\log (M_{\rm min})$ and $\sigma_{\log M}$ are positively correlated. 
+In the following plots, we exclude the parameter $\sigma_{\log M}$,  
 in order to increase the clarity of the plots, because the viable range of $\sigma_{\log M}$ is 
 determined by this simple degeneracy with $\log (M_{\rm min})$. 
 
@@ -698,8 +701,8 @@ identified in a numerical simulation of cosmological structure formation (Bolshi
 uncertainties associated with nonlinear density field evolution, scale-dependent halo bias, halo exclusion, 
 or other effects that have been difficult to incorporate into analytical halo models with high precision. Third, 
 we have explored the posteriors of the parameters with significantly more samples (roughly two orders of magnitude), 
-thereby mitigating errors on inferred parameters and their errors induced by insufficient sampling of the 
-posterior.
+thereby mitigating errors on inferred parameters caused by insufficient sampling of the 
+posterior by \citet{zehavi_etal11}.
 
 %-------------------------
 \subsection{Analysis with Decorated HOD}
