@@ -732,13 +732,13 @@ In this work, we use halo concentration as our secondary halo property, so $A_{\
 ($A_{\rm cen,sat}=-1$) means that the mean number of galaxies per halo is maximally 
 correlated (anti-correlated) with halo concentration. The model and its implementation 
 in {\tt halotools} is discussed further in Section~\ref{subsection:decorated} above and 
-in \citet{hearin_etal16}.
+in more detail in \citet{hearin_etal16}.
 
 Examples of our fits are given in the right-hand panels of Figure~\ref{fig:Mr19samples}, 
 Figure~\ref{fig:Mr20samples}, and Figure~\ref{fig:Mr21samples}. The general trend that 
 can be gleaned from these figures is that introducing assembly bias improves the ability 
 of the predicted two-point functions to match the measured two-point functions across the 
-transition form the one-halo (highly nonlinear) to two-halo (nearly linear) regimes near $\rp \sim 2\, h^{-1}{\mathrm{Mpc}}$. 
+transition from the one-halo (highly nonlinear) to two-halo (nearly linear) regimes near $\rp \sim 2\, h^{-1}{\mathrm{Mpc}}$. 
 This is most apparent for the $M_r < -20$ threshold sample shown in Fig.~\ref{fig:Mr20samples}. 
 Visually, these differences appear to be small; however, Table~\ref{table:parameters} shows that 
 they are statistically important.
@@ -746,9 +746,10 @@ they are statistically important.
 The one-dimensional marginalized constraints on all parameters from these analyses 
 are given in the lowest row of each luminosity threshold grouping in Table~\ref{table:parameters}. 
 In cases where the posterior on a parameter is monotonic within the physical parameter 
-range, we quote an upper or lower limit on the parameter. One- and two-dimensional 
-visualizations of the posteriors from our analysis are shown in Figure~\ref{fig:Mr19ABtriangle}, 
-Figure~\ref{fig:Mr20ABtriangle}, and Figure~\ref{fig:Mr21ABtriangle}. 
+range, we quote an upper or lower limit on the parameter. Examples of one- and two-dimensional 
+visualizations of the posteriors from our analyses are shown in Figure~\ref{fig:Mr19ABtriangle}, 
+Figure~\ref{fig:Mr20ABtriangle}, and Figure~\ref{fig:Mr21ABtriangle} for the 
+$M_r<-19$, $M_r<-20$, and $M_r<-21$ samples respectively. 
 
 
 %------------------------------------------------------------------------------------------------
@@ -796,12 +797,13 @@ The same as Figure~\ref{fig:Mr19ABtriangle}, but for the $M_r<-21$ sample.
 %----------------------------------------------------------------------------------------------------
 
 
-Table~\ref{table:parameters} and Figures~\ref{fig:Mr19ABtriangle}-\ref{fig:Mr21triangle} 
+Table~\ref{table:parameters} and Figures~\ref{fig:Mr19ABtriangle}--\ref{fig:Mr21ABtriangle} 
 all make several simple, generic points. Introducing additional parameter 
 freedom associated with galaxy assembly bias generally increases the viable parameter 
 space, even for the subset of standard HOD parameters. Constraints on the 
 standard HOD parameters are generally less restrictive. This is exactly what is 
 expected from the introduction of additional parameter freedom. 
+
 
 %=-------------------------------------------------------------------------------------------------
 \begin{figure*}
@@ -828,20 +830,28 @@ Focusing attention on the parameters describing galaxy assembly bias, it is
 evident that these parameters are often quite poorly constrained by galaxy 
 clustering data. This is important as it implies that galaxy clustering of the precision 
 of SDSS DR7 measurements cannot rule out, or strongly restrict galaxy assembly 
-bias in many cases. Nonetheless, it is apparent that the presence of assembly bias 
+bias in many cases. This is the case, for example, for the $M_r<-21$ sample with posteriors 
+shown in Fig.~\ref{fig:Mr21ABtriangle}. In this case, both $A_{\rm cen}$ and 
+$A_{\rm sat}$ have posteriors that peak near zero, but are very broad. 
+Nonetheless, it is apparent that the presence of galaxy assembly bias 
 can alter the inferred HOD, or more generally, the inferred relationship between 
 galaxies and halo mass. This is most evident for the $M_r < -20$ threshold sample, 
 for which there are significant differences in the inferred values of all baseline HOD 
 parameters between models with and without galaxy assembly bias. Other threshold 
-samples exhibit significant changes particularly for $\alpha$, and to a lesser degree 
+samples exhibit significant differences particularly for $\alpha$, and to a lesser degree 
 for $\log (M_{\rm min})$ and $\sigma_{\log M}$. 
 
 
 Beyond those generic conclusions, a few specific cases are worthy of further examination. 
 Consider the $M_r < -20$ sample. The inferred value of $A_{\rm cen} > 0.28$ at 99\% 
 confidence. In this case the data strongly prefer $A_{\rm cen} > 0$ and thus strongly prefer 
-galaxies to reside in halos of larger concentration at fixed halo mass. This particular threshold 
-sample is the most significant outlier in this regard. Nevertheless, there are hints of assembly 
+galaxies to reside in halos of larger concentration at fixed halo mass. Figure~\ref{fig:directhodcomparison} 
+compares the inferred HODs for the $M_r<-20$ sample in a standard HOD analysis with the 
+inferred HOD from our decorated HOD analysis that includes parameters to describe 
+assembly bias. This is an explicit example of the degree to which the inferred relationship 
+between galaxies and halos can be altered by assembly bias. 
+
+Though the evidence for assembly bias is the most significant for the $M_r<-20$ sample, there are hints of assembly 
 bias in other samples. Satellite galaxies show a marginal preference for occupying halos of 
 higher concentration in the $M_r < -19$ threshold sample. The $M_r < -19$ sample exhibits 
 weak preference for a positive correlation of galaxy occupation with halo concentration at fixed 
