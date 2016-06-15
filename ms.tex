@@ -169,6 +169,7 @@ environment of dark matter halos of fixed mass
 is correlated with the star formation rate of their central galaxies 
 \citep{yang_etal06a, blanton_berlind07,wang_etal08,wang_etal13,hearin_etal14}. 
 
+
 Despite this growing evidence, the empirical modeling community 
 has not yet reached a consensus on the question of galaxy assembly bias. 
 For example, \citet{lin_mandelbaum_etal15} claim that 
@@ -178,6 +179,7 @@ differences in halo mass between the galaxy samples under consideration.
 can masquerade as a false signal of assembly bias. 
 \citet{tinker08b} argue that measurements of void statistics place strong 
 bounds on the possible strength of the signal. 
+
 
 In much of the literature on this topic, 
 the character of the supporting evidence
@@ -189,6 +191,7 @@ Models that include assembly bias such as semi-analytic models
 are typically too computationally expensive 
 for anything besides a ``one-off" comparison \citep[e.g.,][]{croton_etal07}, prohibiting 
 any conclusive statement to be made about the strength of the signal.
+
 
 Motivated by this shortcoming, we have developed a new class of 
 empirical models that enable galaxies to occupy halos in a manner
@@ -202,6 +205,7 @@ we revisit the interpretation of luminosity-dependent
 galaxy clustering in the Sloan Digital Sky Survey (SDSS) Data Release
 7 (DR7) data, analyzed previously by \citet{zehavi_etal11}, in the
 context both standard halo occupation models and these new models.
+
 
 This work presents a re-analysis of the SDSS DR7 data that 
 overcomes numerous shortcomings of previous analyses. 
@@ -219,6 +223,7 @@ the sample variance of the simulated box,
 errors related to insufficient numerical resolution, 
 and numerical inaccuracies of halo-finding (e.g., over-merging). 
 
+
 In addition to improvements from direct mock population, 
 the simulation we use is based on the latest Planck cosmological
 parameters \citep{planck13}, updating previous work. 
@@ -230,6 +235,7 @@ posterior distribution (Z. Zheng \& I. Zehavi, private communication).  Therefor
 {\em our analysis supersedes previous work even in the case of
 standard halo occupation models}.
 
+
 Most importantly, our work demonstrates explicitly that significant
 assembly bias in $\magr$-selected samples from SDSS DR7 cannot be ruled
 out based on a standard analysis of galaxy clustering only. In fact,
@@ -238,6 +244,7 @@ in agreement with \citet{lehmann_etal15}, we find that several samples
   significant}. As demonstrated by \citet{zentner_etal14}, this
 conclusion has important consequences for the interpretation of
 both extant and forthcoming data. 
+
 
 Our paper is organized as follows. In Section~\ref{section:methods},
 we discuss our implementation of halo occupation models and the
@@ -596,7 +603,8 @@ fits using a parameterized model of assembly bias.
 Assembly bias is quantified by the parameters $A_{\rm cen}$ ($A_{\rm sat}$) for central (satellite) galaxies. The secondary 
 property that we assume to determine the galaxy HOD is halo concentration. $A_{\rm cen,sat}=0$ means that there is no 
 assembly bias while $A_{\rm cen,sat}=1$ ($A_{\rm cen,sat}=-1$) means that galaxy abundance is maximally 
-correlated (anticorrelated) with halo concentration at fixed $\mvir.$ Thus the $A_{\rm cen,sat}$ parameters span the range $[-1, 1].$ 
+correlated (anticorrelated) with halo concentration at fixed $\mvir.$ 
+Thus the $A_{\rm cen,sat}$ parameters span the range $[-1, 1].$ 
 If the constraints on $A_{\rm cen}$ and $A_{\rm sat}$ are unspecified in the table, then the model used to interpret the data 
 does not include assembly bias. In our analyses, quoted parameter values with errors correspond to the median 
 value of the parameter and the 16$^{\rm th}$ and 84$^{\rm th}$ percentiles. In cases for which the posterior 
@@ -616,7 +624,9 @@ is monotonic within the physical parameter space, we show one-sided percentiles.
 \caption{
 {\bf Left:} The $M_r<-19$ threshold sample projected correlation function with diagonal elements of 
 covariance (points with errorbars). The grey lines are 50 randomly-selected HOD models that yield 
-$\Delta \chi^2 <1$ compared to the best-fitting model. {\bf Right:} Same as the left panel but using a 
+$\Delta \chi^2 < 5.89$ compared to the best-fitting model. For a Gaussian posterior distribution, 
+$\Delta \chi^2 = 5.89$ would contain 68\% of the probability in the full five-dimensional parameter 
+space. {\bf Right:} Same as the left panel but using a 
 fit to a Decorated HOD model that contain parameters to describe the strength of assembly bias.
 }
 \label{fig:Mr19samples}
