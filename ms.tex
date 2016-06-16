@@ -535,7 +535,7 @@ priors on $\log M_0$ can have a non-negligible influence on inferred parameters.
 \label{section:results}
 %---------------------------
 
-We have performed parameter inference analyses in order to infer the underlying HOD of
+We have performed parameter inference analyses in order to infer the underlying HODs of
 galaxies from the projected galaxy two-point function $\wprp(\rp)$ as described in the preceding
 section. In this section, we describe the primary results of these analyses. Our marginalized
 one-dimensional parameter constraints are given in Table~\ref{table:parameters}.
@@ -546,16 +546,20 @@ one-dimensional parameter constraints are given in Table~\ref{table:parameters}.
 %-------------------------
 
 Prior to discussing our results using models that include assembly bias, we present
-results of standard HOD analyses that include no model for assembly bias. The results of
-the standard HOD analyses and all other analyses are shown in the form of marginalized
-constraints on individual parameters in Table~\ref{table:parameters}. We compare our parameter
-constraints to the standard HOD analysis performed by \citet{zehavi_etal11} in Table~\ref{table:parameters}
-as well. An example of the inferred posteriors for the HOD parameters is shown in Figure~\ref{fig:Mr20triangle}.
+results of standard HOD analyses that include no treatment of assembly bias. 
+In our standard HOD analyses, the parameters $\log (M_{\rm min})$,
+$\sigma_{\log M}$, $\alpha$, $\log (M_1)$, and $\log (M_0)$ are permitted to vary. 
+The results of the standard HOD analyses and all other analyses are shown in the form of 
+marginalized constraints on individual parameters in Table~\ref{table:parameters}. Though the quality of 
+our fits, as measured by the minimum of $\chi^2$ per Degree of Freedom (DoF), varies from case to case, 
+all fits have a probability $\gtrsim 1\% $ of obtaining a higher value of $\chi^2$ by chance. An example of the inferred posteriors for the HOD parameters is shown in Figure~\ref{fig:Mr20triangle} for the sample with $\magr < -20$. We do 
+not show the full posteriors for all five threshold samples in the interest of brevity.
 The left-hand panels of Figure~\ref{fig:Mr19samples}, Figure~\ref{fig:Mr20samples}, and Figure~\ref{fig:Mr21samples}
 show the projected correlation function data along with predictions for $\wprp(\rp)$ from 50 randomly-selected
-models from the MCMC chains within $\Delta \chi^2 \le 1$ of the best-fit model.
-Note that the significant covariance in the data makes it difficult to
-determine the quality of fit from visual inspection of these figures.
+models from the MCMC chains within $\Delta \chi^2 \le 5.89$ of the best-fit model. Under the assumption of 
+a Gaussian posterior distribution, $\Delta \chi^2 = 5.89$ contains 68\% of the posterior probability for a 
+five-parameter model. Note that the significant covariance in the data makes it difficult to
+determine the quality of fits from visual inspection of these figures.
 
 
 %--------------------------No AB Triangle Plot-----------------------------------------------------------------------------
@@ -578,6 +582,8 @@ median value for the parameter in our chains along with the
 \end{figure*}
 %----------------------------------------------------------------------------------------------------------------------------------
 
+Our parameter constraints can be compared to the standard HOD analysis performed by \citet{zehavi_etal11} 
+by examining the top two rows in each luminosity threshold grouping in Table~\ref{table:parameters}. 
 The inferred parameters from our standard analyses differ in several ways from the \citet{zehavi_etal11}
 analysis. Firstly, in our re-analysis of the projected clustering data, we generally find all mass scales to
 be slightly higher than in the work of \citet{zehavi_etal11}. This difference is primarily due to the slightly
@@ -631,7 +637,8 @@ property that we assume to determine the galaxy HOD is halo concentration. $A_{\
 assembly bias while $A_{\rm cen,sat}=1$ ($A_{\rm cen,sat}=-1$) means that galaxy abundance is maximally
 correlated (anticorrelated) with halo concentration at fixed $\mvir.$
 Thus the $A_{\rm cen,sat}$ parameters span the range $[-1, 1].$
-If the constraints on $A_{\rm cen}$ and $A_{\rm sat}$ are unspecified in the table, then the model used to interpret the data
+If the constraints on $A_{\rm cen}$ and $A_{\rm sat}$ are unspecified in the table, 
+then the model used to interpret the data
 does not include assembly bias. In our analyses, quoted parameter values with errors correspond to the median
 value of the parameter and the 16$^{\rm th}$ and 84$^{\rm th}$ percentiles. In cases for which the posterior
 is monotonic within the physical parameter space, we show one-sided percentiles.
@@ -709,29 +716,36 @@ predicted satellite number once $M_0 \ll M_1$. Therefore, it seems
 likely that the tighter constraints quoted by \citet{zehavi_etal11}
 must be an error.
 
-Additionally, we have confirmed with a subset of the authors of \citet{zehavi_etal11}
+
+We have confirmed with one of the authors of \citet{zehavi_etal11}
 that the MCMC chains used in a number of their analyses may not have been
 properly converged and that this may have led to a significant underestimation of the
 uncertainties on the inferred parameters, especially $\log (M_0)$, $\log (M_{\rm min})$,
-and $\sigma_{\log M}$ (Z. Zheng, private communication). The analysis of \citet{zehavi_etal11}
-used $10^4$ samples, whereas we find several $\times 10^6$ samples are often necessary for convergence.
-The cause of the problem is likely a restrictive proposal distribution that causes the chain to
-diffuse through the posterior distribution only very slowly. We have recreated qualitatively similar
-behavior by considering only small subsets of our full MCMC chains. Consequently, insufficient
-sampling of the posterior seems to be the likely resolution
+and $\sigma_{\log M}$. The analysis of \citet{zehavi_etal11}
+used $10^4$ samples, whereas we find that several $\times 10^5$ to $10^6$ 
+samples are often necessary for convergence. In all cases, our final results are from 
+$>10^6$ samples of the posterior. The cause of the problem is likely a 
+restrictive proposal distribution that causes the chain to
+diffuse through the posterior distribution only extremely slowly (Z. Zheng, Private Communication). 
+We have recreated qualitatively similar behavior considering only small subsets of our full 
+MCMC chains. Consequently, insufficient sampling of the posterior seems to be the likely resolution
 of the discrepancies between our work and that of \citet{zehavi_etal11}.
+
 
 Two degeneracies are manifest in Fig.~\ref{fig:Mr20triangle} that are common to all of our
 analyses. The parameters $\log (M_1)$ and $\alpha$ are degenerate with each other and positively
 correlated. The parameter $M_1$ is the mass scale at which a halo has one satellite on
 average, and $\alpha$ is the power-law index describing the dependence of average satellite
 number on halo mass. Increasing $M_1$ {\em decreases} the number of satellites in massive halos
-by increasing the mass scale where the power law abundance becomes operative. An increase in $\alpha$ can partly
-compensate for an increase in $M_1$ by increasing the rate at which average satellite number
+by increasing the mass scale where the power law abundance becomes operative. 
+An increase in $\alpha$ can partly
+compensate for an increase in $M_1$ by increasing 
+the rate at which average satellite number
 grows with halo mass.
 
-Look for the purple banana\footnote{'Til they put us in the truck.} in the third panel from the left in the bottom row of
-Figure~\ref{fig:Mr20triangle}. This panel illustrates that the parameters
+
+Look for the purple banana\footnote{'Til they put us in the truck.} in the third panel from the left in 
+the bottom row of Figure~\ref{fig:Mr20triangle}. This panel illustrates that the parameters
 $\log (M_{\rm min})$ and $\sigma_{\log M}$ share a relatively narrow degeneracy as well.
 This degeneracy is largely induced by the measured
 number density of the sample. Increasing $\log (M_{\rm min})$ decreases galaxy
@@ -744,6 +758,7 @@ In the following plots, we exclude the parameter $\sigma_{\log M}$,
 in order to increase the clarity of the plots, because the viable range of $\sigma_{\log M}$ is
 determined by this simple degeneracy with $\log (M_{\rm min})$.
 
+
 The results of this subsection demonstrate that we achieve reasonable fits to projected galaxy clustering
 data using direct HOD population of a high-resolution numerical simulation of structure formation. These results
 also update and supersede existing constraints in the literature in at least three respects. First, we work within the
@@ -754,6 +769,7 @@ or other effects that have been difficult to incorporate into analytical halo mo
 we have explored the posteriors of the parameters with significantly more samples (roughly two orders of magnitude),
 thereby mitigating errors on inferred parameters caused by insufficient sampling of the
 posterior by \citet{zehavi_etal11}.
+
 
 %-------------------------
 \subsection{Analysis with Decorated HOD}
@@ -980,7 +996,9 @@ I need to think of a more clever ending.
 
 We thank Zheng Zheng for his cooperation in diagnosing the
 differences between the present analysis and the SDSS DR7
-analysis presented in \citet{zehavi_etal11}.
+analysis presented in \citet{zehavi_etal11}. We thank Manodeep 
+Sinha for help installing and running the {\tt CorrFunc} package 
+as well as comments on an earlier draft of this manuscript.
 The authors gratefully acknowledge the Gauss Centre for Supercomputing
 e.V. (www.gauss-centre.eu) and the Partnership for Advanced
 Supercomputing in Europe (PRACE, www.prace-ri.eu) for funding the
