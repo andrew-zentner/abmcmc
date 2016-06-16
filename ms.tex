@@ -81,7 +81,7 @@ Constraints on Assembly Bias from Galaxy Clustering
 
 \author[Zentner et al.]
 {Andrew R. Zentner$^{1}$, Andrew Hearin$^{2}$, Frank C. van den Bosch$^{3},$ \newauthor
-Antonio Villareal$^{1}$, Johannes U. Lange$^{3}$, Kuan Wang$^{1}$, and P. Rogers Nelson$^{4}$\\ \\
+Johannes U. Lange$^{3}$, and P. Rogers Nelson$^{4}$\\ \\
 $^1$Department of Physics and Astronomy \& Pittsburgh Particle Physics, Astrophysics, and Cosmology Center (PITT PACC),\\ University of Pittsburgh, Pittsburgh, PA 15260\\
 $^2$Yale Center for Astronomy \& Astrophysics, Yale University, New Haven, CT\\
 $^3$Department of Astronomy, Yale University, P.O. Box 208101, New Haven, CT\\
@@ -138,9 +138,9 @@ measurements to constrain galaxy formation models and cosmology
 underlying halo occupation modeling are: (1) all galaxies reside in
 dark matter halos that are biased tracers of the density field; and
 (2) galaxies occupy halos as a function of halo mass $\mvir$ only. 
-In this paper, we present the first analysis of large-scale clustering using 
-a halo occupation model that violates the second assumption and permits 
-galaxies to occupy halos as a function of multiple halo properties.
+In this paper, we present the first analysis of galaxy clustering using 
+a halo occupation model that violates the second of these assumptions 
+and permits galaxies to occupy halos as a function of multiple halo properties.
 
 
 It is now well known that the strength of halo clustering, the halo bias, 
@@ -277,8 +277,10 @@ conclusions in Section~\ref{section:conclusions}.
 \label{subsection:halotools}
 %---------------------------
 
-To generate predictions for galaxy clustering, we directly populate dark matter halos with mock galaxies using {\tt Halotools}.
-We explore halo occupation distribution models (HOD) models in this work
+To generate predictions for galaxy clustering, 
+we populate dark matter halos with mock galaxies using the publicly-available, 
+open source, {\tt Halotools} software \citep{halotools}.
+We explore halo occupation distribution (HOD) models in this work
 \citep[e.g.][]{seljak00,ma_fry00,scoccimarro01a,berlind02}, though other
 techniques that can be used to interpret such data, such as the conditional luminosity function
 \citep[CLF, e.g.,][]{yang03,vdBosch13}, exist. In this subsection, we review the ``standard" HOD
@@ -294,17 +296,19 @@ interested readers can always refer to {\tt http://halotools.readthedocs.io} and
 \subsubsection{Simulation}
 
 All of our analyses are based on the Bolshioi-Planck (BolshioP) simulation \citep{riebe_etal11}.
-BolshoiP was run with cosmological parameters based on \citet{planck13},
-$\Omega_{\Lambda} = 0.693, \Omega_{\rm m} = 1 - \Omega_{\Lambda} = 0.307, \Omega_{\rm b} = 0.048,
-h = 0.7, {\rm n_s}=0.96$ and $\sigma_8 = 0.82,$ within a cubic box
-$250$ ${\rm Mpc}/h$ on a side, requiring a particle mass of $m_{\rm p} = 1.35\times10^{8}M_{\odot}/h.$
+BolshoiP was run with cosmological parameters based on \citet{planck13}:
+$\Omega_{\Lambda} = 0.693; \Omega_{\rm m} = 1 - \Omega_{\Lambda} = 0.307; \Omega_{\rm b} = 0.048;
+h = 0.7; {\rm n_s}=0.96$; and $\sigma_8 = 0.82$. BolshoiP simulated the formation of structure within a cubic 
+box $250$ ${\rm Mpc}/h$ on a side, requiring a particle mass of $m_{\rm p} = 1.35\times10^{8}M_{\odot}/h.$
 Further information about the BolshoiP simulation is available at \url{https://www.cosmosim.org}.
 
 We use publicly available\footnote{\tt http://www.slac.stanford.edu/$\sim$behroozi/BPlanck\_Hlists} dark matter
 halo catalogs based on the {\tt ROCKSTAR} halo-finder \citep{behroozi_rockstar11} and {\tt CONSISTENT TREES} algorithm \citep{behroozi_trees13}. In particular, we use the {\tt halotools\_alpha\_version2} version of the $z=0$ snapshot
 of the {\tt `bolplanck'} catalog included with {\tt Halotools.} Halos in these catalogs are based on the virial radius
 density contrast given in \citet{bryan_norman98}. When populating this catalog with mock galaxies, we only use
-present-day host halos with a value of $M_{\rm peak}$ that exceeds $300$ particles.
+present-day host halos with a value of $M_{\rm peak}$ that exceeds $300$ particles. The minimum 
+peak halo mass considered in our analysis has $M_{\rm peak} \ge 4.05 \times 10^5\, h^{-1}\mathrm{M}_{\odot}$ 
+and this prevents us from analyzing samples with $M_r > -19$. 
 
 
 \subsubsection{Occupation statistics}
@@ -319,15 +323,15 @@ specified by the first moment of $P(\ncen|\mvir)$, which we model as
 %
 \begin{equation}
 \label{eq:ncen}
-\langle N_{\mathrm{cen}} \rangle(\mvir) =
+\langle N_{\mathrm{cen}} \vert \mvir \rangle =
         \frac{1}{2}\left( 1 +
         \mathrm{erf}\left( \frac{\log (\mvir) -
         \log (M_{\rm min})}{\sigma_{\log M}} \right) \right)
 \end{equation}
 %
-For every host halo in the catalog we draw a random number from a uniform distribution $\mathcal{U}(0, 1);$ for a host halo of present-day virial mass $\mvir,$ a central galaxy is assigned to the halo if the associated random number is less than $\langle N_{\mathrm{cen}} \rangle(\mvir);$ halos with random values exceeding  $\langle N_{\mathrm{cen}} \rangle(\mvir)$ are left devoid of centrals.
+For every host halo in the catalog we draw a random number from a uniform distribution $\mathcal{U}(0, 1);$ for a host halo of present-day virial mass $\mvir,$ a central galaxy is assigned to the halo if the associated random number is less than $\langle N_{\mathrm{cen}} \vert \mvir \rangle;$ halos with random values exceeding  $\langle N_{\mathrm{cen}} \vert \mvir \rangle$ are left devoid of centrals.
 The parameter $\log (M_{\rm min})$ specifies the halo mass at which the halo has a 50\% probability of hosting a
-central galaxy, while the parameter $\sigma_{\log M}$ specifies the rate at which $\langle N_{\mathrm{cen}} \rangle (\mvir)$
+central galaxy, while the parameter $\sigma_{\log M}$ specifies the rate at which $\langle N_{\mathrm{cen}} \vert \mvir \rangle$
 transitions from zero to unity, with smaller values of $\sigma_{\log M}$ corresponding to a more rapid transition.
 
 
@@ -335,20 +339,26 @@ We model the distribution $P(\nsat|\mvir)$ as a Poisson distribution with first 
 %
 \begin{equation}
 \label{eq:nsat}
-\langle N_{\rm sat}\rangle(\mvir) = \left( \frac{\mvir - M_0}{M_1} \right)^{\alpha}.
+\langle N_{\rm sat}\vert \mvir \rangle = \left( \frac{\mvir - M_0}{M_1} \right)^{\alpha}.
 \end{equation}
 %
 The parameter $M_0$ allows the power-law to be truncated more rapidly at low masses and we
-set $\langle N_{\rm sat}\rangle (\mvir) = 0$ for $\mvir < M_0$.
+set $\langle N_{\rm sat}\vert \mvir \rangle = 0$ for $\mvir < M_0$.
 
 
 The five parameters of HOD models that are varied in standard analyses are $\log (M_{\rm min})$,
 $\sigma_{\log M}$, $\alpha$, $\log (M_1)$, and $\log (M_0)$, though, as we show below, central galaxies usually
 outnumber satellite galaxies by a factor of several, so $\log (M_{\rm min})$ and $\sigma_{\log M}$ usually
 vary along a narrow degeneracy that fixes the total galaxy number density to the observed value. There are
-many particular choices that can be made for the functional forms of $\langle N_{\rm cen}\rangle (\mvir)$ and
-$\langle N_{\rm sat}\rangle (\mvir)$. We have made choices that mimic the standard SDSS DR7 analysis of
-\citet{zehavi_etal11}, to expedite comparisons with their results.
+many particular choices that can be made for the functional forms of $\langle N_{\rm cen}\vert \mvir \rangle$ and
+$\langle N_{\rm sat}\vert \mvir \rangle$. We have made choices that mimic the standard SDSS DR7 analysis of
+\citet{zehavi_etal11}, to expedite comparisons with their results. However, our choice does deviate from 
+the choice of \citet{zehavi_etal11} in one respect. The mean satellite occupation of \citet{zehavi_etal11} 
+is that of Eq.~(\ref{eq:nsat}) multiplied by an overall factor of $\langle N_{\rm cen} \vert \mvir \rangle$. 
+We have chosen not to use this as our default because it can introduce difficulties in some analyses 
+\citep[see the discussion of blue galaxy samples in][]{zentner_etal14} and because, as we have verified 
+explicitly, the extra factor introduces only small quantitative changes to our results and no qualitative 
+changes.
 
 
 \subsubsection{Galaxy profiles}
@@ -389,11 +399,12 @@ direction, and the distance between points in the $xy$-plane to define
 the projected distance $\rp.$ We place mock galaxies into
 redshift-space by replacing each galaxy's $z$-coordinate with
 $z_{\rm RS} = z + V_{\rm z}/H_0.$ We count pairs of points in each of
-our $\rp$ bins, rejecting pairs with $z_{\rm RS}-$ distance exceeding
-$\pi_{\rm max}=60$ ${\rm Mpc/h}$, which is the same projection
-depth chosen by \citet{zehavi_etal11}. We employ the \citet{landyszalay93}
-estimator to turn pair counts into a $\wprp$ prediction, as described
-in detail in {\tt http://halotools.readthedocs.io}.
+our $\rp$ bins, rejecting pairs with line-of-sight distances in redshift space, $\Delta z_{\rm RS}$, 
+exceeding $\pi_{\rm max}=60$ ${\rm Mpc/h}$, which is the same projection
+depth chosen by \citet{zehavi_etal11}. Having populated mocks, 
+we perform the computation of the projected two-point galaxy correlation 
+function, $w_{\rm p}(r_{\rm p})$ using the publicly-available {\tt CorrFunc} 
+package \citep{corrfunc} which has been extensively optimized for computational speed.
 
 %---------------------------
 \subsection{HOD with Assembly Bias: The Decorated HOD}
@@ -424,11 +435,13 @@ marginalized first moment of centrals and satellites are {\em
   unchanged from the baseline value defined by Equations \ref{eq:ncen}
   and \ref{eq:nsat}}. In other words, {\em decorated HOD models all have the same HODs,
 when averaged over all halos at fixed mass, as standard HOD
-models}. The only change in Decorated HOD models is whether or not an
+models with the same five standard HOD parameters}. 
+The only change in Decorated HOD models is whether or not an
 additional property also modulates halo occupation at fixed halo
 mass. A value of $\abias = 0$ indicates no galaxy assembly bias
 whatsoever. We refer the reader to \citet{hearin_etal16} for further
 details about the decorated HOD.
+
 
 In the present work, we fix our model to the simplest class of galaxy
 assembly bias models, though a recipe for generalizing to more
@@ -443,6 +456,7 @@ that vary in these analyses seven. As we show below, these additional
 parameters are in many instances poorly constrained by clustering data
 of the quality of SDSS DR7 alone, so exploring more complex models of
 assembly bias does not yet seem justified in such analyses.
+
 
 %---------------------------
 \subsection{Parameter Inference}
@@ -465,8 +479,7 @@ $\Delta w_{{\rm p},i} = w_{\rm p}^{\rm mock}(r_{{\rm p},i}) - w_{\rm p}^{\rm mea
 between the projected two-point function predicted by the mock catalog and the measured value in the i$^{\rm th}$
 separation bin (of 12 bins total), $C^{-1}$ is the inverse of the covariance matrix of the measurements,
 and the last term in Eq.~(\ref{eq:chisquare}) is the contribution from the difference between the predicted and measured
-galaxy number density. The error on the galaxy number density assumes Poisson statistics for both the measured and predicted
-galaxy number densities.
+galaxy number density. The error on the galaxy number density assumes Poisson statistics for both the measured and predicted galaxy number densities.
 
 
 To infer parameters for the HOD and Decorated HOD models described in the previous subsections,
