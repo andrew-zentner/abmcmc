@@ -6,10 +6,12 @@
 \usepackage{amsmath}
 \usepackage{color}
 \usepackage[dvipsnames]{xcolor}
-\usepackage{hyperref}
+%\usepackage{hyperref}
 \usepackage{yfonts}
 
-\usepackage{epsfig}  \usepackage{graphicx}   \usepackage{rotating}
+\usepackage{epsfig}  
+\usepackage{graphicx}  
+\usepackage{rotating}
 
 %------- New commands
 
@@ -300,7 +302,7 @@ BolshoiP was run with cosmological parameters based on \citet{planck13}:
 $\Omega_{\Lambda} = 0.693; \Omega_{\rm m} = 1 - \Omega_{\Lambda} = 0.307; \Omega_{\rm b} = 0.048;
 h = 0.7; {\rm n_s}=0.96$; and $\sigma_8 = 0.82$. BolshoiP simulated the formation of structure within a cubic 
 box $250$ ${\rm Mpc}/h$ on a side, requiring a particle mass of $m_{\rm p} = 1.35\times10^{8}M_{\odot}/h.$
-Further information about the BolshoiP simulation is available at \url{https://www.cosmosim.org}.
+Further information about the BolshoiP simulation is available at {\tt https://www.cosmosim.org}.
 
 We use publicly available\footnote{\tt http://www.slac.stanford.edu/$\sim$behroozi/BPlanck\_Hlists} dark matter
 halo catalogs based on the {\tt ROCKSTAR} halo-finder \citep{behroozi_rockstar11} and {\tt CONSISTENT TREES} algorithm \citep{behroozi_trees13}. In particular, we use the {\tt halotools\_alpha\_version2} version of the $z=0$ snapshot
@@ -963,6 +965,34 @@ over another.
  \end{center}
 \end{table}
 %--------------------------------------------------------------------------------------------------------------------------------
+
+Beyond the fit results, it is also possible to ask whether or not the fits to the data warrant the use of 
+additional parameters (in this case, to describe assembly bias). This requires a metric that penalizes the 
+use of additional parameters. A commonly used metric is the Bayesian Information Criterion 
+\citep[BIC,][]{schwarz78}, defined as 
+%
+\begin{equation}
+\mathrm{BIC} = -2 \mathcal{L}_{\rm max} + k\, \ln N, 
+\end{equation}
+%
+where $\mathcal{L}_{\rm max}$ is the maximum of the likelihood, 
+$k$ is the number of paramters in the model and $N$ is the number of 
+data points. We compute the change in the BIC, $\Delta$BIC, by subtracting 
+the BIC for the analysis with assembly bias from the BIC in the standard analysis 
+in which there is no assembly bias. With this convention, $\Delta \mathrm{BIC} > 0$ 
+favors assembly bias, suggesting that the data warrant the additional parametric freedom. 
+Conversely, $\Delta \mathrm{BIC} < 0$ favors the standard analysis, 
+suggesting that the additional freedom in the model does not improve the description of the data 
+to a sufficiently great degree to support the added complexity. 
+A common convention is to refer to the preference as 
+{\em strong} when $\vert \Delta \mathrm{BIC}\vert \ge 5$. 
+
+The values of $\Delta$BIC are given in Table~\ref{table:bic}. In the analysis of the $\magr < -21$ sample, 
+$\Delta \mathrm{BIC} < 0$, indicating that the additional parameters describing assembly bias are not 
+warranted by the data. For all other samples, $\Delta \mathrm{BIC} > 0$, showing a preference for 
+the models with assembly bias. The cases that most support the additional complexity 
+of the decorated HOD are $\magr < -19$ and $\magr < -20$, for which $\Delta$BIC 
+rises nearly to the level of a {\rm strong} preference. 
 
 %------------------------------------------------
 \section{Conclusions}
