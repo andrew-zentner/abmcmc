@@ -81,7 +81,7 @@ Constraints on Assembly Bias from Galaxy Clustering
 
 \author[Zentner et al.]
 {Andrew R. Zentner$^{1}$, Andrew Hearin$^{2}$, Frank C. van den Bosch$^{3},$ \newauthor
-Antonio Villareal$^{1}$, Johannes U. Lange$^{3}$, P. Rogers Nelson$^{4}$\\ \\
+Antonio Villareal$^{1}$, Johannes U. Lange$^{3}$, Kuan Wang$^{1}$, and P. Rogers Nelson$^{4}$\\ \\
 $^1$Department of Physics and Astronomy \& Pittsburgh Particle Physics, Astrophysics, and Cosmology Center (PITT PACC),\\ University of Pittsburgh, Pittsburgh, PA 15260\\
 $^2$Yale Center for Astronomy \& Astrophysics, Yale University, New Haven, CT\\
 $^3$Department of Astronomy, Yale University, P.O. Box 208101, New Haven, CT\\
@@ -137,18 +137,21 @@ measurements to constrain galaxy formation models and cosmology
   more_etal13,guo_etal14,zu_mandelbaum15b}. The key assumptions
 underlying halo occupation modeling are: (1) all galaxies reside in
 dark matter halos that are biased tracers of the density field; and
-(2) galaxies occupy halos as a function of halo mass $\mvir$ only.
+(2) galaxies occupy halos as a function of halo mass $\mvir$ only. 
+In this paper, we present the first analysis of large-scale clustering using 
+a halo occupation model that violates the second assumption and permits 
+galaxies to occupy halos as a function of multiple halo properties.
 
-It is now well known that halo bias depends upon halo properties other than $\mvir$
+
+It is now well known that the strength of halo clustering, the halo bias, 
+depends upon halo properties other than $\mvir$
 \citep[e.g.][]{gao_etal05,wechsler06,gao_white07,zentner07,dalal_etal08,lacerna11},
-an effect called halo assembly bias. If galaxies occupy halos as a
+an effect called {\em halo assembly bias}. If galaxies occupy halos as a
 function of halo properties other than $\mvir,$ then standard halo
-occupation methods will be subject to a systematic error due to galaxy
-assembly bias.
-Several of us have previously shown that this error can
-be significant in an analysis of galaxy clustering and can bias
-inferences about many aspects of galaxy evolution
-\citep{zentner_etal14}.
+occupation methods will be subject to a systematic error due to 
+{\em galaxy assembly bias}. Several of us have previously shown 
+that this error can be significant in an analysis of galaxy clustering 
+and can bias inferences about many aspects of galaxy evolution \citep{zentner_etal14}.
 
 
 There is increasing observational evidence that galaxy assembly bias is
@@ -159,10 +162,12 @@ galaxies favors models in which stellar mass depends upon a
 combination of $\mvir$ and halo concentration.
 \citet{miyatake_etal16} and \citet{more_etal16} have
 presented evidence for the presence of assembly bias in massive
-clusters; in particular, they find that clusters with a more
-concentrated distribution of satellite galaxies exhibit a weaker large-scale bias
-relative to clusters of the same mass with satellite galaxies that
-are less centrally concentrated.
+clusters; in particular, they find that clusters with a more centrally concentrated 
+distribution of satellite galaxies cluster more weakly than clusters with more 
+diffuse satellite galaxy distributions at fixed cluster mass. Indeed, \citet{more_etal16} 
+suggest that the observed galaxy bias is considerably stronger than had been 
+expected based on $N$-body simulations coupled with simple models for the 
+galaxy--halo connection, such as subhalo abundance matching. 
 Additional support for the presence of assembly bias has come from a
 variety of studies that have shown, or suggested, that the large-scale
 environment of dark matter halos of fixed mass
@@ -178,7 +183,9 @@ differences in halo mass between the galaxy samples under consideration.
 \citet{paranjape15} urges caution that contamination by satellite galaxies
 can masquerade as a false signal of assembly bias.
 \citet{tinker08b} argue that measurements of void statistics place strong
-bounds on the possible strength of the signal.
+bounds on the possible strength of the signal, though 
+\citet{zentner_etal14} constructed an explicit example refuting this 
+claim.
 
 
 In much of the literature on this topic,
@@ -188,9 +195,10 @@ Until very recently, the only models that have been fit to
 observational clustering measurements have been traditional models
 in which assembly bias is assumed from the outset to be zero.
 Models that include assembly bias such as semi-analytic models
-are typically too computationally expensive
-for anything besides a ``one-off" comparison \citep[e.g.,][]{croton_etal07}, prohibiting
-any conclusive statement to be made about the strength of the signal.
+are typically too computationally expensive to compare to data in a manner 
+that enables statistical constraints on model parameters. Such models are usually 
+compared to data on a case-by-case basis \citep[e.g.,][]{croton_etal07}, prohibiting
+any conclusive statement to be made about the strength of any assembly bias signal.
 
 
 Motivated by this shortcoming, we have developed a new class of
