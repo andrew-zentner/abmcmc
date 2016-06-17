@@ -1042,20 +1042,21 @@ rises nearly to the level of a {\rm strong} preference.
 \label{section:discussion}
 %------------------------------------------------
 
-The results of the previous section suggest that halo mass is
-insufficient to predict the galaxy content of a halo to the precision
-mandated by an analysis of SDSS DR7 clustering measurements
+The results of the previous section suggest that halo
+mass is insufficient to predict the galaxy content of a halo to the
+precision mandated by an analysis of SDSS DR7 clustering measurements
 (particularly the $\magr < -19$, $\magr < -20$, and $\magr < -20.5$
 samples).  This should not be surprising, as the process of galaxy
 formation and evolution is complex and there is little reason to
-suspect that many environmental factors impact galaxy properties.
-Our results further suggest that halo concentration (or some other
-halo property correlated with halo concentration) impacts the galaxy
-content of a halo, at least for galaxies of some luminosities. In
-particular, the assembly bias inferred from the $\magr < -20$ and
-$\magr < -20.5$ samples suggests that galaxies in roughly Milky
-Way-sized halos tend to be more luminous if they reside in halos with
-higher-than-average concentrations.
+suspect that all potentially-important factors are determined by a
+single halo property. Our results further suggest that halo
+concentration (or some other halo property correlated with halo
+concentration) impacts the galaxy content of a halo, at least for
+galaxies of some luminosities. In particular, the assembly bias
+inferred from the $\magr < -20$ and $\magr < -20.5$ samples suggests
+that galaxies in roughly Milky Way-sized halos tend to be more
+luminous if they reside in halos with higher-than-average
+concentrations.
 
 Within the context of the standard model of structure formation, this
 can be interpreted in at least two ways that are not mutually
@@ -1070,10 +1071,12 @@ more strongly binds the stellar and gaseous contents of such halos
 possibly driving more rapid star formation or making the galaxies less
 susceptible to feedback mechanisms that suppress star
 formation. Higher concentration halos have also formed earlier, on
-average \citep[e.g.,][]{wechsler02}, which may also contribute to the
-galaxy ending up more luminous. Halo assembly bias persists to large
-separations ($r \gg \mathrm{Mpc}$) and this picture can therefore
-accommodate galaxy assembly bias on such large scales.
+average \citep[e.g.,][]{wechsler02}. This suggests that any physics
+that acts upon the baryonic content of the halo and its high-density
+environment may have been operative for a longer time, resulting in a
+larger, more luminous galaxy.  Concentration-dependent halo assembly
+bias persists to very large separations \citep[$r > 10\, h^{-1}\mathrm{Mpc}$, e.g.,][]{wechsler06} and this picture can
+therefore accommodate galaxy assembly bias on such large scales.
 
 Another possible explanation for having more luminous galaxies reside
 in higher concentration halos is halo-halo interactions.  Recent work
@@ -1100,15 +1103,29 @@ same sense as suggested by the data. Splashback halos have experienced
 mass loss as a consequence of their tidal interactions with a larger,
 nearby halo. As a consequence, splashback halos are expected to be
 less massive than `regular' host halos that host similar galaxies
-\citep{dalal_etal08}.  Moreover, high concentrations due to tidal
+\citep{dalal_etal08}.  Meanwhile, high concentrations due to tidal
 truncation are a hallmark of splashback halos
-\citep{wang_etal07,dalal_etal08,sunayama_etal16}. This results in a
-picture in which there is a population of halos, correlated on scales
-$r \sim 1-3\, h^{-1}\mathrm{Mpc}$, that have concentrations that are
-high for their mass and galaxies that are overluminous for their
-mass. This is precisely the sense of assembly bias suggested by our
-analysis. Note, though, that this splashback effect cannot explain
-galaxy assembly bias on large, linear scales.
+\citep{wang_etal07,dalal_etal08,sunayama_etal16}.  The implication is
+a population of halos, correlated on scales $r \sim 1-3\,
+h^{-1}\mathrm{Mpc}$, that have concentrations that are high for their
+mass and galaxies that are overluminous for their mass. This is
+precisely the sense of assembly bias suggested by our analysis.  Note,
+though, that this splashback effect cannot explain galaxy assembly
+bias on large, linear scales.
+
+Our formulation of the Decorated HOD is not designed to address 
+the finer-grained causes for observed correlations. 
+Rather, what we have provided in this work is a robust boundary condition 
+that more detailed specific models, such as semi-analytical models 
+and hydrodynamical simulations, should satisfy. 
+However, we reiterate an important corollary to our findings. 
+Although SDSS projected clustering measurements favor strong levels of assembly bias, 
+the constraints on even our simple $\abias$ parameters are relatively weak. 
+This implies that {\em it may not be possible to constrain a finer-grained physical 
+picture using projected clustering at a level that is interesting.} 
+In order to constrain models that are more complex than simple empirical models 
+such as the Decorated HOD, it is necessary to leverage additional constraining power of 
+observations beyond two-point clustering. 
 
 
 %------------------------------------------------
@@ -1156,8 +1173,8 @@ Until such time as we have stringent constraints on the level of assembly bias i
 universe, accounting for the possibility of assembly bias is not optional in interpreting 
 galaxy clustering data. Precise statements about galaxy evolution derived from 
 galaxy clustering or attempts to exploit clustering to perform cosmological analyses 
-cannot be made robustly without accounting for assembly bias. Together with 
-the work of \citet{hearin_etal16} and the {\tt Halotools} software, we have provided 
+cannot be made robustly without accounting for assembly bias \citep[see][]{zentner_etal14}. 
+Together with the work of \citet{hearin_etal16} and the {\tt Halotools} software, we have provided 
 an explicit example of one way forward in such analyses. It is our hope that similar analyses 
 will be performed on forthcoming galaxy survey data and that these analyses will lead to a
 richer understanding of galaxy evolution and the relationship between galaxies and the halos 
@@ -1172,7 +1189,8 @@ We thank Zheng Zheng for his help in diagnosing the
 differences between the present analysis and the SDSS DR7
 analysis presented in \citet{zehavi_etal11}. We thank Manodeep 
 Sinha for help installing and running the {\tt CorrFunc} package 
-as well as comments on an earlier draft of this manuscript.
+as well as comments on an earlier draft of this manuscript. ARZ and 
+APH are grateful to Prince Rogers Nelson for inspiring our creativity. 
 The authors gratefully acknowledge the Gauss Centre for Supercomputing
 e.V. (www.gauss-centre.eu) and the Partnership for Advanced
 Supercomputing in Europe (PRACE, www.prace-ri.eu) for funding the
