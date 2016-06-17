@@ -1043,7 +1043,7 @@ The results of the previous section suggest that halo mass is insufficient to pr
 the galaxy content of a halo to the precision mandated by an analysis of SDSS DR7 
 clustering measurements (particularly the $\magr < -19$, $\magr < -20$, and $\magr < -20.5$ samples). 
 This should not be surprising, as the process of galaxy formation and evolution is complex and 
-there is little reason to suspect that all environmental factors are determined by a single halo property. 
+there is little reason to suspect that all potentially-important factors are determined by a single halo property. 
 Our results further suggest that halo concentration (or some other halo property correlated 
 with halo concentration) impacts the galaxy content of a halo, at least for galaxies of some 
 luminosities. In particular, the assembly bias inferred from the $\magr < -20$ and $\magr < -20.5$ 
@@ -1056,21 +1056,24 @@ but we considered these reasonable starting points for further consideration.
 One possibility is simply that the growth and structure of the host 
 halo itself may drive this dependence. For example, halos of higher concentration at fixed 
 mass have deeper potential wells (specifically, higher escape velocities from the halo center). 
-Therefore, gravity more strongly binds the stellar and gaseous contents of such halos possibly 
+Therefore, gravity more strongly binds the stellar and gaseous contents of such halos, possibly 
 driving more rapid star formation or making the galaxies less susceptible to feedback mechanisms 
 that suppress star formation. Higher concentration halos have also formed earlier, on average. This 
 suggests that any physics that acts upon the baryonic content of the halo and its high-density 
 environment may have been operative for a longer time, resulting in a larger, more luminous galaxy. 
-Halo assembly bias persists to large separations ($r \gg \mathrm{Mpc}$) and this picture can 
-accommodate galaxy assembly bias on such large scales.
+Concentration-dependent halo assembly bias persists to very large separations 
+\citep[$r > 10\, h^{-1}\mathrm{Mpc}$, e.g.,][]{wechsler06} 
+and this picture can accommodate galaxy assembly bias on such large scales.
+
 
 Another possibility is that halo-halo interactions in dense environments may drive, in part, 
 this preference for more luminous galaxies in higher-concentration halos. Recent work 
 on halo evolution suggests that a more physical definition of the size of a halo should be 
 $\sim 2-3$ times the traditional virial radius 
-\citep{wetzel_etal14,adhikari_etal14,wetzel_nagai15,sunayama_etal16,more_etal16}. 
+\citep{wetzel_etal14,adhikari_etal14,wetzel_nagai15,sunayama_etal16,more_etal16}, 
+a scale on the order of $\sim \mathrm{Mpc}$. 
 This ``splashback radius" incorporates ``splashback" halos that have passed within the dense environment 
-of the central halo, but are traditionally classified as distinct halos despite being strongly 
+of a larger, central halo, but are traditionally classified as distinct halos despite being strongly 
 influenced by the environment of the central halo. \citet{wang_etal07}, \citet{wetzel_etal14},  
 \citet{sunayama_etal16}, all find that these ``splashback" halos are a significant cause 
 of halo assembly bias on scales $r \sim 1-3\, h^{-1}\mathrm{Mpc}$, where assembly bias is 
@@ -1080,31 +1083,34 @@ improvement of the decorated HOD in the description of galaxy clustering occurs 
 length scales (see Fig.~\ref{fig:Mr19samples}-\ref{fig:Mr21samples} and the associated discussion). 
 
 
-This ``splashback" hypothesis has further merit in that it has the same sense as suggested 
-by the data. Splashback halos have experienced mass loss and have been spatially truncated 
-as a consequence of their interactions with a larger, nearby halo. Therefore, splashback halos 
-have virial masses that may be smaller than the masses of other halos that host similar galaxies \citet{dalal_etal08}. 
-Moreover, high concentrations due to tidal truncation are a hallmark of splashback 
-halos \citep{wang_etal07,dalal_etal08,sunayama_etal16}. This results in a picture in which there is a population 
+This ``splashback" hypothesis has further merit in that it has the same sense suggested 
+by the data. Splashback halos have experienced mass loss and have been spatially truncated. 
+Therefore, splashback halos have virial masses that may be smaller than the masses of other 
+halos that host similar galaxies \citet{dalal_etal08}. Meanwhile, high concentrations due 
+to tidal truncation are a hallmark of splashback halos 
+\citep{wang_etal07,dalal_etal08,sunayama_etal16}. 
+The implication is a population 
 of halos, correlated on scales $r \sim 1-3\, h^{-1}\mathrm{Mpc}$, that have concentrations 
 that are high for their mass and galaxies that are overluminous for their mass. This is precisely the 
-sense of assembly bias suggested by our analysis. {\bf APH: the following sentence kind of dangles.} Galaxy assembly bias induced by these 
+sense of assembly bias suggested by our analysis. 
+Galaxy assembly bias induced by these 
 splashback effects cannot explain larger-scale assembly bias.
 
+
 Our formulation of the Decorated HOD is not designed to address 
-the finer-grained causes for this correlation. 
+the finer-grained causes for observed correlations. 
 Rather, what we have provided in this work is a robust boundary condition 
-that more detailed specific models such as semi-analytical models 
-and hydrodynamical simulations should satisfy. 
+that more detailed specific models, such as semi-analytical models 
+and hydrodynamical simulations, should satisfy. 
 However, we reiterate an important corollary to our findings. 
 Although SDSS projected clustering measurements favor strong levels of assembly bias, 
 the constraints on even our simple $\abias$ parameters are relatively weak. 
-This implies that {\em it is not possible to reliably constrain a finer-grained physical picture using 
-projected clustering and number density alone.} 
+This implies that {\em it may not be possible to constrain a finer-grained physical 
+picture using projected clustering at a level that is interesting.} 
 In order to constrain models that are more complex than simple empirical models 
-such as the Decorated HOD,
-it is necessary to leverage additional constraining power of 
+such as the Decorated HOD, it is necessary to leverage additional constraining power of 
 observations beyond two-point clustering. 
+
 
 %------------------------------------------------
 \section{Conclusions}
@@ -1151,8 +1157,8 @@ Until such time as we have stringent constraints on the level of assembly bias i
 universe, accounting for the possibility of assembly bias is not optional in interpreting 
 galaxy clustering data. Precise statements about galaxy evolution derived from 
 galaxy clustering or attempts to exploit clustering to perform cosmological analyses 
-cannot be made robustly without accounting for assembly bias. Together with 
-the work of \citet{hearin_etal16} and the {\tt Halotools} software, we have provided 
+cannot be made robustly without accounting for assembly bias \citep[see][]{zentner_etal14}. 
+Together with the work of \citet{hearin_etal16} and the {\tt Halotools} software, we have provided 
 an explicit example of one way forward in such analyses. It is our hope that similar analyses 
 will be performed on forthcoming galaxy survey data and that these analyses will lead to a
 richer understanding of galaxy evolution and the relationship between galaxies and the halos 
