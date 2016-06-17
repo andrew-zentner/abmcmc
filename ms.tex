@@ -500,12 +500,16 @@ form $\mathcal{L} \propto e^{-\chi^2/2}$, where
 \chi^2 = \Delta w_{{\rm p},i} \, [C^{-1}]_{ij} \, \Delta w_{{\rm p},j} + \frac{(n_{\rm g}^{\rm mock} - n_{\rm g}^{\rm meas})^2}{\sigma_{\rm n}^2},
 \end{equation}
 %
-$\Delta w_{{\rm p},i} = w_{\rm p}^{\rm mock}(r_{{\rm p},i}) - w_{\rm p}^{\rm meas}(r_{{\rm p},i})$ is the difference
-between the projected two-point function predicted by the mock catalog and the measured value in the i$^{\rm th}$
-separation bin (of 12 bins total), $C^{-1}$ is the inverse of the covariance matrix of the measurements,
-and the last term in Eq.~(\ref{eq:chisquare}) is the contribution from the difference between the predicted and measured
-galaxy number density. In Eq.~(\ref{eq:chisquare}), the we adopt the Einstein summation convention and sum over the 
-dummy indices $i$ and $j$. The error on the galaxy number density assumes Poisson statistics for both the measured and predicted galaxy number densities.
+(Einstein summation convention), $\Delta w_{{\rm p},i} = w_{\rm p}^{\rm
+  mock}(r_{{\rm p},i}) - w_{\rm p}^{\rm meas}(r_{{\rm p},i})$ is the
+difference between the projected two-point function predicted by the
+mock catalog and the measured value in the i$^{\rm th}$ separation bin
+(of 12 bins total), $C^{-1}$ is the inverse of the covariance matrix
+of the measurements, and the last term in Eq.~(\ref{eq:chisquare}) is
+the contribution from the difference between the predicted and
+measured galaxy number density. The error on the galaxy number density
+assumes Poisson statistics for both the measured and predicted galaxy
+number densities.
 
 
 To infer parameters for the HOD and Decorated HOD models described in the previous subsections,
@@ -753,9 +757,6 @@ all galaxy number density measurements, an error that greatly exceeds the
 Poisson error, typically $< 1\%$, that we adopt. This additional error 
 contribution also limits the value of comparing our $\chi^2$ values with those of 
 \citet{zehavi_etal11}, as the latter values will be artificially lower. 
-Therefore, it seems likely that the tighter constraints quoted by \citet{zehavi_etal11}
-must be caused by an error.
-
 
 We have confirmed with one of the authors of \citet{zehavi_etal11}
 that the MCMC chains used in a number of their analyses may not have been
@@ -796,7 +797,7 @@ degenerate with each other such that most of the posterior probability lies in a
 along which $\log (M_{\rm min})$ and $\sigma_{\log M}$ are positively correlated.
 In the following plots, we exclude the parameter $\sigma_{\log M}$,
 in order to increase the clarity of the plots, because the viable range of $\sigma_{\log M}$ is
-determined by this simple degeneracy with $\log (M_{\rm min})$. Our constraints on $\sigma_{\log M}$ are listed in Table~\ref{tab:parameters}.
+determined by this simple degeneracy with $\log (M_{\rm min})$. Our constraints on $\sigma_{\log M}$ are listed in Table~\ref{table:parameters}.
 
 
 The results of this subsection demonstrate that we achieve reasonable fits to projected galaxy clustering
