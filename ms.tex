@@ -231,9 +231,9 @@ properties of simulated halos as a function of
 any arbitrary halo properties in the catalog. It is not necessary to develop 
 new phenomenological models or fitting functions to deal with this additional 
 complexity. With direct mock population, systematic uncertainty in the 
-model is limited to the sample variance of the simulated box, errors related 
-to insufficient numerical resolution, and numerical inaccuracies of 
-halo-finding \citep[e.g., overmerging][]{klypin99a,rockstar}.
+model is limited to the sample variance of the simulated box,
+numerical inaccuracies of halo-finding, and errors related 
+to insufficient numerical resolution \citep[e.g., overmerging; ][]{klypin99a,rockstar}.
 
 
 In addition to improvements resulting from direct mock population,
@@ -295,7 +295,7 @@ interested readers can always refer to {\tt http://halotools.readthedocs.io} and
 
 \subsubsection{Simulation}
 
-All of our analyses are based on the Bolshioi-Planck (BolshioP) simulation \citep{riebe_etal11}.
+All of our analyses are based on the Bolshoi-Planck (BolshoiP) simulation \citep{riebe_etal11}.
 BolshoiP was run with cosmological parameters based on \citet{planck13}:
 $\Omega_{\Lambda} = 0.693; \Omega_{\rm m} = 1 - \Omega_{\Lambda} = 0.307; \Omega_{\rm b} = 0.048;
 h = 0.7; {\rm n_s}=0.96$; and $\sigma_8 = 0.82$. BolshoiP simulated the formation of structure within a cubic 
@@ -325,8 +325,8 @@ specified by the first moment of $P(\ncen|\mvir)$, which we model as
 \label{eq:ncen}
 \langle N_{\mathrm{cen}} \vert \mvir \rangle =
         \frac{1}{2}\left( 1 +
-        \mathrm{erf}\left( \frac{\log (\mvir) -
-        \log (M_{\rm min})}{\sigma_{\log M}} \right) \right)
+        \mathrm{erf}\left[ \frac{\log (\mvir) -
+        \log (M_{\rm min})}{\sigma_{\log M}} \right] \right)
 \end{equation}
 %
 For every host halo in the catalog we draw a random number from a uniform 
@@ -384,7 +384,7 @@ concentration of the dark matter particles in the halo.\footnote{We
 
 We model the radial velocity distribution of satellite galaxies as a
 Gaussian with first moment equal to the host halo velocity and second
-moment equal to the solution to the isotropic Jeans equation for an
+moment equal to the solution of the isotropic Jeans equation for an
 NFW profile \citep{more09b},
 \begin{equation}
 \sigma^{2}_{r}(\tilde{r}|c) = V_{\rm vir}^{2}\frac{c^{2}\tilde{r}(1 + c\tilde{r})^{2}}{g(c)}\int_{c\tilde{r}}^{\infty}{\rm d}y\frac{g(y)}{y^{3}(1 + y)^{2}},
@@ -408,7 +408,8 @@ redshift-space by replacing each galaxy's $z$-coordinate with
 $z_{\rm RS} = z + V_{\rm z}/H_0.$ We count pairs of points in each of
 our $\rp$ bins, rejecting pairs with line-of-sight distances in redshift space, $\Delta z_{\rm RS}$, 
 exceeding $\pi_{\rm max}=60$ ${\rm Mpc/h}$, which is the same projection
-depth chosen by \citet{zehavi_etal11}. Having populated mocks, 
+depth chosen by \citet{zehavi_etal11}, both in their analysis of the SDSS
+DR7 data and in their modeling. Finally, having populated mocks, 
 we perform the computation of the projected two-point galaxy correlation 
 function, $w_{\rm p}(r_{\rm p})$ using the publicly-available {\tt CorrFunc} 
 package \citep{corrfunc} which has been extensively optimized for computational speed.
@@ -430,8 +431,14 @@ places it above or below the rank-order percentile $f_{\rm split},$
 which we keep fixed to $f_{\rm split}=0.5$ throughout the paper for
 simplicity. High-concentration halos have a different first
 occupation moment relative to low-concentration halos of the same
-mass, $\langle\ngal|\mvir, c_{\rm high}\rangle \neq
-\langle\ngal|\mvir, c_{\rm low}\rangle.$ The difference between the
+mass,
+%
+\begin{eqnarray}
+\langle\ngal|\mvir, c_{\rm high}\rangle & = & \langle\ngal|\mvir \rangle + \delta\ngal \nonumber \\  
+\langle\ngal|\mvir, c_{\rm low}\rangle  & = & \langle\ngal|\mvir \rangle - \delta\ngal
+\end{eqnarray}
+%
+This difference, $\delta\ngal$, between the
 first moment of high- and low-concentration halos is modulated by
 $\abias,$ the novel parameter of the decorated HOD governing assembly
 bias. Values of $\abias=\pm1$ correspond to the maximum strength of
@@ -457,9 +464,17 @@ particular, we split halos into two populations as specified in the
 previous paragraph. We then populate halos with satellite galaxies
 specified by an assembly bias parameter $-1 \le A_{\rm sat} \le 1$ and
 central galaxies with a distinct assembly bias parameter
-$-1 \le A_{\rm cen} \le 1$. These two additional parameters are varied in our
-analyses that include assembly bias, making the number of parameters
-that vary in these analyses seven. As we show below, these additional
+$-1 \le A_{\rm cen} \le 1$. For the value of $f_{\rm split}=0.5$ adopted here,
+we then have that
+%
+\begin{eqnarray}
+  \delta N_{\rm cen} & = & A_{\rm cen} \, {\rm MIN}\left\{\langle N_{\mathrm{cen}}|\mvir\rangle , 1- \langle N_{\mathrm{cen}}|\mvir\rangle\right\}\nonumber\\
+  \delta N_{\rm sat} & = & A_{\rm sat} \, \langle N_{\mathrm{sat}}|\mvir\rangle
+\end{eqnarray}
+%
+In our analyses that include assembly bias, we vary these two
+additional parameters, bringing the total number of parameters
+that vary in these analyses to seven. As we show below, these additional
 parameters are in many instances poorly constrained by clustering data
 of the quality of SDSS DR7 alone, so exploring more complex models of
 assembly bias does not yet seem justified in such analyses.
@@ -479,7 +494,7 @@ form $\mathcal{L} \propto e^{-\chi^2/2}$, where
 %
 \begin{equation}
 \label{eq:chisquare}
-\chi^2 = \Delta w_{{\rm p},i} \, [C^{-1}]_{ij} \, \Delta w_{{\rm p},j} + \frac{(n_{\rm g}^{\rm mock} - n_{\rm g}^{\rm meas})^2}{\sigma_{\rm n}^2},
+\chi^2 = \sum_{i,j} \Delta w_{{\rm p},i} \, [C^{-1}]_{ij} \, \Delta w_{{\rm p},j} + \frac{(n_{\rm g}^{\rm mock} - n_{\rm g}^{\rm meas})^2}{\sigma_{\rm n}^2},
 \end{equation}
 %
 $\Delta w_{{\rm p},i} = w_{\rm p}^{\rm mock}(r_{{\rm p},i}) - w_{\rm p}^{\rm meas}(r_{{\rm p},i})$ is the difference
@@ -491,7 +506,7 @@ dummy indices $i$ and $j$. The error on the galaxy number density assumes Poisso
 
 
 To infer parameters for the HOD and Decorated HOD models described in the previous subsections,
-we performed a Markov Chain Monte Carlo (MCMC) sampling of the posterior distribution using the
+we perform a Markov Chain Monte Carlo (MCMC) sampling of the posterior distribution using the
 affine-invariant ensemble sampler of \citet{goodman_weare10} as implemented in the
 {\tt emcee} software package \citep{foreman-mackey_etal13}. For most cases, we find that
 $\sim 3-10 \times 10^{6}$ samples are necessary in order for our chains to converge.
@@ -785,7 +800,7 @@ The results of this subsection demonstrate that we achieve reasonable fits to pr
 data using direct HOD population of a high-resolution numerical simulation of structure formation. These results
 also update and supersede existing constraints in the literature in at least three respects. First, we work within the
 best-fit Planck cosmology. Second, we perform our parameter inference analysis using direct population of halos
-identified in a numerical simulation of cosmological structure formation (BolshioP). This greatly mitigates modeling
+identified in a numerical simulation of cosmological structure formation (BolshoiP). This greatly mitigates modeling
 uncertainties associated with nonlinear density field evolution, scale-dependent halo bias, halo exclusion,
 or other effects that have been difficult to incorporate into analytical halo models with high precision. Third,
 we have explored the posteriors of the parameters with significantly more samples (roughly two orders of magnitude),
