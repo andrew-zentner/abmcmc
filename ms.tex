@@ -793,7 +793,7 @@ degenerate with each other such that most of the posterior probability lies in a
 along which $\log (M_{\rm min})$ and $\sigma_{\log M}$ are positively correlated.
 In the following plots, we exclude the parameter $\sigma_{\log M}$,
 in order to increase the clarity of the plots, because the viable range of $\sigma_{\log M}$ is
-determined by this simple degeneracy with $\log (M_{\rm min})$.
+determined by this simple degeneracy with $\log (M_{\rm min})$. Our constraints on $\sigma_{\log M}$ are listed in Table~\ref{tab:parameters}.
 
 
 The results of this subsection demonstrate that we achieve reasonable fits to projected galaxy clustering
@@ -802,7 +802,8 @@ also update and supersede existing constraints in the literature in at least thr
 best-fit Planck cosmology. Second, we perform our parameter inference analysis using direct population of halos
 identified in a numerical simulation of cosmological structure formation (BolshoiP). This greatly mitigates modeling
 uncertainties associated with nonlinear density field evolution, scale-dependent halo bias, halo exclusion,
-or other effects that have been difficult to incorporate into analytical halo models with high precision. Third,
+or other effects that have been difficult to incorporate into analytical halo models with high precision
+\citep[e.g.,][and references therein]{vdBosch13}. Third,
 we have explored the posteriors of the parameters with significantly more samples (roughly two orders of magnitude),
 thereby mitigating errors on inferred parameters caused by insufficient sampling of the
 posterior by \citet{zehavi_etal11}.
@@ -823,14 +824,14 @@ of $-1 \le A_{\rm cen,sat} \le 1$, and $A_{\rm cen,sat}=0$ when there is no gala
 In this work, we use halo concentration as our secondary halo property, so $A_{\rm cen,sat}=1$
 ($A_{\rm cen,sat}=-1$) means that the mean number of galaxies per halo is maximally
 correlated (anti-correlated) with halo concentration. The model and its implementation
-in {\tt Halotools} \cite{halotools} is discussed further in Section~\ref{subsection:decorated} above 
+in {\tt Halotools} is discussed further in Section~\ref{subsection:decorated} above 
 and in more detail in \citet{hearin_etal16}.
 
 
 Examples of our fits are given in the right-hand panels of Figure~\ref{fig:Mr19samples},
 Figure~\ref{fig:Mr20samples}, and Figure~\ref{fig:Mr21samples}. The general trend that
-can be gleaned from these figures is that introducing assembly bias improves the ability
-of the predicted two-point functions to match the measured two-point functions across the
+can be gleaned from these figures is that introducing assembly bias improves the fit to
+the measured two-point functions across the
 transition from the one-halo (highly nonlinear) to two-halo (nearly linear) regimes near 
 $\rp \sim 2\, h^{-1}{\mathrm{Mpc}}$, an effect that could be anticipated by the known 
 scale-dependence of galaxy assembly bias \citep{sunayama_etal16}. 
@@ -929,7 +930,7 @@ with $\chi^{2}_{\rm model} - \chi^{2}_{\rm min} < 1.$
 Focusing attention on the parameters describing galaxy assembly bias, it is
 evident that these parameters are often quite poorly constrained by galaxy
 clustering data. This is important as it implies that galaxy clustering of the precision
-of SDSS DR7 measurements cannot rule out, or strongly restrict galaxy assembly
+of SDSS DR7 measurements cannot rule out, or strongly restrict, galaxy assembly
 bias in many cases. This is the case, for example, for the $M_r<-21$ sample with posteriors
 shown in Fig.~\ref{fig:Mr21ABtriangle}. In this case, both $A_{\rm cen}$ and
 $A_{\rm sat}$ have posteriors that peak near zero, but are very broad.
@@ -1074,7 +1075,7 @@ I need to think of a more clever ending.
 \label{section:acknowledgements}
 %------------------------------------------------
 
-We thank Zheng Zheng for his cooperation in diagnosing the
+We thank Zheng Zheng for his help in diagnosing the
 differences between the present analysis and the SDSS DR7
 analysis presented in \citet{zehavi_etal11}. We thank Manodeep 
 Sinha for help installing and running the {\tt CorrFunc} package 
