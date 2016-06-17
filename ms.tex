@@ -111,16 +111,16 @@ $^4$Paisley Park, Chanhassen, MN\\
   properties besides mass, $\mvir$. We demonstrate that it
   is not possible to rule out galaxy assembly bias using DR7 measurements of galaxy 
   clustering alone. Moreover, galaxy samples $\magr<-20, -20.5$
-  favor strong levels of central galaxy assembly bias. Our analyses favor models 
+  favor strong levels of central galaxy assembly bias. These samples favor models 
   in which high-concentration halos are more likely to host a central galaxy
   relative to low-concentration halos of the same $\mvir.$ We rule out
   zero assembly bias with high significance for these
   samples. Satellite galaxy assembly bias is significant for the
   faintest sample we study, $\magr<-19.$ We find no evidence for
-  assembly bias in the $\magr<-21$ sample. In addition to presenting the 
+  assembly bias in the $\magr<-21$ sample. In addition to presenting the first 
   constraints on HOD models that accommodate assembly bias, our analysis 
   includes numerous improvements over previous analyses of this data set and 
-  supersedes existing constraints even on standard HOD parameters.
+  supersedes previously published results, even in the case of a standard HOD analysis.
 \end{abstract}
 
 %---------------------------
@@ -329,10 +329,17 @@ specified by the first moment of $P(\ncen|\mvir)$, which we model as
         \log (M_{\rm min})}{\sigma_{\log M}} \right) \right)
 \end{equation}
 %
-For every host halo in the catalog we draw a random number from a uniform distribution $\mathcal{U}(0, 1);$ for a host halo of present-day virial mass $\mvir,$ a central galaxy is assigned to the halo if the associated random number is less than $\langle N_{\mathrm{cen}} \vert \mvir \rangle;$ halos with random values exceeding  $\langle N_{\mathrm{cen}} \vert \mvir \rangle$ are left devoid of centrals.
-The parameter $\log (M_{\rm min})$ specifies the halo mass at which the halo has a 50\% probability of hosting a
-central galaxy, while the parameter $\sigma_{\log M}$ specifies the rate at which $\langle N_{\mathrm{cen}} \vert \mvir \rangle$
-transitions from zero to unity, with smaller values of $\sigma_{\log M}$ corresponding to a more rapid transition.
+For every host halo in the catalog we draw a random number from a uniform 
+distribution $\mathcal{U}(0, 1);$ for a host halo of present-day virial mass $\mvir,$ 
+a central galaxy is assigned to the halo if the associated random number is less 
+than $\langle N_{\mathrm{cen}} \vert \mvir \rangle;$ halos with random values 
+exceeding  $\langle N_{\mathrm{cen}} \vert \mvir \rangle$ are left devoid of centrals.
+The parameter $\log (M_{\rm min})$ specifies the halo mass at which the halo 
+has a 50\% probability of hosting a
+central galaxy, while the parameter $\sigma_{\log M}$ specifies the rate at 
+which $\langle N_{\mathrm{cen}} \vert \mvir \rangle$
+transitions from zero to unity, with smaller values of $\sigma_{\log M}$ 
+corresponding to a more rapid transition.
 
 
 We model the distribution $P(\nsat|\mvir)$ as a Poisson distribution with first moment given by a power law,
@@ -479,7 +486,8 @@ $\Delta w_{{\rm p},i} = w_{\rm p}^{\rm mock}(r_{{\rm p},i}) - w_{\rm p}^{\rm mea
 between the projected two-point function predicted by the mock catalog and the measured value in the i$^{\rm th}$
 separation bin (of 12 bins total), $C^{-1}$ is the inverse of the covariance matrix of the measurements,
 and the last term in Eq.~(\ref{eq:chisquare}) is the contribution from the difference between the predicted and measured
-galaxy number density. The error on the galaxy number density assumes Poisson statistics for both the measured and predicted galaxy number densities.
+galaxy number density. In Eq.~(\ref{eq:chisquare}), the we adopt the Einstein summation convention and sum over the 
+dummy indices $i$ and $j$. The error on the galaxy number density assumes Poisson statistics for both the measured and predicted galaxy number densities.
 
 
 To infer parameters for the HOD and Decorated HOD models described in the previous subsections,
@@ -525,9 +533,10 @@ specified in Table~\ref{table:priors}. In the case of the assembly bias paramete
 $A_{\mathrm{cen}}$ and $A_{\mathrm{sat}}$, the priors have strict
 boundaries. Mathematically, these parameters must satisfy $-1 \le A_{\mathrm{cen,sat}} \le 1$.
 Physical considerations require parameter $\sigma_{\log M} > 0$. All other
-priors have a negligible influence on the posterior aside from $\log M_0$.
-We find that $\log M_0$ is often very poorly constrained by clustering data and
-priors on $\log M_0$ can have a non-negligible influence on inferred parameters.
+priors have a negligible influence on the posterior aside from $\log M_0$ and 
+$\sigma_{\log M}$. We find that $\log M_0$ is often very poorly constrained by clustering data and
+priors on $\log M_0$ can have a non-negligible influence on inferred parameters. The parameter 
+$\sigma_{\log M}$ is poorly constrained for the $\magr < -19$ sample.
 
 
 %---------------------------
@@ -552,7 +561,9 @@ $\sigma_{\log M}$, $\alpha$, $\log (M_1)$, and $\log (M_0)$ are permitted to var
 The results of the standard HOD analyses and all other analyses are shown in the form of 
 marginalized constraints on individual parameters in Table~\ref{table:parameters}. Though the quality of 
 our fits, as measured by the minimum of $\chi^2$ per Degree of Freedom (DoF), varies from case to case, 
-all fits have a probability $\gtrsim 1\% $ of obtaining a higher value of $\chi^2$ by chance. An example of the inferred posteriors for the HOD parameters is shown in Figure~\ref{fig:Mr20triangle} for the sample with $\magr < -20$. We do 
+all fits have a probability $\gtrsim 1\% $ of obtaining a higher value of $\chi^2$ by chance. 
+An example of the inferred posteriors for the HOD parameters is shown in 
+Figure~\ref{fig:Mr20triangle} for the sample with $\magr < -20$. We do 
 not show the full posteriors for all five threshold samples in the interest of brevity.
 The left-hand panels of Figure~\ref{fig:Mr19samples}, Figure~\ref{fig:Mr20samples}, and Figure~\ref{fig:Mr21samples}
 show the projected correlation function data along with predictions for $\wprp(\rp)$ from 50 randomly-selected
@@ -583,7 +594,10 @@ median value for the parameter in our chains along with the
 %----------------------------------------------------------------------------------------------------------------------------------
 
 Our parameter constraints can be compared to the standard HOD analysis performed by \citet{zehavi_etal11} 
-by examining the top two rows in each luminosity threshold grouping in Table~\ref{table:parameters}. 
+by examining the top two rows in each luminosity threshold grouping in Table~\ref{table:parameters}. In all 
+cases, we quote the medians of our posteriors as our central values and our, 
+generally asymmetric, errorbars, give the 16$^{\rm th}$ and 
+84$^{\rm th}$ percentiles of the posterior samples so as to correspond roughly with ``$1-\sigma$" errors. 
 The inferred parameters from our standard analyses differ in several ways from the \citet{zehavi_etal11}
 analysis. Firstly, in our re-analysis of the projected clustering data, we generally find all mass scales to
 be slightly higher than in the work of \citet{zehavi_etal11}. This difference is primarily due to the slightly
@@ -592,7 +606,10 @@ The most important differences are in the values of $\Omega_{\rm M}$, and $\sigm
 \citet{zehavi_etal11} assumed $\Omega_{\rm M}=0.25$ and $\sigma_8=0.8$,
 whereas in the present work, we use the BolshoiP simulation in which $\Omega_{\rm M}=0.307$ and $\sigma_8=0.82$.
 Slightly larger mass scales are necessary in an analysis with higher $\Omega_{\rm M}$ and $\sigma_8$ in order
-to maintain galaxy number densities fixed with larger halo number densities.
+to maintain galaxy number densities fixed with larger halo number densities. A detailed comparison between our central 
+values and those of \citet{zehavi_etal11} is further confounded by the fact that we use a virial halo definition, 
+whereas the analytic model of \citet{zehavi_etal11} 
+has been calibrated to friend-of-friends halo masses (Z. Zheng, Private Communication). 
 
 
 %-------------------------------------------------------------------------------------------------------------------------------------------------
@@ -712,9 +729,14 @@ $\log (M_0) = 11.38^{+0.95}_{-1.57}$
 ($11.19^{+0.89}_{-1.39}$). Examining the form of Eq.~(\ref{eq:nsat}),
 it is sensible that the parameter $\log (M_0)$ should be unconstrained
 at the lower end, because the value of $M_0$ does not alter the
-predicted satellite number once $M_0 \ll M_1$. Therefore, it seems
-likely that the tighter constraints quoted by \citet{zehavi_etal11}
-must be an error.
+predicted satellite number once $M_0 \ll M_1$. The tighter constaints are also 
+particularly puzzling given that \citet{zehavi_etal11} adopt an arbitrary 5\% error on 
+all galaxy number density measurements, an error that greatly exceeds the 
+Poisson error, typically $< 1\%$, that we adopt. This additional error 
+contribution also limits the value of comparing our $\chi^2$ values with those of 
+\citet{zehavi_etal11}, as the latter values will be artificially lower. 
+Therefore, it seems likely that the tighter constraints quoted by \citet{zehavi_etal11}
+must be caused by an error.
 
 
 We have confirmed with one of the authors of \citet{zehavi_etal11}
@@ -1003,7 +1025,8 @@ The novelty of our work is that we have performed these analyses using the
 decorated Halo Occupation Distribution (HOD) formalism, which allows for galaxy
 assembly bias and was introduced by \citet{hearin_etal16} precisely for this purpose.
 In this work, we provide the first quantitative constraints on
-assembly bias derived from the Decorated HOD. We enumerate our most important conclusions below.
+assembly bias derived from the Decorated HOD. 
+We enumerate our most important conclusions below.
 %
 \ben
 %
