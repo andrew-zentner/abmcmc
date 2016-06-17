@@ -649,7 +649,7 @@ $-20.5$ & Zentner+16 & $12.32^{+0.13}_{-0.08}$ & $0.45^{+0.21}_{-0.25}$ & $13.59
 %
 $-20$ & Zehavi+11 & $11.83 \pm 0.03$ & $0.25 \pm 0.11$ & $13.08 \pm 0.03$ & $1.00 \pm 0.05$ & $--$ & $--$ & 2.1\\
 $-20$ & Zentner+16 & $11.95^{+0.11}_{-0.6}$ & $0.37^{+0.23}_{-0.21}$ & $13.28^{+0.03}_{-0.04}$ & $1.16^{+0.04}_{-0.04}$ & $--$ & $--$ & 2.19\\
-$-20$ & Zentner+16 & $12.23^{+0.33}_{-0.21}$ & $0.84^{+0.37}_{-0.31}$ & $13.20^{+0.06}_{-0.08}$ & $1.05^{+0.06}_{-0.08}$ & $ >0.28 (99\%) $ & $0.01^{+0.32}_{-0.26}$ & 1.16 \vspace*{5pt}\\
+$-20$ & Zentner+16 & $12.23^{+0.33}_{-0.21}$ & $0.84^{+0.37}_{-0.31}$ & $13.20^{+0.06}_{-0.08}$ & $1.05^{+0.06}_{-0.08}$ & $ >0.29 (99\%) $ & $0.01^{+0.32}_{-0.26}$ & 1.16 \vspace*{5pt}\\
 %$-20^d$ & Zentner+16 & $11.91^{+0.10}_{-0.03}$ & $0.26^{+0.25}_{-0.17}$ & $13.34^{+0.04}_{-0.05}$ & $1.25^{+0.05}_{-0.06}$ & $--$ & $--$ & 0.70 \\
 %$-20^d$ & Zentner+16 & $12.00^{+0.29}_{-0.12}$ & $0.51^{+0.42}_{-0.32}$ & $13.31^{+0.06}_{-0.09}$ & $1.17^{+0.08}_{-0.09}$ & $0.76^{+0.18}_{-0.43}$ & $0.11^{+0.37}_{-0.34}$ & 0.30\vspace*{3pt}\\
 $-19.5$ & Zehavi+11 & $11.57 \pm 0.04$ & $0.17 \pm 0.13$ & $12.87 \pm 0.03$ & $0.99 \pm 0.04$ & $--$ & $--$ & 1.00 \\
@@ -948,8 +948,8 @@ for $\log (M_{\rm min})$ and $\sigma_{\log M}$.
 
 Beyond those generic conclusions, a few specific cases are worthy of further examination.
 Consider the $M_r < -20$ sample. The inferred value of $A_{\rm cen} > 0.28$ at 99\%
-confidence. In this case the data strongly prefer $A_{\rm cen} > 0$ and thus strongly prefer
-galaxies to reside in halos of larger concentration at fixed halo mass. Figure~\ref{fig:directhodcomparison}
+confidence. In this case the data strongly prefer $A_{\rm cen} > 0$ ($A_{\rm cen} > 0$ at $99.9\%$) 
+and thus strongly prefer galaxies to reside in halos of larger concentration at fixed halo mass. Figure~\ref{fig:directhodcomparison}
 compares the inferred HODs for the $M_r<-20$ sample in a standard HOD analysis with the
 inferred HOD from our decorated HOD analysis that includes parameters to describe
 assembly bias. This is an explicit example of the degree to which the inferred relationship
@@ -1038,6 +1038,57 @@ rises nearly to the level of a {\rm strong} preference.
 \label{section:discussion}
 %------------------------------------------------
 
+The results of the previous section suggest that halo mass is insufficient to predict 
+the galaxy content of a halo to the precision mandated by an analysis of SDSS DR7 
+clustering measurements (particularly the $\magr < -19$, $\magr < -20$, and $\magr < -20.5$ samples). 
+This should not be surprising, as the process of galaxy formation and evolution is complex and 
+there is little reason to suspect that many environmental factors determine galaxy properties. 
+Our results further suggest that halo concentration (or some other halo property correlated 
+with halo concentration) impacts the galaxy content of a halo, at least for galaxies of some 
+luminosities. In particular, the assembly bias inferred from the $\magr < -20$ and $\magr < -20.5$ 
+samples suggests that galaxies in roughly Milky Way-sized halos tend to be more luminous 
+if they reside in halos with higher-than-average concentrations. 
+
+This can be interpreted in at least two ways that are not mutually exclusive within the context of the standard 
+model of structure formation. Our analysis cannot support either of these scenarios unambiguously, 
+but we considered these reasonable starting points for further consideration. 
+One possibility is simply that the growth and structure of the host 
+halo itself may drive this dependence. For example, halos of higher concentration at fixed 
+mass have deeper potential wells (specifically, higher escape velocities from the halo center). 
+Therefore, gravity more strongly binds the stellar and gaseous contents of such halos possibly 
+driving more rapid star formation or making the galaxies less susceptible to feedback mechanisms 
+that suppress star formation. Higher concentration halos have also formed earlier, on average. This 
+suggests that any physics that acts upon the baryonic content of the halo its high-density 
+environment may have been operative for a longer time, resulting in a larger, more luminous galaxy. 
+Halo assembly bias persists to large separations ($r \gg \mathrm{Mpc}$) and this picture can 
+accommodate galaxy assembly bias on such large scales.
+
+Another possibility is that halo-halo interactions in dense environments may drive, in part, 
+this preference for more luminous galaxies in higher-concentration halos. Recent work 
+on halo evolution suggests that a more physical definition of the size of a halo should be 
+$\sim 2-3$ times the traditional virial radius 
+\citep{wetzel_etal14,adhikari_etal14,wetzel_nagai15,sunayama_etal16,more_etal16}. 
+This ``splashback radius" incorporates ``splashback" halos that have passed within the dense environment 
+of the central halo, but are traditionally classified as distinct halos despite being strongly 
+influenced by the environment of the central halo. \citet{wang_etal07}, \citet{wetzel_etal14},  
+\citet{sunayama_etal16}, all find that these ``splashback" halos are a significant cause 
+of halo assembly bias on scales $r \sim 1-3\, h^{-1}\mathrm{Mpc}$, where assembly bias is 
+most pronounced and strongly scale dependent. Consequently, decorated HOD models 
+exhibit this same feature \citet{hearin_etal16}. It is not a coincidence that the greatest 
+improvement of the decorated HOD in the description of galaxy clustering occurs on these same 
+length scales (see Fig.~\ref{fig:Mr19samples}-\ref{fig:Mr21samples} and the associated discussion). 
+
+
+This ``splashback" hypothesis has further merit in that it has the same sense as suggested 
+by the data. Splashback halos have experienced mass loss and been spatially truncated 
+as a consequence of their interactions with a larger, nearby halo. Therefore, splashback halos 
+have masses that may be smaller than the masses of other halos that host similar galaxies \citet{dalal_etal08}. 
+Moreover, high concentrations due to tidal truncation are a hallmark of splashback 
+halos \citep{wang_etal07,dalal_etal08,sunayama_etal16}. This results in a picture in which there is a population 
+of halos, correlated on scales $r \sim 1-3\, h^{-1}\mathrm{Mpc}$, that have concentrations 
+that are high for their mass and galaxies that are overluminous for their mass. This is precisely the 
+sense of assembly bias suggested by our analysis. Galaxy assembly bias induced by these 
+splashback effects cannot explain larger-scale assembly bias.
 
 
 %------------------------------------------------
