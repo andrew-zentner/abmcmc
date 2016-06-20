@@ -989,9 +989,9 @@ $M_r$ Threshold & $\Delta \mathrm{BIC}$ \\
 \hline
 -21 & -0.54 \\
 -20.5 & 1.33 \\
--20 & 4.56\\
+-20 & 2.88\\
 -19.5 & 0.26\\
--19 & 4.37\\
+-19 & 3.78\\
 \hline
 \end{tabular}
 \medskip
@@ -1009,9 +1009,10 @@ over another.
 \end{table}
 %--------------------------------------------------------------------------------------------------------------------------------
 
-Beyond the fit results, it is also possible to ask whether or not the fits to the data warrant the use of 
-additional parameters (in this case, to describe assembly bias). This requires a metric that penalizes the 
-use of additional parameters. A commonly used metric is the Bayesian Information Criterion 
+In addition to fitting model parameters, it is possible to ask whether or not the fits to the data warrant the use of 
+additional parameters (in this case, the two parameters used to describe assembly bias). This requires a 
+metric that penalizes the use of additional parameters. A commonly-used metric is the 
+Bayesian Information Criterion 
 \citep[BIC,][]{schwarz78}, defined as 
 %
 \begin{equation}
@@ -1034,8 +1035,9 @@ The values of $\Delta$BIC are given in Table~\ref{table:bic}. In the analysis of
 $\Delta \mathrm{BIC} < 0$, indicating that the additional parameters describing assembly bias are not 
 warranted by the data. For all other samples, $\Delta \mathrm{BIC} > 0$, showing a preference for 
 the models with assembly bias. The cases that most support the additional complexity 
-of the decorated HOD are $\magr < -19$ and $\magr < -20$, for which $\Delta$BIC 
-rises nearly to the level of a {\rm strong} preference. 
+of the decorated HOD are $\magr < -19$ and $\magr < -20$, for which $\Delta$BIC is 
+considerable, but in no case does the $\Delta$BIC rise to the conventional level for {\em strong} 
+preference.
 
 %------------------------------------------------
 \section{Interpretation}
