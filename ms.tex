@@ -107,7 +107,7 @@ $^4$Paisley Park, Chanhassen, MN\\
   of galaxies in r-band luminosity-threshold samples. 
   The decorated HOD is a model for the galaxy--halo
   connection that augments the traditional HOD by allowing for the possibility of 
-  {\em assembly bias}: galaxy luminosity may be correlated with dark matter halo
+  {\em galaxy assembly bias}: galaxy luminosity may be correlated with dark matter halo
   properties besides mass, $\mvir$. We demonstrate that it
   is not possible to rule out galaxy assembly bias using DR7 measurements of galaxy 
   clustering alone. Moreover, galaxy samples $\magr<-20, -20.5$
@@ -264,7 +264,8 @@ Our paper is organized as follows. In Section~\ref{section:methods},
 we discuss our implementation of halo occupation models and the
 parameter inference methodology. We present results
 from both traditional and assembly-biased halo occupation analyses
-in Section~\ref{section:results}. We summarize our results and draw
+in Section~\ref{section:results}. We discuss and interpret our results 
+in Section~\ref{section:discussion}. We summarize our results and draw
 conclusions in Section~\ref{section:conclusions}.
 
 
@@ -308,7 +309,7 @@ halo catalogs based on the {\tt ROCKSTAR} halo-finder \citep{behroozi_rockstar11
 of the {\tt `bolplanck'} catalog included with {\tt Halotools.} Halos in these catalogs are based on the virial radius
 density contrast given in \citet{bryan_norman98}. When populating this catalog with mock galaxies, we only use
 present-day host halos with a value of $M_{\rm peak}$ that exceeds $300$ particles. The minimum 
-peak halo mass considered in our analysis has $M_{\rm peak} \ge 4.05 \times 10^5\, h^{-1}\mathrm{M}_{\odot}$ 
+peak halo mass considered in our analysis has $M_{\rm peak} \ge 4.05 \times 10^{10}\, h^{-1}\mathrm{M}_{\odot}$ 
 and this prevents us from analyzing samples with $M_r > -19$. 
 
 
@@ -500,16 +501,20 @@ form $\mathcal{L} \propto e^{-\chi^2/2}$, where
 \chi^2 = \Delta w_{{\rm p},i} \, [C^{-1}]_{ij} \, \Delta w_{{\rm p},j} + \frac{(n_{\rm g}^{\rm mock} - n_{\rm g}^{\rm meas})^2}{\sigma_{\rm n}^2},
 \end{equation}
 %
-(Einstein summation convention), $\Delta w_{{\rm p},i} = w_{\rm p}^{\rm
-  mock}(r_{{\rm p},i}) - w_{\rm p}^{\rm meas}(r_{{\rm p},i})$ is the
+$\Delta w_{{\rm p},i} = w_{\rm p}^{\rm mock}(r_{{\rm p},i}) - w_{\rm p}^{\rm meas}(r_{{\rm p},i})$ is the
 difference between the projected two-point function predicted by the
 mock catalog and the measured value in the i$^{\rm th}$ separation bin
-(of 12 bins total), $C^{-1}$ is the inverse of the covariance matrix
-of the measurements, and the last term in Eq.~(\ref{eq:chisquare}) is
-the contribution from the difference between the predicted and
-measured galaxy number density. The error on the galaxy number density
-assumes Poisson statistics for both the measured and predicted galaxy
-number densities.
+(of 11 bins total), $C^{-1}$ is the inverse of the covariance matrix
+of the measurements, and repeated indices are summed over. 
+The last term in Eq.~(\ref{eq:chisquare}) is the contribution from the difference 
+between the predicted and measured galaxy number densities. 
+We consider only the eleven values of 
+$w_{\rm p}(r_{\rm p})$ given by \citet{zehavi_etal11} in bins logarithmically spaced between 
+$r_{\rm p}=0.17\, h^{-1}\mathrm{Mpc}$ and $r_{\rm p}=16.9\, h^{-1}\mathrm{Mpc}$. Though 
+\citet{zehavi_etal11} quote values at two larger separations, we find that considering those additional 
+data points adds considerably to the computational expense but alter our results insignificantly. 
+The error on the galaxy number density assumes Poisson statistics for both the measured and 
+predicted galaxy number densities.
 
 
 To infer parameters for the HOD and Decorated HOD models described in the previous subsections,
@@ -583,7 +588,7 @@ $\sigma_{\log M}$, $\alpha$, $\log (M_1)$, and $\log (M_0)$ are permitted to var
 The results of the standard HOD analyses and all other analyses are shown in the form of 
 marginalized constraints on individual parameters in Table~\ref{table:parameters}. Though the quality of 
 our fits, as measured by the minimum of $\chi^2$ per Degree of Freedom (DoF), varies from case to case, 
-all fits have a probability $\gtrsim 1\% $ of obtaining a higher value of $\chi^2$ by chance. 
+all have a probability $\gtrsim 1\% $ of obtaining a higher value of $\chi^2$ by chance. 
 An example of the inferred posteriors for the HOD parameters is shown in 
 Figure~\ref{fig:Mr20triangle} for the sample with $\magr < -20$. We do 
 not show the full posteriors for all five threshold samples in the interest of brevity.
@@ -1021,7 +1026,7 @@ Bayesian Information Criterion
 \end{equation}
 %
 where $\mathcal{L}_{\rm max}$ is the maximum of the likelihood, 
-$k$ is the number of paramters in the model and $N$ is the number of 
+$k$ is the number of parameters in the model and $N$ is the number of 
 data points. We compute the change in the BIC, $\Delta$BIC, by subtracting 
 the BIC for the analysis with assembly bias from the BIC in the standard analysis 
 in which there is no assembly bias. With this convention, $\Delta \mathrm{BIC} > 0$ 
