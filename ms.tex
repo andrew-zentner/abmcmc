@@ -83,7 +83,7 @@ Constraints on Assembly Bias from Galaxy Clustering
 
 \author[Zentner et al.]
 {Andrew R. Zentner$^{1}$, Andrew Hearin$^{2}$, Frank C. van den Bosch$^{3},$ \newauthor
-Johannes U. Lange$^{3}$, and P. Rogers Nelson$^{4}$\\ \\
+Johannes U. Lange$^{3}$, Antonio Villarreal$^{1}$, and P. Rogers Nelson$^{4}$\\ \\
 $^1$Department of Physics and Astronomy \& Pittsburgh Particle Physics, Astrophysics, and Cosmology Center (PITT PACC),\\ University of Pittsburgh, Pittsburgh, PA 15260\\
 $^2$Yale Center for Astronomy \& Astrophysics, Yale University, New Haven, CT\\
 $^3$Department of Astronomy, Yale University, P.O. Box 208101, New Haven, CT\\
@@ -305,7 +305,9 @@ box $250$ ${\rm Mpc}/h$ on a side, requiring a particle mass of $m_{\rm p} = 1.3
 Further information about the BolshoiP simulation is available at {\tt https://www.cosmosim.org}.
 
 We use publicly available\footnote{\tt http://www.slac.stanford.edu/$\sim$behroozi/BPlanck\_Hlists} dark matter
-halo catalogs based on the {\tt ROCKSTAR} halo-finder \citep{behroozi_rockstar11} and {\tt CONSISTENT TREES} algorithm \citep{behroozi_trees13}. In particular, we use the {\tt halotools\_alpha\_version2} version of the $z=0$ snapshot
+halo catalogs based on the {\tt ROCKSTAR} halo-finder \citep{behroozi_rockstar11} 
+and {\tt CONSISTENT TREES} algorithm \citep{behroozi_trees13}. In particular, we use the {\tt halotools\_alpha\_version2} 
+version of the $z=0$ snapshot
 of the {\tt `bolplanck'} catalog included with {\tt Halotools.} Halos in these catalogs are based on the virial radius
 density contrast given in \citet{bryan_norman98}. When populating this catalog with mock galaxies, we only use
 present-day host halos with a value of $M_{\rm peak}$ that exceeds $300$ particles. The minimum 
@@ -649,7 +651,7 @@ has been calibrated to friend-of-friends halo masses (Z. Zheng, Private Communic
 Sample $M_r$ &  Authors & $\log (M_{\rm min})$ & $\sigma_{\log M}$ & $ \log (M_1)$ & $\alpha$ & $A_{\rm cen}$ & $A_{\rm sat}$ & $\chi^2/\mathrm{DoF}$\\
 \hline
 $-21$ & Zehavi+11 & $12.78 \pm 0.10$ & $0.68 \pm 0.15$ & $13.80 \pm 0.03$ & $1.15 \pm 0.06$ & $--$ & $--$ & 3.1\\
-$-21$ & Zentner+16 & $12.92^{+0.08}_{-0.10}$ & $0.72^{+0.09}_{-0.14}$ & $13.95^{+0.03}_{-0.05}$ & $1.26^{+0.08}_{-0.11}$ & $--$ & $--$ & 1.59\\
+$-21$ & Zentner+16 & $12.93^{+0.07}_{-0.10}$ & $0.74^{+0.09}_{-0.13}$ & $13.96^{+0.03}_{-0.05}$ & $1.27^{+0.08}_{-0.10}$ & $--$ & $--$ & 1.59\\
 $-21$ & Zentner+16 & $12.83^{+0.11}_{-0.09}$ & $0.60^{+0.15}_{-0.17}$ & $13.93^{+0.05}_{-0.08}$ & $1.16^{+0.12}_{-0.14}$ & $0.29^{+0.44}_{-0.35}$ & $0.08^{+0.49}_{-0.36}$ & 1.34 \vspace*{6pt}\\
 %
 $-20.5$ & Zehavi+11 & $12.14 \pm 0.03$ & $0.17 \pm 0.15$ & $13.44 \pm 0.03$ & $1.15 \pm 0.03$ & $--$ & $--$ & 2.7\\
@@ -710,7 +712,8 @@ covariance (points with errorbars). The grey lines are 50 randomly-selected HOD 
 $\Delta \chi^2 < 5.89$ compared to the best-fitting model. For a Gaussian posterior distribution,
 $\Delta \chi^2 = 5.89$ would contain 68\% of the probability in the full five-dimensional parameter
 space. {\bf Right:} Same as the left panel but using a
-fit to a Decorated HOD model that contain parameters to describe the strength of assembly bias.
+fit to a Decorated HOD model that contain parameters 
+to describe the strength of assembly bias.
 }
 \label{fig:Mr19samples}
 \end{center}
@@ -877,9 +880,10 @@ for the $M_r<-19$, $M_r<-20$, and $M_r<-21$ samples respectively.
   sample. The contours and histograms along the diagonal panels are as
   in Fig.~\ref{fig:Mr20triangle}. The dashed line in the panels along the diagonal
   show the posteriors on these parameters from the standard analysis without
-  any parameterization of galaxy assembly bias. The decorated HOD models include a
-  two-parameter model for assembly bias. The HOD parameter $\log
-  (M_0)$ is extremely poorly constrained by the data and has been
+  any parameterization of galaxy assembly bias. In these panels, both histograms 
+  are normalized to the same total probability. The decorated HOD models include a
+  two-parameter model for assembly bias. The HOD parameter 
+  $\log (M_0)$ is extremely poorly constrained by the data and has been
   suppressed for clarity. Likewise, as in Fig.~\ref{fig:Mr20triangle},
   $\sigma_{\log M}$ and $\log (M_{\rm min})$ share a narrow
   degeneracy, so we have suppressed $\sigma_{\log M}$ in order to make
@@ -937,8 +941,10 @@ that includes the effect of assembly bias; the solid, orange curve shows the HOD
 of the best-fit model in which assembly bias is assumed to be zero;
 the dashed, black curve shows the best-fit HODs from \citet{zehavi_etal11}.
 The light purple error band around the decorated HOD results contains 68\% of 
-the HODs from the samples of the posterior distribution at each mass bin. For 
-any individual sample, the values of the HOD at each mass point are correlated. 
+all samples of the posterior within $\Delta \chi^2 \le 5.89$ of the best-fit model at 
+each bin of halo mass. For any individual model, 
+the values of the HOD at each mass point are obviously correlated and do 
+not vary independently from one mass bin to another. 
 }
 \label{fig:directhodcomparison}
 \end{center}
@@ -968,7 +974,9 @@ and thus strongly prefer galaxies to reside in halos of larger concentration at 
 Figure~\ref{fig:directhodcomparison}
 compares the inferred HODs for the $M_r<-20$ sample in a standard HOD analysis with the
 inferred HOD from our decorated HOD analysis that includes parameters to describe
-assembly bias. This is an explicit example of the degree to which the inferred relationship
+assembly bias. The bands in purple rein in the region of HODs for models within 
+$\Delta chi^2 \le 5.89$ of the best-fit model. 
+This is an explicit example of the degree to which the inferred relationship
 between galaxies and halos can be altered by assembly bias. In the assembly-biased case, the efficiency 
 of forming a sufficiently luminous galaxy is a function that increases slowly over nearly two 
 decades in halo mass in contrast to a standard analysis HOD where this efficiency rises 
