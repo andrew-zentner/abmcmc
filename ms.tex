@@ -104,7 +104,7 @@ $^4$Paisley Park, Chanhassen, MN\\
 \begin{abstract}
   We constrain the newly-introduced decorated Halo Occupation Distribution (HOD) 
   model using SDSS DR7 measurements of projected galaxy clustering, $\wprp (r_{\rm p})$ 
-  of galaxies in r-band luminosity-threshold samples. 
+  of galaxies in $r$-band luminosity-threshold samples. 
   The decorated HOD is a model for the galaxy--halo
   connection that augments the traditional HOD by allowing for the possibility of 
   {\em galaxy assembly bias}: galaxy luminosity may be correlated with dark matter halo
@@ -197,7 +197,9 @@ observational clustering measurements have been traditional models
 in which assembly bias is assumed from the outset to be zero.
 Models that include assembly bias such as semi-analytic models
 are typically too computationally expensive to compare to data in a manner 
-that enables statistical constraints on model parameters. Such models are usually 
+that enables statistical constraints on model parameters 
+\citep[but see][for recent progress in this direction]{lu_etal11,lu_etal12,henriques_etal13,lu_etal14}. 
+Such models are usually 
 compared to data on a case-by-case basis \citep[e.g.,][]{croton_etal07}, prohibiting
 any conclusive statement to be made about the strength of any assembly bias signal.
 
@@ -308,11 +310,17 @@ We use publicly available\footnote{\tt http://www.slac.stanford.edu/$\sim$behroo
 halo catalogs based on the {\tt ROCKSTAR} halo-finder \citep{behroozi_rockstar11} 
 and {\tt CONSISTENT TREES} algorithm \citep{behroozi_trees13}. In particular, we use the {\tt halotools\_alpha\_version2} 
 version of the $z=0$ snapshot
-of the {\tt `bolplanck'} catalog included with {\tt Halotools.} Halos in these catalogs are based on the virial radius
-density contrast given in \citet{bryan_norman98}. When populating this catalog with mock galaxies, we only use
-present-day host halos with a value of $M_{\rm peak}$ that exceeds $300$ particles. The minimum 
+of the {\tt `bolplanck'} catalog included with {\tt Halotools.} Halos in these catalogs are defined by the virial 
+radius density contrast given in \citet{bryan_norman98} and have virial masses $\mvir$ within their virial 
+radii. When populating this catalog with mock galaxies, we only use
+present-day host halos with a value of $M_{\rm peak}$ that exceeds $300$ particles, where $M_{\rm peak}$ is 
+the maximum mass a halo obtains during its evolution. We consider only host halos and not their 
+subhalos in this work. For host halos, $M_{\rm peak}$ is almost always nearly identical to the 
+present day virial mass of the halo, $\mvir$. The minimum 
 peak halo mass considered in our analysis has $M_{\rm peak} \ge 4.05 \times 10^{10}\, h^{-1}\mathrm{M}_{\odot}$ 
-and this prevents us from analyzing samples with $M_r > -19$. 
+and this prevents us from analyzing samples with $M_r > -19$. Throughout the remainder of this 
+paper, we will refer only to the virial mass $\mvir$ of the halo to be in closer concordance with other 
+work on HOD analyses.
 
 
 \subsubsection{Occupation statistics}
@@ -364,7 +372,7 @@ vary along a narrow degeneracy that fixes the total galaxy number density to the
 many particular choices that can be made for the functional forms of $\langle N_{\rm cen}\vert \mvir \rangle$ and
 $\langle N_{\rm sat}\vert \mvir \rangle$. We have made choices that mimic the standard SDSS DR7 analysis of
 \citet{zehavi_etal11}, to expedite comparisons with their results. However, our choice does deviate from 
-the choice of \citet{zehavi_etal11} in one respect. The mean satellite occupation of \citet{zehavi_etal11} 
+\citet{zehavi_etal11} in one respect. The mean satellite occupation of \citet{zehavi_etal11} 
 is that of Eq.~(\ref{eq:nsat}) multiplied by an overall factor of $\langle N_{\rm cen} \vert \mvir \rangle$. 
 We have chosen not to use this as our default because it can introduce difficulties in some analyses 
 \citep[see the discussion of blue galaxy samples in][]{zentner_etal14} and because, as we have verified 
@@ -405,18 +413,21 @@ After populating a halo catalog with mock galaxies, we calculate the
 comoving number density of our mock galaxy sample as $n_{\rm g} =
 N_{\rm gal} / L_{\rm box}^3$, where $N_{\rm gal}$ is the total number of
 galaxies in the mock sample. We apply the distant-observer
-approximation and use the simulation z-axis as the line-of-sight
+approximation and use the simulation $z$-axis as the line-of-sight
 direction, and the distance between points in the $xy$-plane to define
 the projected distance $\rp.$ We place mock galaxies into
 redshift-space by replacing each galaxy's $z$-coordinate with
-$z_{\rm RS} = z + V_{\rm z}/H_0.$ We count pairs of points in each of
-our $\rp$ bins, rejecting pairs with line-of-sight distances in redshift space, $\Delta z_{\rm RS}$, 
-exceeding $\pi_{\rm max}=60$ ${\rm Mpc/h}$, which is the same projection
-depth chosen by \citet{zehavi_etal11}, both in their analysis of the SDSS
-DR7 data and in their modeling. Finally, having populated mocks, 
+$z_{\rm RS} = z + V_{\rm z}/H_0$\footnote{A similar exercise is demonstrated 
+as part of the Halotools documentation at {\tt http://halotools.readthedocs.io}}. 
+Having populated mocks, 
 we perform the computation of the projected two-point galaxy correlation 
 function, $w_{\rm p}(r_{\rm p})$ using the publicly-available {\tt CorrFunc} 
 package \citep{corrfunc} which has been extensively optimized for computational speed.
+We count pairs of points in each of
+our $\rp$ bins, rejecting pairs with line-of-sight distances in redshift space, $\Delta z_{\rm RS}$, 
+exceeding $\pi_{\rm max}=60$ ${\rm Mpc/h}$, which is the same projection
+depth chosen by \citet{zehavi_etal11}, both in their analysis of the SDSS
+DR7 data and in their modeling. 
 
 %---------------------------
 \subsection{HOD with Assembly Bias: The Decorated HOD}
@@ -811,7 +822,8 @@ degenerate with each other such that most of the posterior probability lies in a
 along which $\log (M_{\rm min})$ and $\sigma_{\log M}$ are positively correlated.
 In the following plots, we exclude the parameter $\sigma_{\log M}$,
 in order to increase the clarity of the plots, because the viable range of $\sigma_{\log M}$ is
-determined by this simple degeneracy with $\log (M_{\rm min})$. Our constraints on $\sigma_{\log M}$ are listed in Table~\ref{table:parameters}.
+determined by this simple degeneracy with $\log (M_{\rm min})$. 
+Our constraints on $\sigma_{\log M}$ are listed in Table~\ref{table:parameters}.
 
 
 The results of this subsection demonstrate that we achieve reasonable fits to projected galaxy clustering
@@ -934,9 +946,9 @@ parameter freedom.
 \includegraphics[width=8.0cm]{central_hod_comparison.pdf}
 \includegraphics[width=8.5cm]{satellite_hod_comparison.pdf}
 \caption{
-We show the first moments of the central and satellite occupation distributions
-from the best-fit models to the $\magr<-20$ sample in the left and right
-panels, respectively. The solid, purple curve shows the HOD of our best-fit model
+The first moments of the central (left panel) and satellite (right) 
+occupation distributions from the best-fit models to the 
+$\magr \le -20$ sample. The solid, purple curve shows the HOD of our best-fit model
 that includes the effect of assembly bias; the solid, orange curve shows the HOD
 of the best-fit model in which assembly bias is assumed to be zero;
 the dashed, black curve shows the best-fit HODs from \citet{zehavi_etal11}.
@@ -997,9 +1009,12 @@ the $M_r < -20.5$ sample exhibits a significant preference for central galaxy as
 with $A_{\rm cen}>0$ at 92.3\%. Lastly, there is no preference for either central galaxy or 
 satellite galaxy assembly bias for the $M_r < -21$ threshold sample, 
 for which both $A_{\mathrm{cen}}$ and $A_{\mathrm{sat}}$
-are consistent with zero well within 1$\sigma$. The implications of all of these results, particularly for 
+are consistent with zero well within 1$\sigma$. While we give a brief discussion of these results 
+in the following section, the implications of all of these results, particularly for 
 quantities derived from HODs, are far too numerous 
-to address in the present manuscript; however, we plan to address them in forthcoming publications.
+to address comprehensively in the present manuscript; 
+however, we plan to address them in forthcoming publications.
+
 
 %-------------------------------------------------------------------------------------------------------------------------------------------------
 \begin{table}
@@ -1114,7 +1129,7 @@ This ``splashback radius" incorporates ``splashback" halos that have
 passed within the dense environment of the central halo, but are
 traditionally classified as distinct halos despite being strongly
 influenced by the environment of the central
-halo. \citet{wang_etal09}, \citet{wetzel_etal14},
+halo. \citet{wang_etal09}, \citet{wetzel_etal14}, and 
 \citet{sunayama_etal16}, all find that these ``splashback" halos are a
 significant cause of halo assembly bias on scales $r \sim 1-3\,
 h^{-1}\mathrm{Mpc}$, where assembly bias is most pronounced and
@@ -1130,9 +1145,9 @@ same sense as suggested by the data. Splashback halos have experienced
 mass loss as a consequence of their tidal interactions with a larger,
 nearby halo. As a consequence, splashback halos are expected to be
 less massive than `regular' host halos that host similar galaxies
-\citep{dalal_etal08}.  Meanwhile, high concentrations due to tidal
-truncation are a hallmark of splashback halos
-\citep{sunayama_etal16}.  The implication is
+\citep{dalal_etal08}.  Meanwhile, high concentrations 
+are a hallmark of splashback halos
+\citep{sunayama_etal16}. The implication is
 a population of halos, correlated on scales $r \sim 1-3\,
 h^{-1}\mathrm{Mpc}$, that have concentrations that are high for their
 mass and galaxies that are overluminous for their mass. This is
@@ -1170,7 +1185,7 @@ assembly bias derived from the Decorated HOD. Projected galaxy clustering,
 $\wprp(r_{\rm p})$ is already very well-measured within SDSS DR7, therefore it is likely 
 that further improvements on assembly bias constraints at low-redshift will require the use of additional 
 observables such as galaxy--galaxy lensing, group statistics, void statistics, or numerous other possibilities. 
-We are currently exploring many of those possibilities and will report on those results in a forthcoming publication. 
+We are currently exploring many of those possibilities and will report on those results in forthcoming publications. 
 
 Our most important conclusions are as follows.
 %
@@ -1181,7 +1196,9 @@ Our most important conclusions are as follows.
 \item Decorated HOD fits to $\wprp$ and $n_{\rm g}$ favor significant levels of assembly bias, particularly in the lower luminosity thresholds we study. Both the $\magr<-20, -20.5$ samples prefer relatively strong central galaxy assembly bias. The $\magr<-19$ sample favors satellite assembly bias. Assembly bias in these samples improves the capability of the model to describe galaxy clustering near
 the one-halo to two-halo transition at $r_{\rm p} \sim 2 \, h^{-1}\mathrm{Mpc}$.
 %
-\item The evidence for galaxy assembly bias weakens for brighter galaxy samples: Decorated HOD fits to the $\magr<-21$ sample are consistent with both $A_{\rm cens}=0$ and $A_{\rm sats}=0.$ This is consistent with the well-established result that
+\item The evidence for galaxy assembly bias weakens for brighter galaxy samples: 
+Decorated HOD fits to the $\magr<-21$ sample are consistent with both $A_{\rm cen}=0$ and $A_{\rm sats}=0.$ 
+This is consistent with the well-established result that
 {\em halo assembly bias} weakens with increasing halo mass over the dynamic range relevant to these galaxy samples
 \citep[see, e.g., Figure 8 of][and references therein]{hearin_etal16}.
 %
@@ -1227,7 +1244,7 @@ www.lrz.de). The Bolshoi simulations have been performed within the
 Bolshoi project of the University of California High-Performance
 AstroComputing Center (UC-HiPACC) and were run at the NASA Ames
 Research Center. The work of ARZ was supported by the US National Science
-Foundation via grant AST 1517563. FvdB is supported by the US National Science
+Foundation via grant AST 1517563. FvdB and JUL are supported by the US National Science
 Foundation through grant AST 1516962. APH is funded through the Yale Center 
 for Astronomy \& Astrophysics Prize fellowship.
 
