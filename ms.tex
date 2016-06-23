@@ -255,10 +255,13 @@ Most importantly, our work demonstrates explicitly that significant
 assembly bias in $\magr$-selected samples from SDSS DR7 cannot be ruled
 out based on a standard analysis of galaxy clustering only. In fact,
 in agreement with \citet{lehmann_etal15}, we find that several samples
-{\em favor galaxy assembly bias to a degree that is statistically
-  significant}. As demonstrated by \citet{zentner_etal14}, this
-conclusion has important consequences for the interpretation of
-both extant and forthcoming data.
+{\em favor galaxy assembly bias to a degree that is statistically significant}. 
+As we were completing this work, we became aware of an independent study 
+using similar techniques and reaching broadly similar conclusions \citep{vakili_etal16}. 
+As demonstrated by \citet{zentner_etal14}, the assembly bias suggested by the 
+clustering of these samples has important consequences for the interpretation of
+both extant and forthcoming data as well as predictions for independent statistics 
+that make use of the HODs derived via clustering.
 
 
 Our paper is organized as follows. In Section~\ref{section:methods},
@@ -602,7 +605,9 @@ marginalized constraints on individual parameters in Table~\ref{table:parameters
 our fits, as measured by the minimum of $\chi^2$ per Degree of Freedom (DoF), varies from case to case, 
 all have a probability $\gtrsim 1\% $ of obtaining a higher value of $\chi^2$ by chance. 
 An example of the inferred posteriors for the HOD parameters is shown in 
-Figure~\ref{fig:Mr20triangle} for the sample with $\magr < -20$. We do 
+Figure~\ref{fig:Mr20triangle} for the sample with $\magr < -20$. Figure~\ref{fig:Mr20triangle} and 
+all similar plots in this paper were made using a slightly modified version of the 
+{\tt corner} software package \citep{corner}. We do 
 not show the full posteriors for all five threshold samples in the interest of brevity.
 The left-hand panels of Figure~\ref{fig:Mr19samples}, Figure~\ref{fig:Mr20samples}, and Figure~\ref{fig:Mr21samples}
 show the projected correlation function data along with predictions for $\wprp(\rp)$ from 50 randomly-selected
@@ -1232,8 +1237,10 @@ We thank Zheng Zheng for his help in diagnosing the
 differences between the present analysis and the SDSS DR7
 analysis presented in \citet{zehavi_etal11}. We thank Manodeep 
 Sinha for help installing and running the {\tt CorrFunc} package 
-as well as comments on an earlier draft of this manuscript. ARZ and 
-APH are grateful to Prince Rogers Nelson for inspiring our creativity. 
+as well as comments on an earlier draft of this manuscript. We are grateful to 
+Dan Foreman-Mackey and all contributors to the {\tt emcee} and 
+{\tt corner} software packages which helped to greatly expedite this 
+work. ARZ and APH are grateful to Prince Rogers Nelson for inspiring our creativity. 
 The authors gratefully acknowledge the Gauss Centre for Supercomputing
 e.V. (www.gauss-centre.eu) and the Partnership for Advanced
 Supercomputing in Europe (PRACE, www.prace-ri.eu) for funding the
